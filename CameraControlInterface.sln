@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CameraControlInterface", "CameraControlInterface\CameraControlInterface.vcxproj", "{05B5BE19-5084-41A8-9D41-9B3D98211DB9}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CameraControlInterface", "CameraControlInterface.vcxproj", "{05B5BE19-5084-41A8-9D41-9B3D98211DB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
