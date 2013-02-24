@@ -1,16 +1,9 @@
 #include "FileMonitor.h"
 #include "../utils/Utils.h"
-#include "../camera/Camera.h"
 
 
 FileMonitor::FileMonitor(std::string dir){
-		directoryUrl = Utils::stringToTCHAR(dir);
-}
-
-void FileMonitor::WatchDirectory()
-{
-	DWORD dwWaitStatus; 
-	HANDLE dwChangeHandles; 
+	directoryUrl = Utils::stringToTCHAR(dir);	
 	TCHAR lpDrive[4];
 	TCHAR lpFile[_MAX_FNAME];
 	TCHAR lpExt[_MAX_EXT];
@@ -44,9 +37,10 @@ void FileMonitor::WatchDirectory()
 
 	// Change notification is set. Now wait on both notification 
 	// handles and refresh accordingly. 
+}
 
-	while (TRUE) 
-	{ 
+void FileMonitor::WatchDirectoryOneChange()
+{
 		// Wait for notification.
 
 		printf("\nWaiting for notification...\n");
@@ -90,7 +84,8 @@ void FileMonitor::WatchDirectory()
 			ExitProcess(GetLastError());
 			break;
 		}
-	}
+
+		return;
 }
 
 void FileMonitor::RefreshDirectory(LPTSTR lpDir)
@@ -98,15 +93,6 @@ void FileMonitor::RefreshDirectory(LPTSTR lpDir)
 	// This is where you might place code to refresh your
 	// directory listing, but not the subtree because it
 	// would not be necessary.
-	
+
 	_tprintf(TEXT("Directory (%s) changed.\n"), lpDir);
-
-}
-
-void FileMonitor::RefreshTree(LPTSTR lpDrive)
-{
-	// This is where you might place code to refresh your
-	// directory listing, including the subtree.
-
-	_tprintf(TEXT("Directory tree (%s) changed.\n"), lpDrive);
 }

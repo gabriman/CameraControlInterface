@@ -10,13 +10,14 @@ using namespace std;
 class FileMonitor {
 
 private:
-	// Datos miembro de la clase "pareja"
 	LPTSTR directoryUrl;
+	DWORD dwWaitStatus; 
+	HANDLE dwChangeHandles; 
 
 public: 
 	FileMonitor(std::string dir); //Constructor
 	~FileMonitor(){}; //Destructor
-	void WatchDirectory();
+	void WatchDirectoryOneChange();
 private:
 	void RefreshDirectory(LPTSTR lpDir);
 	void RefreshTree(LPTSTR lpDrive);

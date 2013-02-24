@@ -11,5 +11,6 @@ public:
 	Camera() {}; //Constructor
 	void init();
 	void close();
+	void operacion1();
 };
 #endif /* Camera_h */
