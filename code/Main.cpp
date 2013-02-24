@@ -8,6 +8,8 @@
 //#include "ttinyxml2.h"
 #include "file_monitor\FileMonitor.h"
 #include "command\CommandChangeIso.h"
+#include "camera\canon\CameraCanon.h"
+#include "camera\nikon\CameraNikon.h"
 
 using namespace std;
 
@@ -23,10 +25,14 @@ void main(int argc, TCHAR *argv[])
 	while(true){
 		file_monitor.WatchDirectoryOneChange();
 
-		Camera camera1;
 
-		Command* comando1 = new CommandChangeIso(&camera1);
+		Camera* cameraCanon1 = new CameraCanon();
+		Command* comando1 = new CommandChangeIso(cameraCanon1);
 		comando1->execute();
+
+		Camera* cameraNikon1 = new CameraNikon();
+		Command* comando2 = new CommandChangeIso(cameraNikon1);
+		comando2->execute();
 	}
 
 }

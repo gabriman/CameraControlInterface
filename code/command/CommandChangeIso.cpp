@@ -1,5 +1,5 @@
 #include "CommandChangeIso.h"
-#include "../Camera.h"
+#include "../camera/Camera.h"
 
 CommandChangeIso::CommandChangeIso(Camera* camera1):Command(camera1){}
 

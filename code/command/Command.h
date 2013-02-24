@@ -1,7 +1,8 @@
 #ifndef Command_h
 #define Command_h
 
-#include "../Camera.h"
+
+#include "../camera/Camera.h"
 
 class Command
 {

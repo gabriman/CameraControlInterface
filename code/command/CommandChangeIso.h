@@ -1,7 +1,8 @@
 #ifndef CommandChangeIso_h
 #define CommandChangeIso_h
 
-#include "../Camera.h"
+
+#include "../camera/Camera.h"
 #include "Command.h"
 
 class CommandChangeIso : public Command

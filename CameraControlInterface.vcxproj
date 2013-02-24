@@ -11,7 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="code\Camera.cpp" />
+    <ClCompile Include="code\camera\Camera.cpp" />
+    <ClCompile Include="code\camera\canon\CameraCanon.cpp" />
+    <ClCompile Include="code\camera\nikon\CameraNikon.cpp" />
     <ClCompile Include="code\command\Command.cpp" />
     <ClCompile Include="code\command\CommandChangeIso.cpp" />
     <ClCompile Include="code\file_monitor\FileMonitor.cpp" />
@@ -20,7 +22,9 @@
     <ClCompile Include="code\utils\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="code\Camera.h" />
+    <ClInclude Include="code\camera\Camera.h" />
+    <ClInclude Include="code\camera\canon\CameraCanon.h" />
+    <ClInclude Include="code\camera\nikon\CameraNikon.h" />
     <ClInclude Include="code\command\Command.h" />
     <ClInclude Include="code\command\CommandChangeIso.h" />
     <ClInclude Include="code\file_monitor\FileMonitor.h" />
@@ -29,6 +33,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{05B5BE19-5084-41A8-9D41-9B3D98211DB9}</ProjectGuid>
