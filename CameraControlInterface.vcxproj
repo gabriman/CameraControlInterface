@@ -11,12 +11,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="code\camera\Camera.cpp" />
     <ClCompile Include="code\file_monitor\FileMonitor.cpp" />
     <ClCompile Include="code\Main.cpp" />
     <ClCompile Include="code\tinyxml2_lib\tinyxml2.cpp" />
     <ClCompile Include="code\utils\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="code\camera\Camera.h" />
     <ClInclude Include="code\file_monitor\FileMonitor.h" />
     <ClInclude Include="code\tinyxml2_lib\tinyxml2.h" />
     <ClInclude Include="code\utils\Utils.h" />

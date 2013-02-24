@@ -1,5 +1,6 @@
 #include "FileMonitor.h"
 #include "../utils/Utils.h"
+#include "../camera/Camera.h"
 
 
 FileMonitor::FileMonitor(std::string dir){
@@ -97,8 +98,9 @@ void FileMonitor::RefreshDirectory(LPTSTR lpDir)
 	// This is where you might place code to refresh your
 	// directory listing, but not the subtree because it
 	// would not be necessary.
-
+	
 	_tprintf(TEXT("Directory (%s) changed.\n"), lpDir);
+
 }
 
 void FileMonitor::RefreshTree(LPTSTR lpDrive)
