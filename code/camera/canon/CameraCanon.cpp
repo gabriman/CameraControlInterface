@@ -1,6 +1,6 @@
 #include "CameraCanon.h"
 
-CameraCanon::CameraCanon(): Camera(){
+CameraCanon::CameraCanon(){
 
 }
 

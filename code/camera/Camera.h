@@ -8,7 +8,6 @@ using namespace std;
 class Camera {
 
 public: 
-	Camera() {}; //Constructor
 	virtual void init(){};
 	virtual void close(){};
 	virtual void operacion1(){};

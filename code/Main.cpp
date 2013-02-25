@@ -10,15 +10,41 @@
 #include "command\CommandChangeIso.h"
 #include "camera\canon\CameraCanon.h"
 #include "camera\nikon\CameraNikon.h"
+#include "CommandCreator.h"
+#include "tinyxml2_lib\tinyxml2.h"
 
 using namespace std;
+
+//XMLDocument
+tinyxml2::XMLDocument* CreateXMLDocument(std::string directory, std::string file){
+	std::string completePath = directory.append("/");
+	completePath = completePath.append(file);
+	cout<<completePath.c_str()<<endl;
+
+	tinyxml2::XMLDocument* doc = new tinyxml2::XMLDocument;
+	doc->LoadFile(completePath.data());
+
+	return doc;
+}
 
 
 void main(int argc, TCHAR *argv[])
 {
 
 	std::string directory;
-	directory= "C:\\Users\\Gabry\\Documents\\APUNTES\\UGR\\PFC\\Pruebas\\pruebaNotifyNuevo\\dir";
+	directory= "./cfg";
+	std::string file= "inputfile.txt";
+
+	//Try to create a XMLDocument from file
+	tinyxml2::XMLDocument docXML = CreateXMLDocument(directory,file);
+	if (docXML.Error()==true){
+		cout<<"Error opening "<<file.data()<<" file"<<endl;
+		return;
+	}
+	else cout<<"File "<<file.data()<<" opened OK "<<endl;
+	
+
+
 
 	FileMonitor file_monitor(directory);
 
