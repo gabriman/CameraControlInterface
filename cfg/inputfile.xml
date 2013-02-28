@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<commands>
+  
+  <command>
+    <set>
+      <ISO>400</ISO>
+    </set>
+  </command>
+
+  <command>
+    <action>shoot</action>
+  </command>
+  
+</commands>

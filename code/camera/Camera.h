@@ -7,6 +7,10 @@ using namespace std;
 
 class Camera {
 
+protected:
+	string company;
+	string model;
+
 public: 
 	virtual void init(){};
 	virtual void close(){};

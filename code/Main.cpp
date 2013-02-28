@@ -8,6 +8,8 @@
 //#include "ttinyxml2.h"
 #include "file_monitor\FileMonitor.h"
 #include "command\CommandChangeIso.h"
+#include "command\CommandInit.h"
+#include "command\CommandClose.h"
 #include "camera\canon\CameraCanon.h"
 #include "camera\nikon\CameraNikon.h"
 #include "CommandCreator.h"
@@ -33,33 +35,40 @@ void main(int argc, TCHAR *argv[])
 
 	std::string directory;
 	directory= "./cfg";
-	std::string file= "inputfile.txt";
+	std::string file= "inputfile.xml";
 
 	//Try to create a XMLDocument from file
-	tinyxml2::XMLDocument docXML = CreateXMLDocument(directory,file);
-	if (docXML.Error()==true){
+	tinyxml2::XMLDocument* docXML = CreateXMLDocument(directory,file);
+	if (docXML->Error()==true){
 		cout<<"Error opening "<<file.data()<<" file"<<endl;
 		return;
 	}
 	else cout<<"File "<<file.data()<<" opened OK "<<endl;
-	
 
+	
+	Camera* camera = new CameraCanon();
+
+	//CommandCreator::CreateCommandList(camera, docXML);
 
 
 	FileMonitor file_monitor(directory);
 
-	while(true){
-		file_monitor.WatchDirectoryOneChange();
+	//while(true){
+	//	file_monitor.WatchDirectoryOneChange();
 
 
 		Camera* cameraCanon1 = new CameraCanon();
-		Command* comando1 = new CommandChangeIso(cameraCanon1);
-		comando1->execute();
+		Command* comando1 = new CommandInit(cameraCanon1);
+		Command* comando2 = new CommandClose(cameraCanon1);
 
-		Camera* cameraNikon1 = new CameraNikon();
-		Command* comando2 = new CommandChangeIso(cameraNikon1);
+		comando1->execute();
+		Sleep(2000);
 		comando2->execute();
-	}
+
+		/*Camera* cameraNikon1 = new CameraNikon();
+		Command* comando2 = new CommandChangeIso(cameraNikon1);
+		comando2->execute();*/
+	//}
 
 }
 
