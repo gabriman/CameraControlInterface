@@ -6,7 +6,7 @@ CameraCanon::CameraCanon(){
 	camera = NULL;
 	err = EDS_ERR_OK;
 	isSDKLoaded = false;
-
+	DictionaryCanon dictionary;
 	
 }
 
@@ -101,10 +101,15 @@ EdsError CameraCanon::getFirstCamera(EdsCameraRef *camera)
 
 
 
-void CameraCanon::setProperty(string property, string value){
+void CameraCanon::setProperty(string property, const char * value){
+
+
+	EdsUInt32 valueEds = dictionary.translate(property,value);
+	EdsSetPropertyData(camera, kEdsPropID_ISOSpeed, 0 , sizeof(valueEds), &valueEds);
+
+
 	//EdsUInt32 a;
 	//EdsUInt32 value = _propertyTableISO.
-	//	EdsSetPropertyData(camera, kEdsPropID_ISOSpeed, 0 , sizeof(value), &value);
 
 
 }

@@ -31,10 +31,8 @@ tinyxml2::XMLDocument* CreateXMLDocument(std::string directory, std::string file
 	return doc;
 }
 
-
 void main(int argc, TCHAR *argv[])
 {
-
 	std::string directory;
 	directory= "./cfg";
 	std::string file= "inputfile.xml";
@@ -50,33 +48,24 @@ void main(int argc, TCHAR *argv[])
 	
 	Camera* camera = new CameraCanon();
 
-	//CommandCreator::CreateCommandList(camera, docXML);
+	CommandCreator::CreateCommandList(camera, docXML);
 
 
 	FileMonitor file_monitor(directory);
-
-	DictionaryCanon d;
 	
-	EdsUInt32 a;
-	const char * b;
-	a = d.MapSearchByValue(d._propertyTableISO,b);
+	Camera* cameraCanon1 = new CameraCanon();
+	Command* comando1 = new CommandInit(cameraCanon1);
+	comando1->execute();
 
 	//while(true){
-	//	file_monitor.WatchDirectoryOneChange();
+		//file_monitor.WatchDirectoryOneChange();
 
-
-		//Camera* cameraCanon1 = new CameraCanon();
-		//Command* comando1 = new CommandInit(cameraCanon1);
-		//Command* comando2 = new CommandClose(cameraCanon1);
-
-		//comando1->execute();
-		//Sleep(2000);
-		//comando2->execute();
-
-		/*Camera* cameraNikon1 = new CameraNikon();
-		Command* comando2 = new CommandChangeIso(cameraNikon1);
-		comando2->execute();*/
+		Sleep(1000);
+		Command* comando = new CommandChangeIso(cameraCanon1,"400");
+		comando->execute();
+		Sleep(1000);
 	//}
+	
+	Command* comando2 = new CommandClose(cameraCanon1);
 
 }
-

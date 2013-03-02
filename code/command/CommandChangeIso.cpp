@@ -1,9 +1,12 @@
 #include "CommandChangeIso.h"
 #include "../camera/Camera.h"
 
-CommandChangeIso::CommandChangeIso(Camera* camera1):Command(camera1){}
+CommandChangeIso::CommandChangeIso(Camera* camera1,const char* value):Command(camera1){
+	newValue=value;
+}
 
 void CommandChangeIso::execute(){
-	cout<<"Ejecutando changeISO"<<endl;
-	camera->operacion1();
+	cout<<"Ejecuting changeISO"<<endl;
+	camera->setProperty("ISO",newValue);
+	cout<<"Iso changed"<<endl;
 };

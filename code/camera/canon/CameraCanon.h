@@ -5,6 +5,7 @@
 #include "EDSDK.h"
 #include "EDSDKTypes.h"
 #include <map>
+#include "dictionary\DictionaryCanon.h"
 
 class CameraCanon : public Camera
 {
@@ -13,11 +14,12 @@ private:
 	EdsError err;
 	bool isSDKLoaded;
 	std::map<EdsUInt32, const char *> _propertyTableISO;
+	DictionaryCanon dictionary;
 
 public:
 	CameraCanon();
 	void init();
-	void setProperty(string property, string value);
+	void setProperty(string property, const char * value);
 	void operacion1();
 	void close();
 	void operacionExclusiva(){};

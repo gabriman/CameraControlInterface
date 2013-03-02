@@ -7,8 +7,10 @@
 
 class CommandChangeIso : public Command
 {
+private:
+	const char* newValue;
 public: 
-	CommandChangeIso (Camera* camera);
+	CommandChangeIso (Camera* camera1,const char* value);
 	virtual void execute();
 };
 
