@@ -7,6 +7,7 @@ CameraCanon::CameraCanon(){
 	err = EDS_ERR_OK;
 	isSDKLoaded = false;
 
+	
 }
 
 void CameraCanon::init(){
@@ -14,7 +15,7 @@ void CameraCanon::init(){
 	cout<<"Camera inicializada CANON"<<endl;
 
 	// Initialize SDK
-	
+
 	err = EdsInitializeSDK();
 	if(err == EDS_ERR_OK)
 	{
@@ -96,4 +97,14 @@ EdsError CameraCanon::getFirstCamera(EdsCameraRef *camera)
 	}
 
 	return 0;
+}
+
+
+
+void CameraCanon::setProperty(string property, string value){
+	//EdsUInt32 a;
+	//EdsUInt32 value = _propertyTableISO.
+	//	EdsSetPropertyData(camera, kEdsPropID_ISOSpeed, 0 , sizeof(value), &value);
+
+
 }

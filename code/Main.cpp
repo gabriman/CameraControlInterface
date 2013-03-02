@@ -14,6 +14,8 @@
 #include "camera\nikon\CameraNikon.h"
 #include "CommandCreator.h"
 #include "tinyxml2_lib\tinyxml2.h"
+#include "camera\canon\dictionary\DictionaryCanon.h" //PRUEBA, LUEGO BORRAR
+
 
 using namespace std;
 
@@ -53,17 +55,23 @@ void main(int argc, TCHAR *argv[])
 
 	FileMonitor file_monitor(directory);
 
+	DictionaryCanon d;
+	
+	EdsUInt32 a;
+	const char * b;
+	a = d.MapSearchByValue(d._propertyTableISO,b);
+
 	//while(true){
 	//	file_monitor.WatchDirectoryOneChange();
 
 
-		Camera* cameraCanon1 = new CameraCanon();
-		Command* comando1 = new CommandInit(cameraCanon1);
-		Command* comando2 = new CommandClose(cameraCanon1);
+		//Camera* cameraCanon1 = new CameraCanon();
+		//Command* comando1 = new CommandInit(cameraCanon1);
+		//Command* comando2 = new CommandClose(cameraCanon1);
 
-		comando1->execute();
-		Sleep(2000);
-		comando2->execute();
+		//comando1->execute();
+		//Sleep(2000);
+		//comando2->execute();
 
 		/*Camera* cameraNikon1 = new CameraNikon();
 		Command* comando2 = new CommandChangeIso(cameraNikon1);

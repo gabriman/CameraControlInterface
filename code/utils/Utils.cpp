@@ -1,4 +1,5 @@
 #include "Utils.h"
+#include "EDSDKTypes.h"
 
 using namespace std;
 

@@ -4,6 +4,7 @@
 #include "../Camera.h"
 #include "EDSDK.h"
 #include "EDSDKTypes.h"
+#include <map>
 
 class CameraCanon : public Camera
 {
@@ -11,10 +12,12 @@ private:
 	EdsCameraRef camera;
 	EdsError err;
 	bool isSDKLoaded;
+	std::map<EdsUInt32, const char *> _propertyTableISO;
 
 public:
 	CameraCanon();
 	void init();
+	void setProperty(string property, string value);
 	void operacion1();
 	void close();
 	void operacionExclusiva(){};

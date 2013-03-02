@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClCompile Include="code\camera\Camera.cpp" />
     <ClCompile Include="code\camera\canon\CameraCanon.cpp" />
+    <ClCompile Include="code\camera\canon\dictionary\DictionaryCanon.cpp" />
     <ClCompile Include="code\camera\nikon\CameraNikon.cpp" />
     <ClCompile Include="code\CommandCreator.cpp" />
     <ClCompile Include="code\command\Command.cpp" />
@@ -27,6 +28,7 @@
   <ItemGroup>
     <ClInclude Include="code\camera\Camera.h" />
     <ClInclude Include="code\camera\canon\CameraCanon.h" />
+    <ClInclude Include="code\camera\canon\dictionary\DictionaryCanon.h" />
     <ClInclude Include="code\camera\nikon\CameraNikon.h" />
     <ClInclude Include="code\CommandCreator.h" />
     <ClInclude Include="code\command\Command.h" />
