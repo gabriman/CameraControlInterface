@@ -101,10 +101,10 @@ EdsError CameraCanon::getFirstCamera(EdsCameraRef *camera)
 
 
 
-void CameraCanon::setProperty(string property, const char * value){
+void CameraCanon::setProperty(string prop, const char * value){
 
 
-	EdsUInt32 valueEds = dictionary.translate(property,value);
+	EdsUInt32 valueEds = dictionary.translate(prop,value);
 	EdsSetPropertyData(camera, kEdsPropID_ISOSpeed, 0 , sizeof(valueEds), &valueEds);
 
 

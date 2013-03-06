@@ -19,7 +19,7 @@ private:
 public:
 	CameraCanon();
 	void init();
-	void setProperty(string property, const char * value);
+	void setProperty(string prop, const char * value);
 	void operacion1();
 	void close();
 	void operacionExclusiva(){};

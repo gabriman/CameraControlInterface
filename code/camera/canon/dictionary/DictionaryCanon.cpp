@@ -214,8 +214,7 @@ void DictionaryCanon::createSpeedTable(){
 	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("unknown",0xffffffff));
 }
 
-
-void DictionaryCanon::createSpeedTable(){
+void DictionaryCanon::createAvTable(){
 	// Map of value and display name
 	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x00,"00"));
 	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x08,"1"));
@@ -273,78 +272,80 @@ void DictionaryCanon::createSpeedTable(){
 	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x70,"91"));
 	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0xffffffff,"unknown"));
 
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("00",0x00,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("1",0x08,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("1.1",0x0B,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("1.2",0x0C,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("1.2",0x0D,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("1.4",0x10,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("1.6",0x13,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("1.8",0x14,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("1.8",0x15,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("2",0x18,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("2.2",0x1B,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("2.5",0x1C,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("2.5",0x1D,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("2.8",0x20,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("3.2",0x23,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("3.5",0x24,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("3.5",0x25,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("4",0x28,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("4.5",0x2B,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("4.5",0x2C,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("5.0",0x2D,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("5.6",0x30,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("6.3",0x33,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("6.7",0x34,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("7.1",0x35,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("8",0x38,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("9",0x3B,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("9.5",0x3C,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("10",0x3D,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("11",0x40,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("13",0x43,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("13",0x44,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("14",0x45,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("16",0x48,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("18",0x4B,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("19",0x4C,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("20",0x4D,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("22",0x50,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("25",0x53,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("27",0x54,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("29",0x55,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("32",0x58,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("36",0x5B,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("38",0x5C,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("40",0x5D,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("45",0x60,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("51",0x63,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("54",0x64,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("57",0x65,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("64",0x68,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("72",0x6B,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("76",0x6C,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("80",0x6D,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("91",0x70,));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("unknown",0xffffffff,));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("00",0x00));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("1",0x08));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("1.1",0x0B));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("1.2",0x0C));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("1.2",0x0D));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("1.4",0x10));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("1.6",0x13));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("1.8",0x14));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("1.8",0x15));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("2",0x18));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("2.2",0x1B));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("2.5",0x1C));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("2.5",0x1D));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("2.8",0x20));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("3.2",0x23));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("3.5",0x24));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("3.5",0x25));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("4",0x28));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("4.5",0x2B));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("4.5",0x2C));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("5.0",0x2D));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("5.6",0x30));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("6.3",0x33));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("6.7",0x34));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("7.1",0x35));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("8",0x38));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("9",0x3B));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("9.5",0x3C));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("10",0x3D));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("11",0x40));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("13",0x43));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("13",0x44));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("14",0x45));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("16",0x48));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("18",0x4B));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("19",0x4C));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("20",0x4D));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("22",0x50));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("25",0x53));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("27",0x54));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("29",0x55));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("32",0x58));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("36",0x5B));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("38",0x5C));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("40",0x5D));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("45",0x60));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("51",0x63));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("54",0x64));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("57",0x65));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("64",0x68));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("72",0x6B));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("76",0x6C));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("80",0x6D));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("91",0x70));
+	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("unknown",0xffffffff));
 }
 
 //Fuction for search in map
-const char * DictionaryCanon::translate(string property, EdsUInt32 value)
+const char * DictionaryCanon::translate(string prop, EdsUInt32 value)
 {
-	std::map<EdsUInt32, const char*>::iterator itr = _propertyTableISOeds.find(value);
+	std::map<EdsUInt32, const char*>::iterator itr = _propertyTableISOEds.find(value);
 	return itr->second;
 }
 
-//Fuction for inverse search in map
-EdsUInt32 DictionaryCanon::translate(string property, const char* value)
-{
-	std::map<const char*,EdsUInt32>::iterator itr;
-	std::map<const char *, EdsUInt32> _propertyTable;
 
-	if (!property.compare("ISO")){
-		_propertyTable = _propertyTableISOstring;
+
+//Fuction for inverse search in map
+EdsUInt32 DictionaryCanon::translate(string prop, const char* value)
+{
+	std::map<const char*,EdsUInt32,cmp_str>::iterator itr;
+	std::map<const char *, EdsUInt32,cmp_str> _propertyTable;
+
+	if (!prop.compare("ISO")){
+		_propertyTable = _propertyTableISOString;
 	}
 
 	itr = _propertyTable.find(value);

@@ -1,10 +1,20 @@
 <?xml version="1.0"?>
 <commands>
+
+  <command>
+    <set>
+      <ISO>3200</ISO>
+    </set>
+  </command>
   
   <command>
     <set>
-      <ISO>400</ISO>
+      <ISO>100</ISO>
     </set>
+  </command>
+  
+  <command>
+    <get>ISO</get>
   </command>
 
   <command>

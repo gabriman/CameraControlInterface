@@ -11,28 +11,30 @@ using namespace std;
 class DictionaryCanon
 {
 private:
+	struct cmp_str {  bool operator()(char const *a, char const *b) {return std::strcmp(a, b) < 0;} };
+
 	std::map<EdsUInt32, const char *> _propertyTableISOEds;
-	std::map<const char *, EdsUInt32> _propertyTableISOString;
+	std::map<const char *, EdsUInt32,cmp_str> _propertyTableISOString;
 
 	std::map<EdsUInt32, const char *> _propertyTableSpeedEds;	
-	std::map<const char *, EdsUInt32> _propertyTableSpeedString;
+	std::map<const char *, EdsUInt32,cmp_str> _propertyTableSpeedString;
 
 	std::map<EdsUInt32, const char *> _propertyTableAvEds;	
-	std::map<const char *, EdsUInt32> _propertyTableAvString;
+	std::map<const char *, EdsUInt32,cmp_str> _propertyTableAvString;
 
 public:
 	DictionaryCanon();
-	const char * translate(string property,EdsUInt32 value);
-	EdsUInt32 translate(string property,const char * value);
+	const char * translate(string prop,EdsUInt32 value);
+	EdsUInt32 translate(string prop,const char * value);
 
 
 private:
 	void createIsoTable();
 	void createSpeedTable();
 	void createAvTable();
-//	static void createSetCommand(XMLNode* node);
-//	static void createGetCommand(XMLNode* node);
-//	static void createActionCommand(XMLNode* node);
+	//	static void createSetCommand(XMLNode* node);
+	//	static void createGetCommand(XMLNode* node);
+	//	static void createActionCommand(XMLNode* node);
 };
 
 #endif /* DictionaryCanon_h */

@@ -8,7 +8,7 @@
 class CommandChangeIso : public Command
 {
 private:
-	const char* newValue;
+	char newValue[30];
 public: 
 	CommandChangeIso (Camera* camera1,const char* value);
 	virtual void execute();

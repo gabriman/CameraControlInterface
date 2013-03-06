@@ -14,7 +14,7 @@
 #include "camera\nikon\CameraNikon.h"
 #include "CommandCreator.h"
 #include "tinyxml2_lib\tinyxml2.h"
-#include "camera\canon\dictionary\DictionaryCanon.h" //PRUEBA, LUEGO BORRAR
+#include "camera\canon\dictionary\DictionaryCanon.h"
 
 
 using namespace std;
@@ -37,35 +37,38 @@ void main(int argc, TCHAR *argv[])
 	directory= "./cfg";
 	std::string file= "inputfile.xml";
 
-	//Try to create a XMLDocument from file
-	tinyxml2::XMLDocument* docXML = CreateXMLDocument(directory,file);
-	if (docXML->Error()==true){
-		cout<<"Error opening "<<file.data()<<" file"<<endl;
-		return;
-	}
-	else cout<<"File "<<file.data()<<" opened OK "<<endl;
 
-	
-	Camera* camera = new CameraCanon();
-
-	CommandCreator::CreateCommandList(camera, docXML);
 
 
 	FileMonitor file_monitor(directory);
-	
+
 	Camera* cameraCanon1 = new CameraCanon();
 	Command* comando1 = new CommandInit(cameraCanon1);
 	comando1->execute();
 
-	//while(true){
-		//file_monitor.WatchDirectoryOneChange();
 
-		Sleep(1000);
-		Command* comando = new CommandChangeIso(cameraCanon1,"400");
-		comando->execute();
-		Sleep(1000);
-	//}
-	
+	CommandCreator comandCreator(cameraCanon1);
+	while(true){
+		file_monitor.WatchDirectoryOneChange();
+
+		//Try to create a XMLDocument from file
+		tinyxml2::XMLDocument* docXML = CreateXMLDocument(directory,file);
+		if (docXML->Error()==true){
+			cout<<"Error opening "<<file.data()<<" file"<<endl;
+			return;
+		}
+		else cout<<"File "<<file.data()<<" opened OK "<<endl;
+
+		list<Command*> commandsList = comandCreator.CreateCommandList(docXML);
+
+		for (list<Command*>::iterator i = commandsList.begin(); i != commandsList.end(); i++)
+		{
+			(*i)->execute();
+		}
+		//comando->execute();
+		//Sleep(1000);
+	}
+
 	Command* comando2 = new CommandClose(cameraCanon1);
 
 }

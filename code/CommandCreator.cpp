@@ -2,24 +2,23 @@
 
 
 
+CommandCreator::CommandCreator(Camera* camera1):camera(camera1){};
 
-
-list<Command> CommandCreator::CreateCommandList(Camera* camera,tinyxml2::XMLDocument* doc){
-
-
-	list<Command> commandsList; //List for append commands
+list<Command*> CommandCreator::CreateCommandList(tinyxml2::XMLDocument* doc){
+	
+	list<Command*> commandsList; //List for append commands
 	XMLNode* commands = doc->FirstChildElement( "commands");
 	XMLNode* command = commands->FirstChildElement("command");
 
 	//Iterate in "command" tags. command have a "command" tag
 	/* We only can have inside <command>:
-		<action> for describe a action to do like "shoot"
-		<set> for set a parameter
-		<get for get a parameter>
+	<action> for describe a action to do like "shoot"
+	<set> for set a parameter
+	<get for get a parameter>
 	*/
 	do{ 
 		XMLNode* nodeCommand = command->FirstChild();
-		
+
 		string value = nodeCommand->Value();
 		cout<<"VALUE "<<value.c_str()<<endl;
 
@@ -27,7 +26,7 @@ list<Command> CommandCreator::CreateCommandList(Camera* camera,tinyxml2::XMLDocu
 			createActionCommand(nodeCommand);
 		}
 		else if (!value.compare("set")){
-			createSetCommand(nodeCommand);
+			commandsList.push_back(createSetCommand(nodeCommand));
 		}
 		else if (!value.compare("get")){
 			createGetCommand(nodeCommand);
@@ -35,29 +34,29 @@ list<Command> CommandCreator::CreateCommandList(Camera* camera,tinyxml2::XMLDocu
 
 	}while ((command=command->NextSibling())!=NULL); 
 
-
-	/*if (textNode!=NULL){
-	std::string title = textNode->Value();
-
-	if (title.compare("command"))
-	{
-
-
-	}
-
-	}*/
-	//printf( "Parameteres.*: %s %s\n", textNode->Value(), textNode->FirstChild()->ToText()->Value() );
-
-
 	return commandsList;
 
 
 }
 
 //We use here a list<Command> instead Command because we assume that several parameters inside <set> are allowed
-void CommandCreator::createSetCommand(tinyxml2::XMLNode* node){
-	list<Command> commandsList;
+//TODO: Hacer que funcione para varios set o sino devolver in command normal
+Command* CommandCreator::createSetCommand(tinyxml2::XMLNode* node){
+	list<Command> command;
+	XMLNode* child;
+	child = node->FirstChild();
+
+	const char* parameter = child->Value();
+	const char* value = (const char*)child->FirstChild()->Value();
+	
+	Command* comando = NULL;
+
+	if (!strcmp(parameter,"ISO")){
+		comando = new CommandChangeIso(camera,value);
+		comando->execute();
+	}
 	cout<<"set detected"<<endl;
+	return comando;
 }
 
 void CommandCreator::createGetCommand(tinyxml2::XMLNode* node){

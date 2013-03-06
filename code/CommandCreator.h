@@ -5,6 +5,7 @@
 #include "command\Command.h"
 #include "camera\Camera.h"
 #include <list>
+#include "command\CommandChangeIso.h"
 
 using namespace tinyxml2;
 
@@ -15,11 +16,12 @@ public:
 	Camera* camera;
 
 public:
-	static list<Command> CreateCommandList(Camera* camera,tinyxml2::XMLDocument* doc);
+	CommandCreator(Camera* camera1);
+	list<Command*> CreateCommandList(tinyxml2::XMLDocument* doc);
 private:
-	static void createSetCommand(XMLNode* node);
-	static void createGetCommand(XMLNode* node);
-	static void createActionCommand(XMLNode* node);
+	Command* createSetCommand(XMLNode* node);
+	void createGetCommand(XMLNode* node);
+	void createActionCommand(XMLNode* node);
 };
 
 #endif /* CommandCreator_h */
