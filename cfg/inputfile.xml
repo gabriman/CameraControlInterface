@@ -10,7 +10,7 @@
 
   <command>
     <set>
-      <SPEED>400</SPEED>
+      <SPEED>5</SPEED>
     </set>
   </command>
   
@@ -26,7 +26,7 @@
   </command>
 
   <command>
-    <action>shoot</action>
+    <action>take</action>
   </command>
   
 </commands>

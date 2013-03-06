@@ -11,7 +11,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="code\camera\Camera.cpp" />
     <ClCompile Include="code\camera\canon\CameraCanon.cpp" />
     <ClCompile Include="code\camera\canon\dictionary\DictionaryCanon.cpp" />
     <ClCompile Include="code\camera\nikon\CameraNikon.cpp" />
@@ -22,6 +21,7 @@
     <ClCompile Include="code\command\CommandSetSpeed.cpp" />
     <ClCompile Include="code\command\CommandClose.cpp" />
     <ClCompile Include="code\command\CommandInit.cpp" />
+    <ClCompile Include="code\command\CommandTakePicture.cpp" />
     <ClCompile Include="code\file_monitor\FileMonitor.cpp" />
     <ClCompile Include="code\Main.cpp" />
     <ClCompile Include="code\tinyxml2_lib\tinyxml2.cpp" />
@@ -39,6 +39,7 @@
     <ClInclude Include="code\command\CommandSetSpeed.h" />
     <ClInclude Include="code\command\CommandClose.h" />
     <ClInclude Include="code\command\CommandInit.h" />
+    <ClInclude Include="code\command\CommandTakePicture.h" />
     <ClInclude Include="code\file_monitor\FileMonitor.h" />
     <ClInclude Include="code\tinyxml2_lib\tinyxml2.h" />
     <ClInclude Include="code\utils\Utils.h" />

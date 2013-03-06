@@ -8,6 +8,7 @@
 #include "command\CommandSetIso.h"
 #include "command\CommandSetSpeed.h"
 #include "command\CommandSetAperture.h"
+#include "command\CommandTakePicture.h"
 
 using namespace tinyxml2;
 
@@ -23,7 +24,7 @@ public:
 private:
 	Command* createSetCommand(XMLNode* node);
 	void createGetCommand(XMLNode* node);
-	void createActionCommand(XMLNode* node);
+	Command* createActionCommand(XMLNode* node);
 };
 
 #endif /* CommandCreator_h */

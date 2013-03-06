@@ -23,7 +23,7 @@ list<Command*> CommandCreator::CreateCommandList(tinyxml2::XMLDocument* doc){
 		cout<<"VALUE "<<value.c_str()<<endl;
 
 		if (!value.compare("action")){
-			createActionCommand(nodeCommand);
+			commandsList.push_back(createActionCommand(nodeCommand));
 		}
 		else if (!value.compare("set")){
 			commandsList.push_back(createSetCommand(nodeCommand));
@@ -64,8 +64,15 @@ void CommandCreator::createGetCommand(tinyxml2::XMLNode* node){
 	cout<<"get detected"<<endl;
 }
 
-void CommandCreator::createActionCommand(tinyxml2::XMLNode* node){
+Command* CommandCreator::createActionCommand(tinyxml2::XMLNode* node){
 	//Command c;
 	cout<<"action detected"<<endl;
+	Command* comando = NULL;
+
+	const char* value = (const char*)node->FirstChild()->Value();
+
+	if (!strcmp(value,"take")) comando = new CommandTakePicture(camera);
+
+	return comando;
 
 }

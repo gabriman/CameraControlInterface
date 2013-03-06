@@ -22,7 +22,7 @@ public:
 	void setProperty(string prop, const char * value);
 	void operacion1();
 	void close();
-	void operacionExclusiva(){};
+	void takePicture();
 
 private:
 	EdsError getFirstCamera(EdsCameraRef *camera);

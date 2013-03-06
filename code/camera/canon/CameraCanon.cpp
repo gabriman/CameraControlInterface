@@ -7,7 +7,7 @@ CameraCanon::CameraCanon(){
 	err = EDS_ERR_OK;
 	isSDKLoaded = false;
 	DictionaryCanon dictionary;
-	
+
 }
 
 void CameraCanon::init(){
@@ -98,8 +98,8 @@ EdsError CameraCanon::getFirstCamera(EdsCameraRef *camera)
 	return 0;
 }
 
-void CameraCanon::setProperty(string prop, const char * value){
-
+void CameraCanon::setProperty(string prop, const char * value)
+{
 	int propEds = 0;
 
 	if		(!prop.compare("ISO")) propEds = kEdsPropID_ISOSpeed;
@@ -108,5 +108,9 @@ void CameraCanon::setProperty(string prop, const char * value){
 
 	EdsUInt32 valueEds = dictionary.translate(prop,value);
 	EdsSetPropertyData(camera, propEds, 0 , sizeof(valueEds), &valueEds);
+}
 
+void CameraCanon::takePicture()
+{
+	EdsSendCommand(camera , kEdsCameraCommand_TakePicture , 0);
 }
