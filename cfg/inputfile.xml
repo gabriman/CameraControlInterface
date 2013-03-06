@@ -3,15 +3,23 @@
 
   <command>
     <set>
-      <ISO>3200</ISO>
+      <ISO>400</ISO>
+    </set>
+  </command>
+
+
+  <command>
+    <set>
+      <SPEED>400</SPEED>
     </set>
   </command>
   
   <command>
     <set>
-      <ISO>100</ISO>
+      <APERTURE>7.1</APERTURE>
     </set>
   </command>
+  
   
   <command>
     <get>ISO</get>

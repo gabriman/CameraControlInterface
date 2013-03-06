@@ -5,7 +5,9 @@
 #include "command\Command.h"
 #include "camera\Camera.h"
 #include <list>
-#include "command\CommandChangeIso.h"
+#include "command\CommandSetIso.h"
+#include "command\CommandSetSpeed.h"
+#include "command\CommandSetAperture.h"
 
 using namespace tinyxml2;
 

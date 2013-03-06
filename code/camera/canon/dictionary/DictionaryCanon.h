@@ -19,8 +19,8 @@ private:
 	std::map<EdsUInt32, const char *> _propertyTableSpeedEds;	
 	std::map<const char *, EdsUInt32,cmp_str> _propertyTableSpeedString;
 
-	std::map<EdsUInt32, const char *> _propertyTableAvEds;	
-	std::map<const char *, EdsUInt32,cmp_str> _propertyTableAvString;
+	std::map<EdsUInt32, const char *> _propertyTableApertureEds;	
+	std::map<const char *, EdsUInt32,cmp_str> _propertyTableApertureString;
 
 public:
 	DictionaryCanon();

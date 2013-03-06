@@ -2,6 +2,8 @@
 
 DictionaryCanon::DictionaryCanon(){
 	createIsoTable();
+	createSpeedTable();
+	createAvTable();
 }
 
 void DictionaryCanon::createIsoTable(){
@@ -216,117 +218,122 @@ void DictionaryCanon::createSpeedTable(){
 
 void DictionaryCanon::createAvTable(){
 	// Map of value and display name
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x00,"00"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x08,"1"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x0B,"1.1"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x0C,"1.2"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x0D,"1.2"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x10,"1.4"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x13,"1.6"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x14,"1.8"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x15,"1.8"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x18,"2"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x1B,"2.2"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x1C,"2.5"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x1D,"2.5"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x20,"2.8"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x23,"3.2"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x24,"3.5"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x25,"3.5"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x28,"4"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x2B,"4.5"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x2C,"4.5"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x2D,"5.0"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x30,"5.6"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x33,"6.3"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x34,"6.7"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x35,"7.1"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x38,"8"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x3B,"9"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x3C,"9.5"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x3D,"10"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x40,"11"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x43,"13"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x44,"13"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x45,"14"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x48,"16"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x4B,"18"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x4C,"19"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x4D,"20"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x50,"22"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x53,"25"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x54,"27"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x55,"29"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x58,"32"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x5B,"36"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x5C,"38"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x5D,"40"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x60,"45"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x63,"51"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x64,"54"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x65,"57"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x68,"64"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x6B,"72"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x6C,"76"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x6D,"80"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0x70,"91"));
-	_propertyTableAvEds.insert( std::pair<EdsUInt32, const char *>(0xffffffff,"unknown"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x00,"00"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x08,"1"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x0B,"1.1"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x0C,"1.2"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x0D,"1.2"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x10,"1.4"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x13,"1.6"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x14,"1.8"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x15,"1.8"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x18,"2"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x1B,"2.2"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x1C,"2.5"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x1D,"2.5"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x20,"2.8"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x23,"3.2"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x24,"3.5"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x25,"3.5"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x28,"4"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x2B,"4.5"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x2C,"4.5"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x2D,"5.0"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x30,"5.6"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x33,"6.3"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x34,"6.7"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x35,"7.1"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x38,"8"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x3B,"9"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x3C,"9.5"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x3D,"10"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x40,"11"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x43,"13"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x44,"13"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x45,"14"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x48,"16"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x4B,"18"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x4C,"19"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x4D,"20"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x50,"22"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x53,"25"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x54,"27"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x55,"29"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x58,"32"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x5B,"36"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x5C,"38"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x5D,"40"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x60,"45"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x63,"51"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x64,"54"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x65,"57"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x68,"64"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x6B,"72"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x6C,"76"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x6D,"80"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x70,"91"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0xffffffff,"unknown"));
 
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("00",0x00));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("1",0x08));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("1.1",0x0B));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("1.2",0x0C));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("1.2",0x0D));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("1.4",0x10));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("1.6",0x13));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("1.8",0x14));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("1.8",0x15));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("2",0x18));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("2.2",0x1B));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("2.5",0x1C));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("2.5",0x1D));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("2.8",0x20));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("3.2",0x23));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("3.5",0x24));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("3.5",0x25));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("4",0x28));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("4.5",0x2B));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("4.5",0x2C));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("5.0",0x2D));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("5.6",0x30));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("6.3",0x33));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("6.7",0x34));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("7.1",0x35));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("8",0x38));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("9",0x3B));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("9.5",0x3C));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("10",0x3D));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("11",0x40));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("13",0x43));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("13",0x44));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("14",0x45));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("16",0x48));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("18",0x4B));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("19",0x4C));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("20",0x4D));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("22",0x50));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("25",0x53));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("27",0x54));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("29",0x55));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("32",0x58));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("36",0x5B));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("38",0x5C));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("40",0x5D));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("45",0x60));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("51",0x63));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("54",0x64));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("57",0x65));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("64",0x68));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("72",0x6B));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("76",0x6C));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("80",0x6D));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("91",0x70));
-	_propertyTableAvString.insert( std::pair<const char *, EdsUInt32>("unknown",0xffffffff));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("00",0x00));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("1",0x08));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("1.0",0x08));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("1.1",0x0B));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("1.2",0x0C));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("1.2",0x0D));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("1.4",0x10));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("1.6",0x13));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("1.8",0x14));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("1.8",0x15));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("2",0x18));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("2.0",0x18));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("2.2",0x1B));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("2.5",0x1C));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("2.5",0x1D));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("2.8",0x20));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("3.2",0x23));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("3.5",0x24));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("3.5",0x25));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("4",0x28));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("4.0",0x28));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("4.5",0x2B));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("4.5",0x2C));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("5.0",0x2D));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("5.6",0x30));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("6.3",0x33));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("6.7",0x34));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("7.1",0x35));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("8",0x38));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("8.0",0x38));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("9",0x3B));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("9.0",0x3B));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("9.5",0x3C));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("10",0x3D));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("11",0x40));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("13",0x43));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("13",0x44));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("14",0x45));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("16",0x48));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("18",0x4B));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("19",0x4C));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("20",0x4D));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("22",0x50));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("25",0x53));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("27",0x54));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("29",0x55));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("32",0x58));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("36",0x5B));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("38",0x5C));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("40",0x5D));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("45",0x60));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("51",0x63));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("54",0x64));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("57",0x65));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("64",0x68));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("72",0x6B));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("76",0x6C));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("80",0x6D));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("91",0x70));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("unknown",0xffffffff));
 }
 
 //Fuction for search in map
@@ -336,17 +343,15 @@ const char * DictionaryCanon::translate(string prop, EdsUInt32 value)
 	return itr->second;
 }
 
-
-
 //Fuction for inverse search in map
 EdsUInt32 DictionaryCanon::translate(string prop, const char* value)
 {
 	std::map<const char*,EdsUInt32,cmp_str>::iterator itr;
 	std::map<const char *, EdsUInt32,cmp_str> _propertyTable;
 
-	if (!prop.compare("ISO")){
-		_propertyTable = _propertyTableISOString;
-	}
+	if (!prop.compare("ISO")) {_propertyTable = _propertyTableISOString;}
+	else if (!prop.compare("SPEED")) {_propertyTable = _propertyTableSpeedString;}
+	else if (!prop.compare("APERTURE")) {_propertyTable = _propertyTableApertureString;}
 
 	itr = _propertyTable.find(value);
 	return itr->second;

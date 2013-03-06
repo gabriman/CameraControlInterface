@@ -30,9 +30,6 @@
     <ClCompile Include="code\command\Command.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
-    <ClCompile Include="code\command\CommandChangeIso.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
     <ClCompile Include="code\camera\Camera.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
@@ -54,6 +51,18 @@
     <ClCompile Include="code\camera\canon\dictionary\DictionaryCanon.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
+    <ClCompile Include="code\command\CommandChangeAperture.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="code\command\CommandSetSpeed.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="code\command\CommandSetIso.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="code\command\CommandSetAperture.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="code\file_monitor\FileMonitor.h">
@@ -66,9 +75,6 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="code\command\Command.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="code\command\CommandChangeIso.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="code\camera\Camera.h">
@@ -90,6 +96,15 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="code\camera\canon\dictionary\DictionaryCanon.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="code\command\CommandSetAperture.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="code\command\CommandSetSpeed.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="code\command\CommandSetIso.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

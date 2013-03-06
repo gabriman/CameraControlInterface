@@ -67,7 +67,6 @@ void CameraCanon::close(){
 	}
 }
 
-
 EdsError CameraCanon::getFirstCamera(EdsCameraRef *camera)
 {
 	EdsError err = EDS_ERR_OK;
@@ -99,17 +98,15 @@ EdsError CameraCanon::getFirstCamera(EdsCameraRef *camera)
 	return 0;
 }
 
-
-
 void CameraCanon::setProperty(string prop, const char * value){
 
+	int propEds = 0;
+
+	if		(!prop.compare("ISO")) propEds = kEdsPropID_ISOSpeed;
+	else if (!prop.compare("SPEED")) propEds = kEdsPropID_Tv;
+	else if (!prop.compare("APERTURE")) propEds = kEdsPropID_Av;
 
 	EdsUInt32 valueEds = dictionary.translate(prop,value);
-	EdsSetPropertyData(camera, kEdsPropID_ISOSpeed, 0 , sizeof(valueEds), &valueEds);
-
-
-	//EdsUInt32 a;
-	//EdsUInt32 value = _propertyTableISO.
-
+	EdsSetPropertyData(camera, propEds, 0 , sizeof(valueEds), &valueEds);
 
 }

@@ -51,11 +51,11 @@ Command* CommandCreator::createSetCommand(tinyxml2::XMLNode* node){
 	
 	Command* comando = NULL;
 
-	if (!strcmp(parameter,"ISO")){
-		comando = new CommandChangeIso(camera,value);
-		comando->execute();
-	}
-	cout<<"set detected"<<endl;
+	if		(!strcmp(parameter,"ISO")) comando = new CommandSetIso(camera,value);
+	else if ( !strcmp(parameter,"SPEED")) comando = new CommandSetSpeed(camera,value);
+	else if ( !strcmp(parameter,"APERTURE")) comando = new CommandSetAperture(camera,value);
+	
+//	comando->execute();
 	return comando;
 }
 

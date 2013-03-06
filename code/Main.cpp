@@ -7,7 +7,7 @@
 #include <tchar.h>
 //#include "ttinyxml2.h"
 #include "file_monitor\FileMonitor.h"
-#include "command\CommandChangeIso.h"
+#include "command\CommandSetIso.h"
 #include "command\CommandInit.h"
 #include "command\CommandClose.h"
 #include "camera\canon\CameraCanon.h"
@@ -36,9 +36,6 @@ void main(int argc, TCHAR *argv[])
 	std::string directory;
 	directory= "./cfg";
 	std::string file= "inputfile.xml";
-
-
-
 
 	FileMonitor file_monitor(directory);
 
