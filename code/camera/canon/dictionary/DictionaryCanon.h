@@ -11,7 +11,9 @@ using namespace std;
 class DictionaryCanon
 {
 private:
-	struct cmp_str {  bool operator()(char const *a, char const *b) {return std::strcmp(a, b) < 0;} };
+	struct cmp_str {  bool operator()(const char* a, const char* b) const {
+		return std::strcmp(a, b) > 0;} 
+	};
 
 	std::map<EdsUInt32, const char *> _propertyTableISOEds;
 	std::map<const char *, EdsUInt32,cmp_str> _propertyTableISOString;
