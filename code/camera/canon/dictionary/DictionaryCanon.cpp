@@ -64,34 +64,34 @@ void DictionaryCanon::createIsoTable(){
 void DictionaryCanon::createSpeedTable(){
 	// Map of value and display name
 	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x0c,"Bulb"));
-	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x10,"30Å"));
-	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x13,"25Å"));
-	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x14,"20Å"));
-	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x15,"20Å"));
-	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x18,"15Å"));
-	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x1B,"13Å"));
-	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x1C,"10Å"));
-	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x1D,"10Å"));
-	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x20,"8Å"));
-	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x23,"6Å"));
-	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x24,"6Å"));
-	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x25,"5Å"));
-	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x28,"4Å"));
-	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x2B,"3Å.2"));
-	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x2C,"3Å"));
-	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x2D,"2Å.5"));
-	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x30,"2Å"));
-	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x33,"1Å.6"));
-	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x34,"1Å.5"));
-	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x35,"1Å.3"));
-	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x38,"1Å"));
-	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x3B,"0Å.8"));
-	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x3C,"0Å.7"));
-	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x3D,"0Å.6"));
-	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x40,"0Å.5"));
-	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x43,"0Å.4"));
-	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x44,"0Å.3"));
-	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x45,"0Å.3"));
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x10,"30"));
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x13,"25"));
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x14,"20"));
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x15,"20"));
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x18,"15"));
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x1B,"13"));
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x1C,"10"));
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x1D,"10"));
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x20,"8"));
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x23,"6"));
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x24,"6"));
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x25,"5"));
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x28,"4"));
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x2B,"3.2"));
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x2C,"3"));
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x2D,"2.5"));
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x30,"2"));
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x33,"1.6"));
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x34,"1.5"));
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x35,"1.3"));
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x38,"1"));
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x3B,"0.8"));
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x3C,"0.7"));
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x3D,"0.6"));
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x40,"0.5"));
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x43,"0.4"));
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x44,"0.3"));
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x45,"0.3"));
 	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x48,"1/4"));
 	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x4B,"1/5"));
 	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x4C,"1/6"));
@@ -140,31 +140,30 @@ void DictionaryCanon::createSpeedTable(){
 	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0xffffffff,"unknown"));
 
 	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("Bulb",0x0c));
-	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("30Å",0x10));
-	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("25Å",0x13));
+	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("30",0x10));
+	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("25",0x13));
 	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("20",0x14));
-	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("15Å",0x18));
-	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("13Å",0x1B));
-	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("10Å",0x1C));
-	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("8Å",0x20));
-	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("6Å",0x23));
-	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("5Å",0x25));
-	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("4Å",0x28));
-	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("3Å.2",0x2B));
-	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("3Å",0x2C));
-	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("2Å.5",0x2D));
-	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("2Å",0x30));
-	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("1Å.6",0x33));
-	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("1Å.5",0x34));
-	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("1Å.3",0x35));
-	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("1Å",0x38));
-	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("0Å.8",0x3B));
-	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("0Å.7",0x3C));
-	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("0Å.6",0x3D));
-	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("0Å.5",0x40));
-	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("0Å.4",0x43));
-	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("0Å.3",0x44));
-	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("0Å.3",0x45));
+	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("15",0x18));
+	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("13",0x1B));
+	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("10",0x1C));
+	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("8",0x20));
+	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("6",0x23));
+	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("5",0x25));
+	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("4",0x28));
+	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("3.2",0x2B));
+	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("3",0x2C));
+	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("2.5",0x2D));
+	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("2",0x30));
+	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("1.6",0x33));
+	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("1.5",0x34));
+	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("1.3",0x35));
+	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("1",0x38));
+	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("0.8",0x3B));
+	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("0.7",0x3C));
+	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("0.6",0x3D));
+	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("0.5",0x40));
+	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("0.4",0x43));
+	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("0.3",0x44));
 	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("1/4",0x48));
 	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("1/5",0x4B));
 	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("1/6",0x4C));
@@ -333,33 +332,34 @@ void DictionaryCanon::createAvTable(){
 //Fuction for search in map
 const char * DictionaryCanon::translate(string prop, EdsUInt32 value)
 {
-	std::map<EdsUInt32, const char*>::iterator itr = _propertyTableISOEds.find(value);
-	return itr->second;
+	std::map<EdsUInt32, const char*>::iterator itr;
+	std::map<EdsUInt32, const char*> _propertyTable;
+
+
+	if (!prop.compare("ISO")) {_propertyTable = _propertyTableISOEds;}
+	else if (!prop.compare("SPEED")) {_propertyTable = _propertyTableSpeedEds;}
+	else if (!prop.compare("APERTURE")) {_propertyTable = _propertyTableApertureEds;}
+
+	itr = _propertyTableISOEds.find(value);
+
+	if (itr!=_propertyTable.end()) return itr->second;
+	else return "unknown";
+	return NULL;
 }
 
 //Fuction for inverse search in map
 EdsUInt32 DictionaryCanon::translate(string prop, const char* value)
 {
-	std::map<const char*,EdsUInt32,cmp_str>::iterator itr;
-	std::map<const char *, EdsUInt32,cmp_str> _propertyTable;
+	std::map<const char*, EdsUInt32,cmp_str>::iterator itr;
+	std::map<const char*, EdsUInt32,cmp_str> _propertyTable;
 
 	if (!prop.compare("ISO")) {_propertyTable = _propertyTableISOString;}
 	else if (!prop.compare("SPEED")) {_propertyTable = _propertyTableSpeedString;}
 	else if (!prop.compare("APERTURE")) {_propertyTable = _propertyTableApertureString;}
 
-	itr = _propertyTable.find(value);+
-	
-	if (itr == _propertyTable.end()){ printf("%s --\n",value);}
-	else printf("%s OK\n",value);
+	itr = _propertyTable.find(value);
 
-
-	//return itr->second;
+	if (itr!=_propertyTable.end()) return itr->second;
+	else return EdsUInt32(0xffffffff);
 	return NULL;
 }
-//map<string, double>::iterator p = semana.begin();
-//  while (p != semana.end() )
-//  {
-//    cout << setw(10) << p->first << setw(12) << p->second << endl;
-//    total += p->second;
-//    p ++;
-//  }
