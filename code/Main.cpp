@@ -34,7 +34,7 @@ tinyxml2::XMLDocument* CreateXMLDocument(std::string directory, std::string file
 void main(int argc, TCHAR *argv[])
 {
 	EdsUInt32 b;
-	DictionaryCanon d;	
+	DictionaryCanon d;
 	char* a = "30"; b = d.translate("SPEED",a);
 	a = "25"; b = d.translate("SPEED",a);
 	a = "20"; b = d.translate("SPEED",a);
@@ -62,8 +62,8 @@ void main(int argc, TCHAR *argv[])
 	a = "1/2000"; b = d.translate("SPEED",a);
 	a = "1/2500"; b = d.translate("SPEED",a);
 	a = "1/3000"; b = d.translate("SPEED",a);
-	a = "1/10000"; b = d.translate("SPEED",a);
-	a = "bulb"; b = d.translate("SPEED",a);
+	a = "Bulb"; b = d.translate("SPEED",a);
+	a = "bulba"; b = d.translate("SPEED",a);
 
 	std::string directory;
 	directory= "./cfg";
