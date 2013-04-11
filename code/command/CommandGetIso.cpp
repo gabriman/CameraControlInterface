@@ -7,11 +7,8 @@ CommandGetIso::CommandGetIso(Camera* camera1, tinyxml2::XMLDocument* doc, tinyxm
 using namespace tinyxml2;
 
 void CommandGetIso::execute(){
-	cout<<"Ejecuting getISO"<<endl;
 	char* value;
-	value="200"; //Valor de ejemplo mientras no este implementado
-	cout<<"Iso obtenido"<<endl;
-
+	camera->getProperty("ISO",&value);
 	ResponseMsg response(MSG_OK,value);
 	OutputWriter::WriteToFile(response,this->nodeOut);
 }

@@ -15,15 +15,14 @@ private:
 	bool isSDKLoaded;
 	std::map<EdsUInt32, const char *> _propertyTableISO;
 	DictionaryCanon dictionary;
-
 public:
 	CameraCanon();
 	void init();
 	void setProperty(string prop, const char * value);
+	void getProperty(string prop, char** value);
 	void operacion1();
 	void close();
 	void takePicture();
-
 private:
 	EdsError getFirstCamera(EdsCameraRef *camera);
 };

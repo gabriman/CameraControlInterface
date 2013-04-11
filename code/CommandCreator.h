@@ -10,6 +10,8 @@
 #include "command\CommandSetAperture.h"
 #include "command\CommandTakePicture.h"
 #include "command\CommandGetIso.h"
+#include "command\CommandGetSpeed.h"
+#include "command\CommandGetAperture.h"
 #include <iostream>
 #include <fstream>
 

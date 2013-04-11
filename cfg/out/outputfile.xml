@@ -2,7 +2,34 @@
     <get>
         <ISO>
             <code>0</code>
-            <message>200</message>
+            <message>1600</message>
+        </ISO>
+    </get>
+</command>
+
+<command>
+    <get>
+        <SPEED>
+            <code>0</code>
+            <message>5</message>
+        </SPEED>
+    </get>
+</command>
+
+<command>
+    <get>
+        <APERTURE>
+            <code>0</code>
+            <message>7.1</message>
+        </APERTURE>
+    </get>
+</command>
+
+<command>
+    <get>
+        <ISO>
+            <code>0</code>
+            <message>1600</message>
         </ISO>
     </get>
 </command>
@@ -11,16 +38,7 @@
     <get>
         <ISO>
             <code>0</code>
-            <message>200</message>
-        </ISO>
-    </get>
-</command>
-
-<command>
-    <get>
-        <ISO>
-            <code>0</code>
-            <message>200</message>
+            <message>1600</message>
         </ISO>
     </get>
 </command>

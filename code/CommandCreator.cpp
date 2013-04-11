@@ -113,9 +113,9 @@ Command* CommandCreator::createGetCommand(tinyxml2::XMLNode* node){
 	Command* comando = NULL;
 
 	if	(!strcmp(parameter,"ISO")) comando = new CommandGetIso(camera,docOut,child);
-	/*else if ( !strcmp(parameter,"SPEED")) comando = new CommandSetSpeed(camera,value);
-	else if ( !strcmp(parameter,"APERTURE")) comando = new CommandSetAperture(camera,value);
-*/
+	else if ( !strcmp(parameter,"SPEED")) comando = new CommandGetSpeed(camera,docOut,child);
+	else if ( !strcmp(parameter,"APERTURE")) comando = new CommandGetAperture(camera,docOut,child);
+
 	return comando;
 }
 

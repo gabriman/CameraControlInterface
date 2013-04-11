@@ -4,9 +4,6 @@
 
 #include "../camera/Camera.h"
 #include "../tinyxml2_lib/tinyxml2.h"
-#include "ResponseMsg.h"
-#include "../OutputWriter.h"
-
 
 class Command
 {

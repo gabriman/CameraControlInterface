@@ -6,19 +6,32 @@
       <ISO></ISO>
     </get>
   </command>
+
+  <command>
+    <get>
+      <SPEED>
+      </SPEED>
+    </get>
+  </command>
+
+  <command>
+    <get>
+      <APERTURE>
+      </APERTURE>
+  </get>
+  </command>
+
+  <command>
+    <set>
+      <ISO>1600</ISO>
+    </set>
+  </command>
   
   <command>
     <get>
       <ISO></ISO>
     </get>
   </command>
-  
-  <command>
-    <set>
-      <ISO>200</ISO>
-    </set>
-  </command>
-
 
   <command>
     <set>

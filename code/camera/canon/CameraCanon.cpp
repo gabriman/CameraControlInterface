@@ -101,7 +101,6 @@ EdsError CameraCanon::getFirstCamera(EdsCameraRef *camera)
 void CameraCanon::setProperty(string prop, const char * value)
 {
 	int propEds = 0;
-
 	if		(!prop.compare("ISO")) propEds = kEdsPropID_ISOSpeed;
 	else if (!prop.compare("SPEED")) propEds = kEdsPropID_Tv;
 	else if (!prop.compare("APERTURE")) propEds = kEdsPropID_Av;
@@ -109,6 +108,31 @@ void CameraCanon::setProperty(string prop, const char * value)
 	EdsUInt32 valueEds = dictionary.translate(prop,value);
 	EdsSetPropertyData(camera, propEds, 0 , sizeof(valueEds), &valueEds);
 }
+
+
+void CameraCanon::getProperty(string prop, char** value)
+{
+	int propEds = 0;
+	if		(!prop.compare("ISO")) propEds = kEdsPropID_ISOSpeed;
+	else if (!prop.compare("SPEED")) propEds = kEdsPropID_Tv;
+	else if (!prop.compare("APERTURE")) propEds = kEdsPropID_Av;
+
+	EdsError err = EDS_ERR_OK;
+	EdsDataType dataType;
+	EdsUInt32 dataSize;
+
+	EdsUInt32 edsValue;
+	err = EdsGetPropertySize(camera, propEds, 0 , &dataType, &dataSize);
+	if(err == EDS_ERR_OK)
+	{
+		err = EdsGetPropertyData(camera, propEds, 0 , dataSize, &edsValue);
+	}
+
+	const char * valueTranslate = dictionary.translate(prop,edsValue);
+	*value=(char*)malloc(sizeof(valueTranslate));
+	strcpy(*value,valueTranslate);
+	//return err;
+};
 
 void CameraCanon::takePicture()
 {

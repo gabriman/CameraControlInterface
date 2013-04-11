@@ -334,17 +334,15 @@ const char * DictionaryCanon::translate(string prop, EdsUInt32 value)
 {
 	std::map<EdsUInt32, const char*>::iterator itr;
 	std::map<EdsUInt32, const char*> _propertyTable;
-
-
 	if (!prop.compare("ISO")) {_propertyTable = _propertyTableISOEds;}
 	else if (!prop.compare("SPEED")) {_propertyTable = _propertyTableSpeedEds;}
 	else if (!prop.compare("APERTURE")) {_propertyTable = _propertyTableApertureEds;}
 
-	itr = _propertyTableISOEds.find(value);
-
-	if (itr!=_propertyTable.end()) return itr->second;
-	else return "unknown";
-	return NULL;
+	try{
+		itr = _propertyTable.find(value);
+		return itr->second;
+	}
+	catch(...) {return "unknown";}
 }
 
 //Fuction for inverse search in map
@@ -357,9 +355,16 @@ EdsUInt32 DictionaryCanon::translate(string prop, const char* value)
 	else if (!prop.compare("SPEED")) {_propertyTable = _propertyTableSpeedString;}
 	else if (!prop.compare("APERTURE")) {_propertyTable = _propertyTableApertureString;}
 
-	itr = _propertyTable.find(value);
+	try{
+		itr = _propertyTable.find(value);
+		return itr->second;
+	}
+	catch(...) {return EdsUInt32(0xffffffff);}
+	return NULL;
+
+	/*	itr = _propertyTable.find(value);
 
 	if (itr!=_propertyTable.end()) return itr->second;
 	else return EdsUInt32(0xffffffff);
-	return NULL;
-}
+	return NULL;*/
+	}
