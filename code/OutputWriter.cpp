@@ -2,7 +2,6 @@
 
 void OutputWriter::WriteToFile(ResponseMsg response, XMLNode* node){
 	//Searching root
-	
 	std:string path = CommandCreator::getPathOut();
 	tinyxml2::XMLDocument* doc = CommandCreator::getDocOut();
 
@@ -23,7 +22,7 @@ void OutputWriter::WriteToFile(ResponseMsg response, XMLNode* node){
 	messageElement->InsertEndChild(textMessage);
 
 	doc->InsertEndChild(root);
-	doc->SaveFile(path);
+	doc->SaveFile(path.c_str());
 }
 
 
