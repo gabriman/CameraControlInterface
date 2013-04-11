@@ -1,7 +1,11 @@
 #include "OutputWriter.h"
 
-void OutputWriter::WriteToFile(ResponseMsg response,tinyxml2::XMLDocument* doc, const char* path, XMLNode* node){
+void OutputWriter::WriteToFile(ResponseMsg response, XMLNode* node){
 	//Searching root
+	
+	std:string path = CommandCreator::getPathOut();
+	tinyxml2::XMLDocument* doc = CommandCreator::getDocOut();
+
 	XMLNode *root = node;
 	while(strcmp(root->Value(),"command")!=0)
 	{root=root->Parent();}
