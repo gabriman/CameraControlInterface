@@ -16,14 +16,17 @@
     <ClCompile Include="code\camera\nikon\CameraNikon.cpp" />
     <ClCompile Include="code\CommandCreator.cpp" />
     <ClCompile Include="code\command\Command.cpp" />
+    <ClCompile Include="code\command\CommandGetIso.cpp" />
     <ClCompile Include="code\command\CommandSetAperture.cpp" />
     <ClCompile Include="code\command\CommandSetIso.cpp" />
     <ClCompile Include="code\command\CommandSetSpeed.cpp" />
     <ClCompile Include="code\command\CommandClose.cpp" />
     <ClCompile Include="code\command\CommandInit.cpp" />
     <ClCompile Include="code\command\CommandTakePicture.cpp" />
+    <ClCompile Include="code\command\ResponseMsg.cpp" />
     <ClCompile Include="code\file_monitor\FileMonitor.cpp" />
     <ClCompile Include="code\Main.cpp" />
+    <ClCompile Include="code\OutputWriter.cpp" />
     <ClCompile Include="code\tinyxml2_lib\tinyxml2.cpp" />
     <ClCompile Include="code\utils\Utils.cpp" />
   </ItemGroup>
@@ -34,13 +37,16 @@
     <ClInclude Include="code\camera\nikon\CameraNikon.h" />
     <ClInclude Include="code\CommandCreator.h" />
     <ClInclude Include="code\command\Command.h" />
+    <ClInclude Include="code\command\CommandGetIso.h" />
     <ClInclude Include="code\command\CommandSetAperture.h" />
     <ClInclude Include="code\command\CommandSetIso.h" />
     <ClInclude Include="code\command\CommandSetSpeed.h" />
     <ClInclude Include="code\command\CommandClose.h" />
     <ClInclude Include="code\command\CommandInit.h" />
     <ClInclude Include="code\command\CommandTakePicture.h" />
+    <ClInclude Include="code\command\ResponseMsg.h" />
     <ClInclude Include="code\file_monitor\FileMonitor.h" />
+    <ClInclude Include="code\OutputWriter.h" />
     <ClInclude Include="code\tinyxml2_lib\tinyxml2.h" />
     <ClInclude Include="code\utils\Utils.h" />
   </ItemGroup>
@@ -50,6 +56,7 @@
     </None>
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagram3.cd" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{05B5BE19-5084-41A8-9D41-9B3D98211DB9}</ProjectGuid>

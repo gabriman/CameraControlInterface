@@ -1,6 +1,18 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <commands>
 
+  <command>
+    <get>
+      <ISO></ISO>
+    </get>
+  </command>
+  
+  <command>
+    <get>
+      <ISO></ISO>
+    </get>
+  </command>
+  
   <command>
     <set>
       <ISO>200</ISO>
@@ -19,10 +31,11 @@
       <APERTURE>7.1</APERTURE>
     </set>
   </command>
-  
-  
+
   <command>
-    <get>ISO</get>
+    <get>
+      <ISO></ISO>
+    </get>
   </command>
 
   <command>

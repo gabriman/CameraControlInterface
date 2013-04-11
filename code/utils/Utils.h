@@ -13,5 +13,6 @@ class Utils {
 public: 
 	Utils() {}; //Constructor
 	static TCHAR* stringToTCHAR(std::string str);
+	static string convertInt(int number);
 };
 #endif /* Utils_h */

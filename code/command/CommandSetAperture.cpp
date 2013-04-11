@@ -3,7 +3,7 @@
 
 CommandSetAperture::CommandSetAperture(Camera* camera1,const char* value):Command(camera1){
 	/*newValue=value;*/
-	strcpy(newValue,value);
+	strcpy_s(newValue,value);
 }
 
 void CommandSetAperture::execute(){

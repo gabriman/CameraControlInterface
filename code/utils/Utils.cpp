@@ -1,5 +1,6 @@
 #include "Utils.h"
 #include "EDSDKTypes.h"
+#include <sstream>
 
 using namespace std;
 
@@ -11,4 +12,11 @@ TCHAR* Utils::stringToTCHAR(std::string str){
 	//sizeof(TCHAR)==sizeof(char) may not be true:
 	std::copy(str.begin(),str.end(),param);
 	return param;
+}
+
+string Utils::convertInt(int number)
+{
+   std::stringstream ss;//create a stringstream
+   ss << number;//add number to the stream
+   return ss.str();//return a string with the contents of the stream
 }

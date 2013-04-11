@@ -9,6 +9,9 @@
 #include "command\CommandSetSpeed.h"
 #include "command\CommandSetAperture.h"
 #include "command\CommandTakePicture.h"
+#include "command\CommandGetIso.h"
+#include <iostream>
+#include <fstream>
 
 using namespace tinyxml2;
 
@@ -17,14 +20,25 @@ class CommandCreator
 {
 public:
 	Camera* camera;
+private:
+	static std::string directoryIn;
+	static std::string directoryOut;
+	static std::string fileIn;
+	static std::string fileOut;
+	static tinyxml2::XMLDocument* docIn;
+	static tinyxml2::XMLDocument* docOut;
 
 public:
-	CommandCreator(Camera* camera1);
-	list<Command*> CreateCommandList(tinyxml2::XMLDocument* doc);
+	CommandCreator(Camera* camera1, std::string dirIn, std::string dirOut, std::string fIn, std::string fOut);
+	list<Command*> CreateCommandList();
+	static tinyxml2::XMLDocument* getDocOut();
+	static std::string getPathOut();
 private:
+	void loadXMLFromFiles();
 	Command* createSetCommand(XMLNode* node);
-	void createGetCommand(XMLNode* node);
+	Command* createGetCommand(XMLNode* node);
 	Command* createActionCommand(XMLNode* node);
+	tinyxml2::XMLDocument* CreateXMLDocument(std::string directory, std::string file, bool out = false);
 };
 
 #endif /* CommandCreator_h */

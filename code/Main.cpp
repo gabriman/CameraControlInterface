@@ -1,6 +1,5 @@
 //Prueba que realiza la escucha de modificacion de directorio
 
-#include <iostream>
 #include <windows.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -16,24 +15,11 @@
 #include "tinyxml2_lib\tinyxml2.h"
 #include "camera\canon\dictionary\DictionaryCanon.h"
 
-
 using namespace std;
-
-//XMLDocument
-tinyxml2::XMLDocument* CreateXMLDocument(std::string directory, std::string file){
-	std::string completePath = directory.append("/");
-	completePath = completePath.append(file);
-	cout<<completePath.c_str()<<endl;
-
-	tinyxml2::XMLDocument* doc = new tinyxml2::XMLDocument;
-	doc->LoadFile(completePath.data());
-
-	return doc;
-}
 
 void main(int argc, TCHAR *argv[])
 {
-	EdsUInt32 b;
+	/*	EdsUInt32 b;
 	DictionaryCanon d;
 	char* a = "30"; b = d.translate("SPEED",a);
 	a = "25"; b = d.translate("SPEED",a);
@@ -63,41 +49,30 @@ void main(int argc, TCHAR *argv[])
 	a = "1/2500"; b = d.translate("SPEED",a);
 	a = "1/3000"; b = d.translate("SPEED",a);
 	a = "Bulb"; b = d.translate("SPEED",a);
-	a = "bulba"; b = d.translate("SPEED",a);
+	a = "bulba"; b = d.translate("SPEED",a);*/
 
-	std::string directory;
-	directory= "./cfg";
-	std::string file= "inputfile.xml";
+	std::string directoryIn,directoryOut;
+	directoryIn = "./cfg/in";
+	directoryOut = "./cfg/out";
+	std::string fileIn= "inputfile.xml";
+	std::string fileOut= "outputfile.xml";
 
-	FileMonitor file_monitor(directory);
+	FileMonitor file_monitor(directoryIn);
 
+	//Camera initialitation
 	Camera* cameraCanon1 = new CameraCanon();
-	Command* comando1 = new CommandInit(cameraCanon1);
-	comando1->execute();
+	Command* comandoinit = new CommandInit(cameraCanon1);
+	comandoinit->execute();
 
-
-	CommandCreator comandCreator(cameraCanon1);
+	CommandCreator commandCreator(cameraCanon1,directoryIn,directoryOut,fileIn,fileOut);
 	while(true){
-		file_monitor.WatchDirectoryOneChange();
-
+		file_monitor.WatchDirectoryOneChange();  //Waiting until change
 		//Try to create a XMLDocument from file
-		tinyxml2::XMLDocument* docXML = CreateXMLDocument(directory,file);
-		if (docXML->Error()==true){
-			cout<<"Error opening "<<file.data()<<" file"<<endl;
-			return;
-		}
-		else cout<<"File "<<file.data()<<" opened OK "<<endl;
 
-		list<Command*> commandsList = comandCreator.CreateCommandList(docXML);
+		list<Command*> commandsList = commandCreator.CreateCommandList();
 
 		for (list<Command*>::iterator i = commandsList.begin(); i != commandsList.end(); i++)
-		{
 			(*i)->execute();
-		}
-		//comando->execute();
-		//Sleep(1000);
 	}
-
-	Command* comando2 = new CommandClose(cameraCanon1);
-
+	Command* comandoclose = new CommandClose(cameraCanon1);
 }
