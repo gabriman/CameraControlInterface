@@ -7,8 +7,6 @@ CommandGetIso::CommandGetIso(Camera* camera1, tinyxml2::XMLDocument* doc, tinyxm
 using namespace tinyxml2;
 
 void CommandGetIso::execute(){
-	char* value;
-	camera->getProperty("ISO",&value);
-	ResponseMsg response(MSG_OK,value);
+	ResponseMsg response = camera->getProperty("ISO");
 	OutputWriter::WriteToFile(response,this->nodeOut);
 }

@@ -2,15 +2,15 @@
 <commands>
 
   <command>
-    <get>
+    <get1>
       <ISO></ISO>
-    </get>
+    </get1>
   </command>
 
   <command>
     <get>
-      <SPEED>
-      </SPEED>
+      <SPEED1>
+      </SPEED1>
     </get>
   </command>
 
@@ -23,19 +23,13 @@
 
   <command>
     <set>
-      <ISO>1600</ISO>
+      <ISO>220</ISO>
     </set>
   </command>
   
   <command>
-    <get>
-      <ISO></ISO>
-    </get>
-  </command>
-
-  <command>
     <set>
-      <SPEED>5</SPEED>
+      <SPEED>1/400</SPEED>
     </set>
   </command>
   
@@ -46,13 +40,9 @@
   </command>
 
   <command>
-    <get>
-      <ISO></ISO>
-    </get>
-  </command>
-
-  <command>
-    <action>take</action>
+    <action>
+		<take></take>
+	</action>
   </command>
   
 </commands>

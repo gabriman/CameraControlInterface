@@ -12,6 +12,7 @@
 #include "command\CommandGetIso.h"
 #include "command\CommandGetSpeed.h"
 #include "command\CommandGetAperture.h"
+#include "command\CommandUnknown.h"
 #include <iostream>
 #include <fstream>
 
@@ -40,6 +41,7 @@ private:
 	Command* createSetCommand(XMLNode* node);
 	Command* createGetCommand(XMLNode* node);
 	Command* createActionCommand(XMLNode* node);
+	Command* createUnknownCommand(XMLNode* node);
 	tinyxml2::XMLDocument* CreateXMLDocument(std::string directory, std::string file, bool out = false);
 };
 

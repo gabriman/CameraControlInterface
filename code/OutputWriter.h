@@ -13,6 +13,8 @@ class OutputWriter
 {
 public:
 	static void WriteToFile(ResponseMsg response, tinyxml2::XMLNode* node);
+	static void WriteToFile(ResponseMsg response, tinyxml2::XMLNode* node, const char* value);
+	static void WriteCommandNotFormat();
 };
 
 #endif /* OutputWriter_h */

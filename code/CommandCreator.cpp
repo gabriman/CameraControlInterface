@@ -26,6 +26,37 @@ std::string CommandCreator::getPathOut(){
 	return completePath;
 };
 
+list<Command*> CommandCreator::CreateCommandList(){
+	loadXMLFromFiles();
+	list<Command*> commandsList; //List for append commands
+	XMLNode* commands = docIn->FirstChildElement("commands");
+	XMLNode* command = commands->FirstChildElement("command");
+
+	//Iterate in "command" tags. command have a "command" tag
+	/* We only can have inside <command>:
+	<action> for describe a action to do like "shoot"
+	<set> for set a parameter
+	<get for get a parameter>
+	*/
+	do{ 
+		XMLNode* nodeCommand = command->FirstChild();
+		string value = nodeCommand->Value();
+		cout<<"VALUE "<<value.c_str()<<endl;
+		if (!value.compare("action")){
+			commandsList.push_back(createActionCommand(nodeCommand));
+		}
+		else if (!value.compare("set")){
+			commandsList.push_back(createSetCommand(nodeCommand));
+		}
+		else if (!value.compare("get")){
+			commandsList.push_back(createGetCommand(nodeCommand));
+		}
+		else commandsList.push_back(createUnknownCommand(nodeCommand));
+	}while ((command=command->NextSibling())!=NULL);
+
+	return commandsList;
+}
+
 //XMLDocument
 tinyxml2::XMLDocument* CommandCreator::CreateXMLDocument(std::string directory, std::string file, bool out){
 	std::string completePath = directory.append("/");
@@ -52,37 +83,6 @@ void CommandCreator::loadXMLFromFiles(){
 	
 };
 
-list<Command*> CommandCreator::CreateCommandList(){
-	loadXMLFromFiles();
-
-	list<Command*> commandsList; //List for append commands
-	XMLNode* commands = docIn->FirstChildElement( "commands");
-	XMLNode* command = commands->FirstChildElement("command");
-
-	//Iterate in "command" tags. command have a "command" tag
-	/* We only can have inside <command>:
-	<action> for describe a action to do like "shoot"
-	<set> for set a parameter
-	<get for get a parameter>
-	*/
-	do{ 
-		XMLNode* nodeCommand = command->FirstChild();
-		string value = nodeCommand->Value();
-		cout<<"VALUE "<<value.c_str()<<endl;
-		if (!value.compare("action")){
-			commandsList.push_back(createActionCommand(nodeCommand));
-		}
-		else if (!value.compare("set")){
-			commandsList.push_back(createSetCommand(nodeCommand));
-		}
-		else if (!value.compare("get")){
-			commandsList.push_back(createGetCommand(nodeCommand));
-		}
-	}while ((command=command->NextSibling())!=NULL);
-
-	return commandsList;
-}
-
 //We use here a list<Command> instead Command because we assume that several parameters inside <set> are allowed
 //TODO: Hacer que funcione para varios set o sino devolver in command normal
 Command* CommandCreator::createSetCommand(tinyxml2::XMLNode* node){
@@ -95,11 +95,11 @@ Command* CommandCreator::createSetCommand(tinyxml2::XMLNode* node){
 
 	Command* comando = NULL;
 
-	if		(!strcmp(parameter,"ISO")) comando = new CommandSetIso(camera,value);
-	else if ( !strcmp(parameter,"SPEED")) comando = new CommandSetSpeed(camera,value);
-	else if ( !strcmp(parameter,"APERTURE")) comando = new CommandSetAperture(camera,value);
+	if		(!strcmp(parameter,"ISO")) comando = new CommandSetIso(camera,value,docOut,child);
+	else if ( !strcmp(parameter,"SPEED")) comando = new CommandSetSpeed(camera,value,docOut,child);
+	else if ( !strcmp(parameter,"APERTURE")) comando = new CommandSetAperture(camera,value,docOut,child);
+	else return comando = new CommandUnknown(camera,docOut,child);
 
-	//	comando->execute();
 	return comando;
 }
 
@@ -115,19 +115,28 @@ Command* CommandCreator::createGetCommand(tinyxml2::XMLNode* node){
 	if	(!strcmp(parameter,"ISO")) comando = new CommandGetIso(camera,docOut,child);
 	else if ( !strcmp(parameter,"SPEED")) comando = new CommandGetSpeed(camera,docOut,child);
 	else if ( !strcmp(parameter,"APERTURE")) comando = new CommandGetAperture(camera,docOut,child);
+	else return comando = new CommandUnknown(camera,docOut,child);
 
 	return comando;
 }
 
 Command* CommandCreator::createActionCommand(tinyxml2::XMLNode* node){
-	//Command c;
-	cout<<"action detected"<<endl;
+	XMLNode* child;
+	child = node->FirstChild();
+
+	const char* parameter = child->Value();
 	Command* comando = NULL;
 
-	const char* value = (const char*)node->FirstChild()->Value();
-
-	if (!strcmp(value,"take")) comando = new CommandTakePicture(camera);
+	if (!strcmp(parameter,"take")) comando = new CommandTakePicture(camera,docOut,child);
+	else return comando = new CommandUnknown(camera,docOut,child);
 
 	return comando;
+}
 
+Command* CommandCreator::createUnknownCommand(tinyxml2::XMLNode* node){
+	XMLNode* child;
+	child = node->FirstChild();
+	Command* comando = NULL;
+	comando = new CommandUnknown(camera,docOut,child);
+	return comando;
 }

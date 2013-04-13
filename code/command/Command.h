@@ -4,7 +4,6 @@
 
 #include "../camera/Camera.h"
 #include "../tinyxml2_lib/tinyxml2.h"
-
 class Command
 {
 protected:

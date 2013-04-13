@@ -75,6 +75,9 @@
     <ClCompile Include="code\command\CommandGetAperture.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
+    <ClCompile Include="code\command\CommandUnknown.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="code\file_monitor\FileMonitor.h">
@@ -135,6 +138,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="code\command\CommandGetAperture.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="code\command\CommandUnknown.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

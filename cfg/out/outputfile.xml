@@ -1,18 +1,18 @@
 <command>
-    <get>
+    <get1>
         <ISO>
-            <code>0</code>
-            <message>1600</message>
+            <code>-6</code>
+            <message>Command with incorrect format</message>
         </ISO>
-    </get>
+    </get1>
 </command>
 
 <command>
     <get>
-        <SPEED>
-            <code>0</code>
-            <message>5</message>
-        </SPEED>
+        <SPEED1>
+            <code>-6</code>
+            <message>Command with incorrect format</message>
+        </SPEED1>
     </get>
 </command>
 
@@ -26,19 +26,40 @@
 </command>
 
 <command>
-    <get>
+    <set>
         <ISO>
-            <code>0</code>
-            <message>1600</message>
+            <code>-4</code>
+            <message>Value not suported</message>
+            <value>220</value>
         </ISO>
-    </get>
+    </set>
 </command>
 
 <command>
-    <get>
-        <ISO>
+    <set>
+        <SPEED>
             <code>0</code>
-            <message>1600</message>
-        </ISO>
-    </get>
+            <message></message>
+            <value>1/400</value>
+        </SPEED>
+    </set>
+</command>
+
+<command>
+    <set>
+        <APERTURE>
+            <code>0</code>
+            <message></message>
+            <value>7.1</value>
+        </APERTURE>
+    </set>
+</command>
+
+<command>
+    <action>
+        <take>
+            <code>-1</code>
+            <message>Error taking photo</message>
+        </take>
+    </action>
 </command>

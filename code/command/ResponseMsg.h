@@ -1,8 +1,6 @@
 #ifndef ResponseMsg_h
 #define ResponseMsg_h
 
-#define MSG_OK 0
-#define MSG_ERROR -1
 using namespace std;
 
 class ResponseMsg

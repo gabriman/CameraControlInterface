@@ -355,16 +355,14 @@ EdsUInt32 DictionaryCanon::translate(string prop, const char* value)
 	else if (!prop.compare("SPEED")) {_propertyTable = _propertyTableSpeedString;}
 	else if (!prop.compare("APERTURE")) {_propertyTable = _propertyTableApertureString;}
 
-	try{
+	/*try{
 		itr = _propertyTable.find(value);
 		return itr->second;
 	}
 	catch(...) {return EdsUInt32(0xffffffff);}
-	return NULL;
+	return NULL;*/
 
-	/*	itr = _propertyTable.find(value);
-
+	itr = _propertyTable.find(value);
 	if (itr!=_propertyTable.end()) return itr->second;
 	else return EdsUInt32(0xffffffff);
-	return NULL;*/
 	}

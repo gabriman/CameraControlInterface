@@ -17,12 +17,11 @@ private:
 	DictionaryCanon dictionary;
 public:
 	CameraCanon();
-	void init();
-	void setProperty(string prop, const char * value);
-	void getProperty(string prop, char** value);
-	void operacion1();
-	void close();
-	void takePicture();
+	ResponseMsg init();
+	ResponseMsg setProperty(string prop, const char * value);
+	ResponseMsg getProperty(string prop);
+	ResponseMsg close();
+	ResponseMsg takePicture();
 private:
 	EdsError getFirstCamera(EdsCameraRef *camera);
 };

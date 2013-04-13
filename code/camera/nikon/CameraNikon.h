@@ -7,9 +7,9 @@ class CameraNikon: public Camera
 {
 public:
 	CameraNikon();
-	void init();
-	void operacion1();
-	void close();
+	ResponseMsg init();
+	ResponseMsg operacion1();
+	ResponseMsg close();
 };
 
 #endif /* CameraNikon_h */

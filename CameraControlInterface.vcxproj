@@ -25,6 +25,7 @@
     <ClCompile Include="code\command\CommandClose.cpp" />
     <ClCompile Include="code\command\CommandInit.cpp" />
     <ClCompile Include="code\command\CommandTakePicture.cpp" />
+    <ClCompile Include="code\command\CommandUnknown.cpp" />
     <ClCompile Include="code\command\ResponseMsg.cpp" />
     <ClCompile Include="code\file_monitor\FileMonitor.cpp" />
     <ClCompile Include="code\Main.cpp" />
@@ -48,6 +49,7 @@
     <ClInclude Include="code\command\CommandClose.h" />
     <ClInclude Include="code\command\CommandInit.h" />
     <ClInclude Include="code\command\CommandTakePicture.h" />
+    <ClInclude Include="code\command\CommandUnknown.h" />
     <ClInclude Include="code\command\ResponseMsg.h" />
     <ClInclude Include="code\file_monitor\FileMonitor.h" />
     <ClInclude Include="code\OutputWriter.h" />

@@ -4,18 +4,20 @@ CameraNikon::CameraNikon(){
 
 }
 
-void CameraNikon::init(){
+ResponseMsg CameraNikon::init(){
 
 	cout<<"Camera inicializada NIKON"<<endl;
-
+	return ResponseMsg(CAMERROR_ERROR_UNDEFINED,"ERROR");
 }
 
-void CameraNikon::operacion1(){
+ResponseMsg CameraNikon::operacion1(){
 
 	cout<<"Haciendo operacion 1  NIKON"<<endl;
+	return ResponseMsg(CAMERROR_ERROR_UNDEFINED,"ERROR");
 }
 
-void CameraNikon::close(){
+ResponseMsg CameraNikon::close(){
 
 	cout<<"Haciendo  close  NIKON"<<endl;
+	return ResponseMsg(CAMERROR_ERROR_UNDEFINED,"ERROR");
 }
