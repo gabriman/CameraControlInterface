@@ -1,15 +1,16 @@
 #ifndef ResponseMsg_h
 #define ResponseMsg_h
+#include <string>
 
 using namespace std;
-
 class ResponseMsg
 {
 private:
 	int code;	//OK, ERROR,...
-	const char* message;
+	char* message;
 public:
-	ResponseMsg(int code, const char* message);
+	ResponseMsg(int code, char* message);
+	ResponseMsg(int code, string message);
 	int getCode();
 	const char* getMessage();
 };

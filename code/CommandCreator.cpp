@@ -4,16 +4,16 @@
 //Static fields declaration
 std::string CommandCreator::directoryIn;
 std::string CommandCreator::directoryOut;
-std::string CommandCreator::fileIn;
-std::string CommandCreator::fileOut;
+std::string CommandCreator::pathFileIn;
+std::string CommandCreator::pathFileOut;
 tinyxml2::XMLDocument* CommandCreator::docIn;
 tinyxml2::XMLDocument* CommandCreator::docOut;
 
 CommandCreator::CommandCreator(Camera* camera1, std::string dirIn, std::string dirOut, std::string fIn, std::string fOut):camera(camera1){
 	this->directoryIn=dirIn;
 	this->directoryOut=dirOut;
-	this->fileIn=fIn;
-	this->fileOut=fOut;
+	this->pathFileIn=fIn;
+	this->pathFileOut=fOut;
 }
 
 tinyxml2::XMLDocument* CommandCreator::getDocOut() {
@@ -22,7 +22,7 @@ tinyxml2::XMLDocument* CommandCreator::getDocOut() {
 
 std::string CommandCreator::getPathOut(){
 	std::string completePath = CommandCreator::directoryOut.append("/");
-	completePath = completePath.append(CommandCreator::fileOut);
+	completePath = completePath.append(CommandCreator::pathFileOut);
 	return completePath;
 };
 
@@ -51,6 +51,9 @@ list<Command*> CommandCreator::CreateCommandList(){
 		else if (!value.compare("get")){
 			commandsList.push_back(createGetCommand(nodeCommand));
 		}
+		else if (!value.compare("getlist")){
+			commandsList.push_back(createGetListCommand(nodeCommand));
+		}
 		else commandsList.push_back(createUnknownCommand(nodeCommand));
 	}while ((command=command->NextSibling())!=NULL);
 
@@ -72,10 +75,10 @@ tinyxml2::XMLDocument* CommandCreator::CreateXMLDocument(std::string directory, 
 }
 
 void CommandCreator::loadXMLFromFiles(){
-	tinyxml2::XMLDocument* docXML_In = CreateXMLDocument(this->directoryIn,this->fileIn);
-	tinyxml2::XMLDocument* docXML_Out = CreateXMLDocument(this->directoryOut,this->fileOut,true);
+	tinyxml2::XMLDocument* docXML_In = CreateXMLDocument(this->directoryIn,this->pathFileIn);
+	tinyxml2::XMLDocument* docXML_Out = CreateXMLDocument(this->directoryOut,this->pathFileOut,true);
 	if (docXML_In->Error()==true){
-		cout<<"Error opening "<<fileIn.data()<<" file"<<endl;
+		cout<<"Error opening "<<pathFileIn.data()<<" file"<<endl;
 		return;
 	}
 	this->docIn=docXML_In;
@@ -95,10 +98,10 @@ Command* CommandCreator::createSetCommand(tinyxml2::XMLNode* node){
 
 	Command* comando = NULL;
 
-	if		(!strcmp(parameter,"ISO")) comando = new CommandSetIso(camera,value,docOut,child);
-	else if ( !strcmp(parameter,"SPEED")) comando = new CommandSetSpeed(camera,value,docOut,child);
-	else if ( !strcmp(parameter,"APERTURE")) comando = new CommandSetAperture(camera,value,docOut,child);
-	else return comando = new CommandUnknown(camera,docOut,child);
+	if		(!strcmp(parameter,"ISO")) comando = new CommandSetIso(camera,value,child);
+	else if ( !strcmp(parameter,"SPEED")) comando = new CommandSetSpeed(camera,value,child);
+	else if ( !strcmp(parameter,"APERTURE")) comando = new CommandSetAperture(camera,value,child);
+	else return comando = new CommandUnknown(camera,child);
 
 	return comando;
 }
@@ -112,13 +115,30 @@ Command* CommandCreator::createGetCommand(tinyxml2::XMLNode* node){
 	const char* parameter = child->Value();
 	Command* comando = NULL;
 
-	if	(!strcmp(parameter,"ISO")) comando = new CommandGetIso(camera,docOut,child);
-	else if ( !strcmp(parameter,"SPEED")) comando = new CommandGetSpeed(camera,docOut,child);
-	else if ( !strcmp(parameter,"APERTURE")) comando = new CommandGetAperture(camera,docOut,child);
-	else return comando = new CommandUnknown(camera,docOut,child);
+	if	(!strcmp(parameter,"ISO")) comando = new CommandGetIso(camera,child);
+	else if ( !strcmp(parameter,"SPEED")) comando = new CommandGetSpeed(camera,child);
+	else if ( !strcmp(parameter,"APERTURE")) comando = new CommandGetAperture(camera,child);
+	else return comando = new CommandUnknown(camera,child);
 
 	return comando;
 }
+
+Command* CommandCreator::createGetListCommand(tinyxml2::XMLNode* node){
+	list<Command> command;
+	XMLNode* child;
+	child = node->FirstChild();
+
+	const char* parameter = child->Value();
+	Command* comando = NULL;
+
+	if	(!strcmp(parameter,"ISO")) comando = new CommandGetListIso(camera,child);
+	else if ( !strcmp(parameter,"SPEED")) comando = new CommandGetListSpeed(camera,child);
+	else if ( !strcmp(parameter,"APERTURE")) comando = new CommandGetListAperture(camera,child);
+	else return comando = new CommandUnknown(camera,child);
+
+	return comando;
+}
+
 
 Command* CommandCreator::createActionCommand(tinyxml2::XMLNode* node){
 	XMLNode* child;
@@ -127,8 +147,8 @@ Command* CommandCreator::createActionCommand(tinyxml2::XMLNode* node){
 	const char* parameter = child->Value();
 	Command* comando = NULL;
 
-	if (!strcmp(parameter,"take")) comando = new CommandTakePicture(camera,docOut,child);
-	else return comando = new CommandUnknown(camera,docOut,child);
+	if (!strcmp(parameter,"take")) comando = new CommandTakePicture(camera,child);
+	else return comando = new CommandUnknown(camera,child);
 
 	return comando;
 }
@@ -137,6 +157,6 @@ Command* CommandCreator::createUnknownCommand(tinyxml2::XMLNode* node){
 	XMLNode* child;
 	child = node->FirstChild();
 	Command* comando = NULL;
-	comando = new CommandUnknown(camera,docOut,child);
+	comando = new CommandUnknown(camera,child);
 	return comando;
 }

@@ -2,7 +2,7 @@
 
 CommandGetIso::CommandGetIso(Camera* camera1):Command(camera1){}
 
-CommandGetIso::CommandGetIso(Camera* camera1, tinyxml2::XMLDocument* doc, tinyxml2::XMLNode* node):Command(camera1,doc,node){}
+CommandGetIso::CommandGetIso(Camera* camera1, tinyxml2::XMLNode* node):Command(camera1,node){}
 
 using namespace tinyxml2;
 

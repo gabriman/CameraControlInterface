@@ -13,6 +13,9 @@
 #include "command\CommandGetSpeed.h"
 #include "command\CommandGetAperture.h"
 #include "command\CommandUnknown.h"
+#include "command\CommandGetListIso.h"
+#include "command\CommandGetListAperture.h"
+#include "command\CommandGetListSpeed.h"
 #include <iostream>
 #include <fstream>
 
@@ -26,8 +29,8 @@ public:
 private:
 	static std::string directoryIn;
 	static std::string directoryOut;
-	static std::string fileIn;
-	static std::string fileOut;
+	static std::string pathFileIn;
+	static std::string pathFileOut;
 	static tinyxml2::XMLDocument* docIn;
 	static tinyxml2::XMLDocument* docOut;
 
@@ -40,6 +43,7 @@ private:
 	void loadXMLFromFiles();
 	Command* createSetCommand(XMLNode* node);
 	Command* createGetCommand(XMLNode* node);
+	Command* createGetListCommand(XMLNode* node);
 	Command* createActionCommand(XMLNode* node);
 	Command* createUnknownCommand(XMLNode* node);
 	tinyxml2::XMLDocument* CreateXMLDocument(std::string directory, std::string file, bool out = false);

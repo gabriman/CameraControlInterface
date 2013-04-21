@@ -1,7 +1,7 @@
 #include "CommandSetAperture.h"
 #include "../camera/Camera.h"
 
-CommandSetAperture::CommandSetAperture(Camera* camera1,const char* value, tinyxml2::XMLDocument* doc, tinyxml2::XMLNode* node):Command(camera1,doc,node){
+CommandSetAperture::CommandSetAperture(Camera* camera1,const char* value, tinyxml2::XMLNode* node):Command(camera1,node){
 	/*newValue=value;*/
 	strcpy_s(newValue,value);
 }

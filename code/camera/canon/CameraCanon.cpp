@@ -95,6 +95,43 @@ ResponseMsg CameraCanon::getProperty(string prop)
 	return ResponseMsg(CAMERROR_OK,valueTranslate);
 };
 
+ResponseMsg CameraCanon::getGetList(string prop)
+{
+	int propEds = 0;
+	if		(!prop.compare("ISO")) propEds = kEdsPropID_ISOSpeed;
+	else if (!prop.compare("SPEED")) propEds = kEdsPropID_Tv;
+	else if (!prop.compare("APERTURE")) propEds = kEdsPropID_Av;
+	else return ResponseMsg(CAMERROR_PROP_UNAVALIABLE,"Property not supported");
+
+	EdsError err = EDS_ERR_OK;
+	EdsPropertyDesc *propDesc = new EdsPropertyDesc;
+
+	if(err == EDS_ERR_OK)
+	{
+		err = EdsGetPropertyDesc(camera, propEds, propDesc);
+	}
+	else return ResponseMsg(CAMERROR_VALUE_UNKNOWN,"Value unknown");
+	
+	if (err == EDS_ERR_OK){
+		string stringResponse="";
+		char * valueTranslate;
+		for (int i=0;i<propDesc->numElements;i++){
+			valueTranslate = (char *)dictionary.translate(prop,propDesc->propDesc[i]);
+			stringResponse.append(valueTranslate);
+			stringResponse.append(";");
+		}
+		return ResponseMsg(CAMERROR_OK,stringResponse);
+	}
+	else if (err == EDS_ERR_INVALID_PARAMETER)
+		return ResponseMsg(CAMERROR_PROP_UNAVALIABLE,"Property not supported");
+
+	//const char * valueTranslate = dictionary.translate(prop,edsValue);
+	//if (valueTranslate=="unknown") return ResponseMsg(CAMERROR_VALUE_UNKNOWN,"Value unknown");
+	
+	return ResponseMsg(CAMERROR_ERROR_UNDEFINED,"Error");
+};
+
+
 ResponseMsg CameraCanon::takePicture()
 {
 	err = EdsSendCommand(camera , kEdsCameraCommand_TakePicture , 0);

@@ -11,7 +11,7 @@
 class CommandUnknown : public Command
 {
 public: 
-	CommandUnknown (Camera* camera1, tinyxml2::XMLDocument* doc, tinyxml2::XMLNode* node);
+	CommandUnknown (Camera* camera1, tinyxml2::XMLNode* node);
 	virtual void execute();
 };
 

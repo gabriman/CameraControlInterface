@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <commands>
-
+  
+  <command>
+    <getlist>
+      <ISO></ISO>
+    </getlist>
+  </command>
+  
+  <command>
+    <getlist>
+      <APERTURE></APERTURE>
+    </getlist>
+  </command>
+  
+  <command>
+    <getlist>
+      <SPEED></SPEED>
+    </getlist>
+  </command>
+  
   <command>
     <get1>
       <ISO></ISO>

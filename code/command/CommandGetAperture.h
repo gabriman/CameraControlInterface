@@ -12,7 +12,7 @@ class CommandGetAperture : public Command
 {
 public: 
 	CommandGetAperture (Camera* camera1);
-	CommandGetAperture (Camera* camera1, tinyxml2::XMLDocument* doc, tinyxml2::XMLNode* node);
+	CommandGetAperture (Camera* camera1, tinyxml2::XMLNode* node);
 	virtual void execute();
 };
 

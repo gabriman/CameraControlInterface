@@ -2,7 +2,7 @@
 
 CommandGetAperture::CommandGetAperture(Camera* camera1):Command(camera1){}
 
-CommandGetAperture::CommandGetAperture(Camera* camera1, tinyxml2::XMLDocument* doc, tinyxml2::XMLNode* node):Command(camera1,doc,node){}
+CommandGetAperture::CommandGetAperture(Camera* camera1, tinyxml2::XMLNode* node):Command(camera1,node){}
 
 using namespace tinyxml2;
 

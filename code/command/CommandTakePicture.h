@@ -11,7 +11,7 @@
 class CommandTakePicture : public Command
 {
 public: 
-	CommandTakePicture (Camera* camera1, tinyxml2::XMLDocument* doc, tinyxml2::XMLNode* node);
+	CommandTakePicture (Camera* camera1, tinyxml2::XMLNode* node);
 	virtual void execute();
 };
 

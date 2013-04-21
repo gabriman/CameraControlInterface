@@ -20,6 +20,7 @@ public:
 	ResponseMsg init();
 	ResponseMsg setProperty(string prop, const char * value);
 	ResponseMsg getProperty(string prop);
+	ResponseMsg getGetList(string prop);
 	ResponseMsg close();
 	ResponseMsg takePicture();
 private:

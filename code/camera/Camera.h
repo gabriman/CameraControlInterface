@@ -25,6 +25,7 @@ public:
 	virtual ResponseMsg close(){return ResponseMsg(CAMERROR_ERROR_UNDEFINED,"ERROR");};
 	virtual ResponseMsg setProperty(string prop, const char * value){return ResponseMsg(CAMERROR_ERROR_UNDEFINED,"ERROR");};
 	virtual ResponseMsg getProperty(string prop){return ResponseMsg(CAMERROR_ERROR_UNDEFINED,"ERROR");};
+	virtual ResponseMsg getGetList(string prop){return ResponseMsg(CAMERROR_ERROR_UNDEFINED,"ERROR");};
 	virtual ResponseMsg takePicture(){return ResponseMsg(CAMERROR_ERROR_UNDEFINED,"ERROR");};
 };
 #endif /* Camera_h */

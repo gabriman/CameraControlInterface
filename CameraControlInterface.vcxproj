@@ -18,6 +18,9 @@
     <ClCompile Include="code\command\Command.cpp" />
     <ClCompile Include="code\command\CommandGetAperture.cpp" />
     <ClCompile Include="code\command\CommandGetIso.cpp" />
+    <ClCompile Include="code\command\CommandGetListAperture.cpp" />
+    <ClCompile Include="code\command\CommandGetListIso.cpp" />
+    <ClCompile Include="code\command\CommandGetListSpeed.cpp" />
     <ClCompile Include="code\command\CommandGetSpeed.cpp" />
     <ClCompile Include="code\command\CommandSetAperture.cpp" />
     <ClCompile Include="code\command\CommandSetIso.cpp" />
@@ -42,6 +45,9 @@
     <ClInclude Include="code\command\Command.h" />
     <ClInclude Include="code\command\CommandGetAperture.h" />
     <ClInclude Include="code\command\CommandGetIso.h" />
+    <ClInclude Include="code\command\CommandGetListAperture.h" />
+    <ClInclude Include="code\command\CommandGetListIso.h" />
+    <ClInclude Include="code\command\CommandGetListSpeed.h" />
     <ClInclude Include="code\command\CommandGetSpeed.h" />
     <ClInclude Include="code\command\CommandSetAperture.h" />
     <ClInclude Include="code\command\CommandSetIso.h" />

@@ -12,7 +12,7 @@ class CommandGetIso : public Command
 {
 public: 
 	CommandGetIso (Camera* camera1);
-	CommandGetIso (Camera* camera1, tinyxml2::XMLDocument* doc, tinyxml2::XMLNode* node);
+	CommandGetIso (Camera* camera1, tinyxml2::XMLNode* node);
 	virtual void execute();
 };
 
