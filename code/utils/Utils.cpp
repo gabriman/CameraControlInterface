@@ -1,6 +1,4 @@
 #include "Utils.h"
-#include "EDSDKTypes.h"
-#include <sstream>
 
 using namespace std;
 

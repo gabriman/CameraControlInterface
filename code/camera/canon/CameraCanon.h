@@ -1,11 +1,11 @@
 #ifndef CameraCanon_h
 #define CameraCanon_h
 
-#include "../Camera.h"
+#include "Camera.h"
 #include "EDSDK.h"
 #include "EDSDKTypes.h"
 #include <map>
-#include "dictionary\DictionaryCanon.h"
+#include "DictionaryCanon.h"
 
 class CameraCanon : public Camera
 {

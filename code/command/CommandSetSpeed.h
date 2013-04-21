@@ -2,9 +2,9 @@
 #define CommandSetSpeed_h
 
 
-#include "../camera/Camera.h"
+#include "Camera.h"
 #include "Command.h"
-#include "../OutputWriter.h"
+#include "OutputWriter.h"
 
 class CommandSetSpeed : public Command
 {

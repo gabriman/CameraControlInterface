@@ -1,10 +1,13 @@
 #ifndef Utils_h
 #define Utils_h
+#define _SCL_SECURE_NO_WARNINGS	//Ignore warning in std::copy 
 
 #include <iostream>
 #include <windows.h>
 #include <tchar.h>
 #include <map>
+#include "EDSDKTypes.h"
+#include <sstream>
 
 using namespace std;
 

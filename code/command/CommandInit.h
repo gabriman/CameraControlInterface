@@ -2,7 +2,7 @@
 #define CommandInit_h
 
 
-#include "../camera/Camera.h"
+#include "Camera.h"
 #include "Command.h"
 
 class CommandInit : public Command

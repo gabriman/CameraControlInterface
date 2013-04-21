@@ -1,21 +1,21 @@
 #ifndef CommandCreator_h
 #define CommandCreator_h
 
-#include "tinyxml2_lib\tinyxml2.h"
-#include "command\Command.h"
-#include "camera\Camera.h"
+#include "tinyxml2.h"
+#include "Command.h"
+#include "Camera.h"
 #include <list>
-#include "command\CommandSetIso.h"
-#include "command\CommandSetSpeed.h"
-#include "command\CommandSetAperture.h"
-#include "command\CommandTakePicture.h"
-#include "command\CommandGetIso.h"
-#include "command\CommandGetSpeed.h"
-#include "command\CommandGetAperture.h"
-#include "command\CommandUnknown.h"
-#include "command\CommandGetListIso.h"
-#include "command\CommandGetListAperture.h"
-#include "command\CommandGetListSpeed.h"
+#include "CommandSetIso.h"
+#include "CommandSetSpeed.h"
+#include "CommandSetAperture.h"
+#include "CommandTakePicture.h"
+#include "CommandGetIso.h"
+#include "CommandGetSpeed.h"
+#include "CommandGetAperture.h"
+#include "CommandUnknown.h"
+#include "CommandGetListIso.h"
+#include "CommandGetListAperture.h"
+#include "CommandGetListSpeed.h"
 #include <iostream>
 #include <fstream>
 

@@ -1,7 +1,7 @@
 #ifndef CameraNikon_h
 #define CameraNikon_h
 
-#include "../Camera.h"
+#include "Camera.h"
 
 class CameraNikon: public Camera
 {

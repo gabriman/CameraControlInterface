@@ -2,8 +2,8 @@
 #define Command_h
 
 
-#include "../camera/Camera.h"
-#include "../tinyxml2_lib/tinyxml2.h"
+#include "Camera.h"
+#include "tinyxml2.h"
 class Command
 {
 protected:
