@@ -9,7 +9,7 @@ class CommandInit : public Command
 {
 public: 
 	CommandInit (Camera* camera);
-	virtual void execute();
+	virtual int execute();
 };
 
 #endif /* CommandInit_h */

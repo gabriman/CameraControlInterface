@@ -12,7 +12,7 @@ protected:
 public: 
 	Command (Camera* c);
 	Command (Camera* c, tinyxml2::XMLNode* node);
-	virtual void execute(){};
+	virtual int execute(){return -1;};
 };
 
 #endif /* Command_h */

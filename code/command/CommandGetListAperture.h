@@ -13,7 +13,7 @@ class CommandGetListAperture : public Command
 public: 
 	CommandGetListAperture (Camera* camera1);
 	CommandGetListAperture (Camera* camera1, tinyxml2::XMLNode* node);
-	virtual void execute();
+	virtual int execute();
 };
 
 #endif /* CommandGetListAperture_h */

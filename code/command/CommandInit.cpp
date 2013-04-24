@@ -3,7 +3,8 @@
 
 CommandInit::CommandInit(Camera* camera1):Command(camera1){}
 
-void CommandInit::execute(){
+int CommandInit::execute(){
 	cout<<"Ejecutando Init"<<endl;
 	camera->init();
+	return 0;
 };

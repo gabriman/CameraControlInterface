@@ -12,7 +12,7 @@ private:
 	char newValue[30];
 public: 
 	CommandSetIso (Camera* camera1, const char* value, tinyxml2::XMLNode* node);
-	virtual void execute();
+	virtual int execute();
 };
 
 #endif /* CommandSetIso_h */

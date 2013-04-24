@@ -16,8 +16,11 @@
 #include "CommandGetListIso.h"
 #include "CommandGetListAperture.h"
 #include "CommandGetListSpeed.h"
+#include "CommandClose.h"
 #include <iostream>
 #include <fstream>
+
+#define MAX_ATTEMPTS_LOAD_FILES 20
 
 using namespace tinyxml2;
 
@@ -40,12 +43,13 @@ public:
 	static tinyxml2::XMLDocument* getDocOut();
 	static std::string getPathOut();
 private:
-	void loadXMLFromFiles();
+	int loadXMLFromFiles();
 	Command* createSetCommand(XMLNode* node);
 	Command* createGetCommand(XMLNode* node);
 	Command* createGetListCommand(XMLNode* node);
 	Command* createActionCommand(XMLNode* node);
 	Command* createUnknownCommand(XMLNode* node);
+	Command* createCloseCommand();
 	tinyxml2::XMLDocument* CreateXMLDocument(std::string directory, std::string file, bool out = false);
 };
 

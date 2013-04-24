@@ -6,7 +6,8 @@ CommandGetListAperture::CommandGetListAperture(Camera* camera1, tinyxml2::XMLNod
 
 using namespace tinyxml2;
 
-void CommandGetListAperture::execute(){
+int CommandGetListAperture::execute(){
 	ResponseMsg response = camera->getGetList("APERTURE");
 	OutputWriter::WriteToFile(response,this->nodeOut);
+	return 0;
 }

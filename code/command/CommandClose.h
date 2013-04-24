@@ -9,7 +9,7 @@ class CommandClose : public Command
 {
 public: 
 	CommandClose (Camera* camera);
-	virtual void execute();
+	virtual int execute();
 };
 
 #endif /* CommandClose_h */

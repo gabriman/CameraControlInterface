@@ -40,7 +40,7 @@ void main(int argc, TCHAR *argv[])
 		list<Command*> commandsList = commandCreator.CreateCommandList();
 
 		for (list<Command*>::iterator i = commandsList.begin(); i != commandsList.end(); i++)
-			(*i)->execute();
+			if ((*i)->execute()<0) break;   //Execute and if return error, stop to execute commands
 	}
 	Command* comandoclose = new CommandClose(cameraCanon1);
 }

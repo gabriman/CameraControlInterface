@@ -21,14 +21,18 @@ tinyxml2::XMLDocument* CommandCreator::getDocOut() {
 };
 
 std::string CommandCreator::getPathOut(){
-	std::string completePath = CommandCreator::directoryOut.append("/");
+	std::string completePath = directoryOut;
+	completePath.append("/");
 	completePath = completePath.append(CommandCreator::pathFileOut);
 	return completePath;
 };
 
 list<Command*> CommandCreator::CreateCommandList(){
-	loadXMLFromFiles();
 	list<Command*> commandsList; //List for append commands
+	if (loadXMLFromFiles()<0) {
+		cout<<"Error loading files"<<endl;
+		return commandsList;
+	}
 	XMLNode* commands = docIn->FirstChildElement("commands");
 	XMLNode* command = commands->FirstChildElement("command");
 
@@ -42,18 +46,16 @@ list<Command*> CommandCreator::CreateCommandList(){
 		XMLNode* nodeCommand = command->FirstChild();
 		string value = nodeCommand->Value();
 		cout<<"VALUE "<<value.c_str()<<endl;
-		if (!value.compare("action")){
+		if (!value.compare("action"))
 			commandsList.push_back(createActionCommand(nodeCommand));
-		}
-		else if (!value.compare("set")){
+		else if (!value.compare("set"))
 			commandsList.push_back(createSetCommand(nodeCommand));
-		}
-		else if (!value.compare("get")){
+		else if (!value.compare("get"))
 			commandsList.push_back(createGetCommand(nodeCommand));
-		}
-		else if (!value.compare("getlist")){
+		else if (!value.compare("getlist"))
 			commandsList.push_back(createGetListCommand(nodeCommand));
-		}
+		else if (!value.compare("close")) 
+			commandsList.push_back(createCloseCommand());
 		else commandsList.push_back(createUnknownCommand(nodeCommand));
 	}while ((command=command->NextSibling())!=NULL);
 
@@ -62,7 +64,7 @@ list<Command*> CommandCreator::CreateCommandList(){
 
 //XMLDocument
 tinyxml2::XMLDocument* CommandCreator::CreateXMLDocument(std::string directory, std::string file, bool out){
-	std::string completePath = directory.append("/");
+	std::string completePath(directory.append("/"));
 	completePath = completePath.append(file);
 	tinyxml2::XMLDocument* doc = new tinyxml2::XMLDocument;
 	if (out){ //If out, create or/and clear
@@ -74,16 +76,25 @@ tinyxml2::XMLDocument* CommandCreator::CreateXMLDocument(std::string directory, 
 	return doc;
 }
 
-void CommandCreator::loadXMLFromFiles(){
+int CommandCreator::loadXMLFromFiles(){
 	tinyxml2::XMLDocument* docXML_In = CreateXMLDocument(this->directoryIn,this->pathFileIn);
 	tinyxml2::XMLDocument* docXML_Out = CreateXMLDocument(this->directoryOut,this->pathFileOut,true);
-	if (docXML_In->Error()==true){
+	cout<<"PATH IN "<<this->directoryIn<<" "<<this->pathFileIn<<endl;
+	cout<<"PATH OUT "<<this->directoryOut<<" "<<this->pathFileOut<<endl;
+	cout<<"FILE IN "<<pathFileIn.data()<<endl;
+	cout<<"FILE OUT "<<pathFileOut.data()<<endl;
+	int loadAttempts = 0;
+	while (docXML_In->Error()==true && loadAttempts<=MAX_ATTEMPTS_LOAD_FILES){
+		loadAttempts++;
 		cout<<"Error opening "<<pathFileIn.data()<<" file"<<endl;
-		return;
+		cout<<"charging again "<<endl;
+		docXML_In = CreateXMLDocument(this->directoryIn,this->pathFileIn);
+		cout<<"charged "<<endl;
 	}
+	if (loadAttempts>MAX_ATTEMPTS_LOAD_FILES) return -1;
 	this->docIn=docXML_In;
 	this->docOut=docXML_Out;
-	
+	return 0;
 };
 
 //We use here a list<Command> instead Command because we assume that several parameters inside <set> are allowed
@@ -139,7 +150,6 @@ Command* CommandCreator::createGetListCommand(tinyxml2::XMLNode* node){
 	return comando;
 }
 
-
 Command* CommandCreator::createActionCommand(tinyxml2::XMLNode* node){
 	XMLNode* child;
 	child = node->FirstChild();
@@ -150,6 +160,12 @@ Command* CommandCreator::createActionCommand(tinyxml2::XMLNode* node){
 	if (!strcmp(parameter,"take")) comando = new CommandTakePicture(camera,child);
 	else return comando = new CommandUnknown(camera,child);
 
+	return comando;
+}
+
+Command* CommandCreator::createCloseCommand(){
+	Command* comando = NULL;
+	comando = new CommandClose(camera);
 	return comando;
 }
 

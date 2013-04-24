@@ -6,7 +6,8 @@ CommandGetSpeed::CommandGetSpeed(Camera* camera1, tinyxml2::XMLNode* node):Comma
 
 using namespace tinyxml2;
 
-void CommandGetSpeed::execute(){
+int CommandGetSpeed::execute(){
 	ResponseMsg response = camera->getProperty("SPEED");
 	OutputWriter::WriteToFile(response,this->nodeOut);
+	return 0;
 }

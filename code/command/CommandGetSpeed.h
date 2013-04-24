@@ -13,7 +13,7 @@ class CommandGetSpeed : public Command
 public: 
 	CommandGetSpeed (Camera* camera1);
 	CommandGetSpeed (Camera* camera1, tinyxml2::XMLNode* node);
-	virtual void execute();
+	virtual int execute();
 };
 
 #endif /* CommandGetSpeed_h */

@@ -6,7 +6,8 @@ CommandGetListIso::CommandGetListIso(Camera* camera1, tinyxml2::XMLNode* node):C
 
 using namespace tinyxml2;
 
-void CommandGetListIso::execute(){
+int CommandGetListIso::execute(){
 	ResponseMsg response = camera->getGetList("ISO");
 	OutputWriter::WriteToFile(response,this->nodeOut);
+	return 0;
 }

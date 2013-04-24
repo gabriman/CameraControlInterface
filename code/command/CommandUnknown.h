@@ -12,7 +12,7 @@ class CommandUnknown : public Command
 {
 public: 
 	CommandUnknown (Camera* camera1, tinyxml2::XMLNode* node);
-	virtual void execute();
+	virtual int execute();
 };
 
 #endif /* CommandUnknown_h */

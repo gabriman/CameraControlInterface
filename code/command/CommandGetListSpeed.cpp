@@ -6,7 +6,8 @@ CommandGetListSpeed::CommandGetListSpeed(Camera* camera1, tinyxml2::XMLNode* nod
 
 using namespace tinyxml2;
 
-void CommandGetListSpeed::execute(){
+int CommandGetListSpeed::execute(){
 	ResponseMsg response = camera->getGetList("SPEED");
 	OutputWriter::WriteToFile(response,this->nodeOut);
+	return 0;
 }

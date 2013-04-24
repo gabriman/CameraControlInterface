@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<commands>
-  
+<commands>  
+
+
   <command>
     <getlist>
       <ISO></ISO>
@@ -41,19 +42,19 @@
 
   <command>
     <set>
-      <ISO>220</ISO>
+      <ISO>800</ISO>
     </set>
   </command>
   
   <command>
     <set>
-      <SPEED>1/400</SPEED>
+      <SPEED>1/100</SPEED>
     </set>
   </command>
   
   <command>
     <set>
-      <APERTURE>7.1</APERTURE>
+      <APERTURE>3.5</APERTURE>
     </set>
   </command>
 

@@ -12,7 +12,7 @@ class CommandTakePicture : public Command
 {
 public: 
 	CommandTakePicture (Camera* camera1, tinyxml2::XMLNode* node);
-	virtual void execute();
+	virtual int execute();
 };
 
 #endif /* CommandTakePicture_h */
