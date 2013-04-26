@@ -39,8 +39,9 @@ list<Command*> CommandCreator::CreateCommandList(){
 	//Iterate in "command" tags. command have a "command" tag
 	/* We only can have inside <command>:
 	<action> for describe a action to do like "shoot"
-	<set> for set a parameter
-	<get for get a parameter>
+	<set> for set parameter's value
+	<get> for get parameter's value
+	<getlist> for get a list of avaliable values for a parameter 
 	*/
 	do{ 
 		XMLNode* nodeCommand = command->FirstChild();
@@ -64,7 +65,7 @@ list<Command*> CommandCreator::CreateCommandList(){
 
 //XMLDocument
 tinyxml2::XMLDocument* CommandCreator::CreateXMLDocument(std::string directory, std::string file, bool out){
-	std::string completePath(directory.append("/"));
+	std::string completePath(directory.append("\\"));
 	completePath = completePath.append(file);
 	tinyxml2::XMLDocument* doc = new tinyxml2::XMLDocument;
 	if (out){ //If out, create or/and clear
@@ -79,10 +80,10 @@ tinyxml2::XMLDocument* CommandCreator::CreateXMLDocument(std::string directory, 
 int CommandCreator::loadXMLFromFiles(){
 	tinyxml2::XMLDocument* docXML_In = CreateXMLDocument(this->directoryIn,this->pathFileIn);
 	tinyxml2::XMLDocument* docXML_Out = CreateXMLDocument(this->directoryOut,this->pathFileOut,true);
-	cout<<"PATH IN "<<this->directoryIn<<" "<<this->pathFileIn<<endl;
-	cout<<"PATH OUT "<<this->directoryOut<<" "<<this->pathFileOut<<endl;
-	cout<<"FILE IN "<<pathFileIn.data()<<endl;
-	cout<<"FILE OUT "<<pathFileOut.data()<<endl;
+	cout<<"PATH IN "<<this->directoryIn<<endl;
+	cout<<"PATH OUT "<<this->directoryOut<<endl;
+	cout<<"FILE IN "<<this->pathFileIn<<endl;
+	cout<<"FILE OUT "<<this->pathFileOut<<endl;
 	int loadAttempts = 0;
 	while (docXML_In->Error()==true && loadAttempts<=MAX_ATTEMPTS_LOAD_FILES){
 		loadAttempts++;
@@ -91,7 +92,8 @@ int CommandCreator::loadXMLFromFiles(){
 		docXML_In = CreateXMLDocument(this->directoryIn,this->pathFileIn);
 		cout<<"charged "<<endl;
 	}
-	if (loadAttempts>MAX_ATTEMPTS_LOAD_FILES) return -1;
+	if (loadAttempts>MAX_ATTEMPTS_LOAD_FILES) {	cout<<"max numero intentos"<<endl;return -1;}
+	cout<<"archivos cargados"<<endl;
 	this->docIn=docXML_In;
 	this->docOut=docXML_Out;
 	return 0;

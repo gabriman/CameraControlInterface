@@ -1,0 +1,7 @@
+<config>
+	<directoryIn>cfg\in</directoryIn>
+	<directoryOut>cfg\out</directoryOut>
+	<fileIn>inputfile.xml</fileIn>
+	<fileOut>outputfile.xml</fileOut>
+	<executable>Debug\CameraControlInterface.exe</executable>
+</config>

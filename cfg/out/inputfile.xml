@@ -1,0 +1,9 @@
+<command>
+    <set>
+        <ISO>
+            <code>-4</code>
+            <message>Value not suported</message>
+            <value>1601</value>
+        </ISO>
+    </set>
+</command>

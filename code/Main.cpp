@@ -17,13 +17,22 @@
 
 using namespace std;
 
-void main(int argc, TCHAR *argv[])
+int main(int argc, char *argv[])
 {
+	string exePath = Utils::getExeDir(argv[0]);
+	string rootFolder = Utils::removeLastDir(exePath);
+
+	string configFilePath = rootFolder;
+	configFilePath.append("\\cfg\\config.xml");		//For execute from Debug or Release folder
+	//configFilePath.append("cfg\\config.xml");		//For execute in root folder
+
+	std::map<string,string> configTable = Utils::readConfigFiles(configFilePath);
+	if (configTable.empty()) {cout<<"Error reading configuration file"<<endl; return -1;}
 	std::string directoryIn,directoryOut;
-	directoryIn = "./cfg/in";
-	directoryOut = "./cfg/out";
-	std::string fileIn= "inputfile.xml";
-	std::string fileOut= "outputfile.xml";
+	directoryIn = rootFolder; directoryIn.append("\\"); directoryIn.append(configTable.find("directoryIn")->second);
+	directoryOut = rootFolder; directoryOut.append("\\");  directoryOut.append(configTable.find("directoryOut")->second);
+	std::string fileIn = configTable.find("fileIn")->second;
+	std::string fileOut = configTable.find("fileOut")->second;
 
 	FileMonitor file_monitor(directoryIn);
 

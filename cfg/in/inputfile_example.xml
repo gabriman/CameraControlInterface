@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commands>  
+
+
+  <command>
+    <getlist>
+      <ISO></ISO>
+    </getlist>
+  </command>
+  
+  <command>
+    <getlist>
+      <APERTURE></APERTURE>
+    </getlist>
+  </command>
+  
+  <command>
+    <getlist>
+      <SPEED></SPEED>
+    </getlist>
+  </command>
+  
+  <command>
+    <get1>
+      <ISO></ISO>
+    </get1>
+  </command>
+
+  <command>
+    <get>
+      <SPEED1>
+      </SPEED1>
+    </get>
+  </command>
+
+  <command>
+    <get>
+      <APERTURE>
+      </APERTURE>
+  </get>
+  </command>
+
+  <command>
+    <set>
+      <ISO>800</ISO>
+    </set>
+  </command>
+  
+  <command>
+    <set>
+      <SPEED>1/100</SPEED>
+    </set>
+  </command>
+  
+  <command>
+    <set>
+      <APERTURE>3.5</APERTURE>
+    </set>
+  </command>
+
+  <command>
+    <action>
+		<take></take>
+	</action>
+  </command>
+  
+</commands>
