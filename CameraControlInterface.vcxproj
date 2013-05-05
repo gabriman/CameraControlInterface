@@ -14,7 +14,7 @@
     <ClCompile Include="code\camera\canon\CameraCanon.cpp" />
     <ClCompile Include="code\camera\canon\dictionary\DictionaryCanon.cpp" />
     <ClCompile Include="code\camera\nikon\CameraNikon.cpp" />
-    <ClCompile Include="code\CommandCreator.cpp" />
+    <ClCompile Include="code\CommandManager.cpp" />
     <ClCompile Include="code\command\Command.cpp" />
     <ClCompile Include="code\command\CommandGetAperture.cpp" />
     <ClCompile Include="code\command\CommandGetIso.cpp" />
@@ -41,7 +41,7 @@
     <ClInclude Include="code\camera\canon\CameraCanon.h" />
     <ClInclude Include="code\camera\canon\dictionary\DictionaryCanon.h" />
     <ClInclude Include="code\camera\nikon\CameraNikon.h" />
-    <ClInclude Include="code\CommandCreator.h" />
+    <ClInclude Include="code\CommandManager.h" />
     <ClInclude Include="code\command\Command.h" />
     <ClInclude Include="code\command\CommandGetAperture.h" />
     <ClInclude Include="code\command\CommandGetIso.h" />
@@ -66,9 +66,6 @@
     <None Include="cfg\inputfile.xml">
       <SubType>Designer</SubType>
     </None>
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
-    <None Include="ClassDiagram3.cd" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{05B5BE19-5084-41A8-9D41-9B3D98211DB9}</ProjectGuid>

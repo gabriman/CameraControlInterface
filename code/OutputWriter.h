@@ -4,7 +4,7 @@
 #include "tinyxml2.h"
 #include "ResponseMsg.h"
 #include "Utils.h"
-#include "CommandCreator.h"
+#include "commandManager.h"
 
 using namespace tinyxml2;
 
@@ -15,6 +15,8 @@ public:
 	static void WriteToFile(ResponseMsg response, tinyxml2::XMLNode* node);
 	static void WriteToFile(ResponseMsg response, tinyxml2::XMLNode* node, const char* value);
 	static void WriteCommandNotFormat();
+	static void WriteInitOutput(ResponseMsg response);
+	static void CreateOrCleanXMLDoc(ResponseMsg response);
 };
 
 #endif /* OutputWriter_h */

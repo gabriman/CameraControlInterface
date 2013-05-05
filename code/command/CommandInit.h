@@ -4,6 +4,7 @@
 
 #include "Camera.h"
 #include "Command.h"
+#include "OutputWriter.h"
 
 class CommandInit : public Command
 {
