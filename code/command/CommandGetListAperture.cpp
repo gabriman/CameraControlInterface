@@ -8,6 +8,6 @@ using namespace tinyxml2;
 
 int CommandGetListAperture::execute(){
 	ResponseMsg response = camera->getGetList("APERTURE");
-	OutputWriter::WriteToFile(response,this->nodeOut);
+	OutputWriter::WriteToDoc(response,this->nodeOut);
 	return 0;
 }

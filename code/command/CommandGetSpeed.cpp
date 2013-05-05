@@ -8,6 +8,6 @@ using namespace tinyxml2;
 
 int CommandGetSpeed::execute(){
 	ResponseMsg response = camera->getProperty("SPEED");
-	OutputWriter::WriteToFile(response,this->nodeOut);
+	OutputWriter::WriteToDoc(response,this->nodeOut);
 	return 0;
 }

@@ -1,33 +1,33 @@
-#include "commandManager.h"
+#include "CommandManager.h"
 
 
 //Static fields declaration
-std::string commandManager::directoryIn;
-std::string commandManager::directoryOut;
-std::string commandManager::pathFileIn;
-std::string commandManager::pathFileOut;
-tinyxml2::XMLDocument* commandManager::docIn;
-tinyxml2::XMLDocument* commandManager::docOut;
+std::string CommandManager::directoryIn;
+std::string CommandManager::directoryOut;
+std::string CommandManager::pathFileIn;
+std::string CommandManager::pathFileOut;
+tinyxml2::XMLDocument* CommandManager::docIn;
+tinyxml2::XMLDocument* CommandManager::docOut;
 
-commandManager::commandManager(Camera* camera1, std::string dirIn, std::string dirOut, std::string fIn, std::string fOut):camera(camera1){
+CommandManager::CommandManager(Camera* camera1, std::string dirIn, std::string dirOut, std::string fIn, std::string fOut):camera(camera1){
 	this->directoryIn=dirIn;
 	this->directoryOut=dirOut;
 	this->pathFileIn=fIn;
 	this->pathFileOut=fOut;
 }
 
-tinyxml2::XMLDocument* commandManager::getDocOut() {
+tinyxml2::XMLDocument* CommandManager::getDocOut() {
 	return docOut;
 };
 
-std::string commandManager::getPathOut(){
+std::string CommandManager::getPathOut(){
 	std::string completePath = directoryOut;
 	completePath.append("/");
-	completePath = completePath.append(commandManager::pathFileOut);
+	completePath = completePath.append(CommandManager::pathFileOut);
 	return completePath;
 };
 
-list<Command*> commandManager::CreateCommandList(){
+list<Command*> CommandManager::CreateCommandList(){
 	list<Command*> commandsList; //List for append commands
 	if (loadXMLFromFiles()<0) {
 		cout<<"Error loading files"<<endl;
@@ -63,7 +63,18 @@ list<Command*> commandManager::CreateCommandList(){
 	return commandsList;
 }
 
-tinyxml2::XMLDocument* commandManager::CreateXMLDocument(std::string directory, std::string file, bool out){
+
+/**********************************************************************************************//**
+ * @brief	Creates XML document and load a XML document.
+ * 			If is a input file, load it. If is output file, create it and insert <commands> section empty
+ *
+ * @param	directory	Pathname of the directory.
+ * @param	file	 	Pathname of the file.
+ * @param	out		 	true if is output file.
+ *
+ * @return	null if it fails, else the new XML document.
+ **************************************************************************************************/
+tinyxml2::XMLDocument* CommandManager::CreateXMLDocument(std::string directory, std::string file, bool out){
 	std::string completePath(directory.append("\\"));
 	completePath = completePath.append(file);
 	tinyxml2::XMLDocument* doc = new tinyxml2::XMLDocument;
@@ -71,18 +82,17 @@ tinyxml2::XMLDocument* commandManager::CreateXMLDocument(std::string directory, 
 		ofstream myfile;
 		myfile.open (completePath.data(),ios::trunc);
 		myfile.close();
+		XMLElement* valueElement = doc->NewElement("commands"); 	//Insert commads section
+		doc->InsertEndChild(valueElement);
 	}
-	doc->LoadFile(completePath.data());
+	else
+		doc->LoadFile(completePath.data());
 	return doc;
 }
 
-int commandManager::loadXMLFromFiles(){
+int CommandManager::loadXMLFromFiles(){
 	tinyxml2::XMLDocument* docXML_In = CreateXMLDocument(this->directoryIn,this->pathFileIn);
 	tinyxml2::XMLDocument* docXML_Out = CreateXMLDocument(this->directoryOut,this->pathFileOut,true);
-	cout<<"PATH IN "<<this->directoryIn<<endl;
-	cout<<"PATH OUT "<<this->directoryOut<<endl;
-	cout<<"FILE IN "<<this->pathFileIn<<endl;
-	cout<<"FILE OUT "<<this->pathFileOut<<endl;
 	int loadAttempts = 0;
 	while (docXML_In->Error()==true && loadAttempts<=MAX_ATTEMPTS_LOAD_FILES){
 		loadAttempts++;
@@ -96,11 +106,11 @@ int commandManager::loadXMLFromFiles(){
 	this->docIn=docXML_In;
 	this->docOut=docXML_Out;
 	return 0;
-};
+}
 
 //We use here a list<Command> instead Command because we assume that several parameters inside <set> are allowed
 //TODO: Hacer que funcione para varios set o sino devolver in command normal
-Command* commandManager::createSetCommand(tinyxml2::XMLNode* node){
+Command* CommandManager::createSetCommand(tinyxml2::XMLNode* node){
 	list<Command> command;
 	XMLNode* child;
 	child = node->FirstChild();
@@ -119,7 +129,7 @@ Command* commandManager::createSetCommand(tinyxml2::XMLNode* node){
 }
 
 //We are in the node of GET
-Command* commandManager::createGetCommand(tinyxml2::XMLNode* node){
+Command* CommandManager::createGetCommand(tinyxml2::XMLNode* node){
 	list<Command> command;
 	XMLNode* child;
 	child = node->FirstChild();
@@ -135,7 +145,7 @@ Command* commandManager::createGetCommand(tinyxml2::XMLNode* node){
 	return comando;
 }
 
-Command* commandManager::createGetListCommand(tinyxml2::XMLNode* node){
+Command* CommandManager::createGetListCommand(tinyxml2::XMLNode* node){
 	list<Command> command;
 	XMLNode* child;
 	child = node->FirstChild();
@@ -151,7 +161,7 @@ Command* commandManager::createGetListCommand(tinyxml2::XMLNode* node){
 	return comando;
 }
 
-Command* commandManager::createActionCommand(tinyxml2::XMLNode* node){
+Command* CommandManager::createActionCommand(tinyxml2::XMLNode* node){
 	XMLNode* child;
 	child = node->FirstChild();
 
@@ -164,16 +174,25 @@ Command* commandManager::createActionCommand(tinyxml2::XMLNode* node){
 	return comando;
 }
 
-Command* commandManager::createCloseCommand(){
+Command* CommandManager::createCloseCommand(){
 	Command* comando = NULL;
 	comando = new CommandClose(camera);
 	return comando;
 }
 
-Command* commandManager::createUnknownCommand(tinyxml2::XMLNode* node){
+Command* CommandManager::createUnknownCommand(tinyxml2::XMLNode* node){
 	XMLNode* child;
 	child = node->FirstChild();
 	Command* comando = NULL;
 	comando = new CommandUnknown(camera,child);
 	return comando;
+}
+
+
+
+int CommandManager::executeCommandList(list<Command*> commandsList){
+	for (list<Command*>::iterator i = commandsList.begin(); i != commandsList.end(); i++)
+		if ((*i)->execute()<0) break;   //Execute and if return error, stop to execute commands
+	OutputWriter::SaveDocToFile();
+	return 0;
 }

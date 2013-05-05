@@ -15,9 +15,9 @@
 *	</get>
 * </command>
 */
-void OutputWriter::WriteToFile(ResponseMsg response, XMLNode* node){
-	std::string path = commandManager::getPathOut();
-	tinyxml2::XMLDocument* doc = commandManager::getDocOut();
+void OutputWriter::WriteToDoc(ResponseMsg response, XMLNode* node){
+	std::string path = CommandManager::getPathOut();
+	tinyxml2::XMLDocument* doc = CommandManager::getDocOut();
 
 	//Searching root
 	XMLNode *root = node;
@@ -34,8 +34,9 @@ void OutputWriter::WriteToFile(ResponseMsg response, XMLNode* node){
 	codeElement->InsertEndChild(textCode);
 	messageElement->InsertEndChild(textMessage);
 
-	doc->InsertEndChild(root);
-	doc->SaveFile(path.c_str());
+
+	XMLElement* commandsElement = doc->FirstChildElement("commands");
+	commandsElement->InsertEndChild(root);
 }
 
 /*<command>
@@ -45,9 +46,9 @@ void OutputWriter::WriteToFile(ResponseMsg response, XMLNode* node){
 </ISO>
 </set>
 </command>*/
-void OutputWriter::WriteToFile(ResponseMsg response, XMLNode* node, const char* value){
-	std::string path = commandManager::getPathOut();
-	tinyxml2::XMLDocument* doc = commandManager::getDocOut();
+void OutputWriter::WriteToDoc(ResponseMsg response, XMLNode* node, const char* value){
+	std::string path = CommandManager::getPathOut();
+	tinyxml2::XMLDocument* doc = CommandManager::getDocOut();
 
 	//Searching root
 	XMLNode *root = node;
@@ -70,13 +71,13 @@ void OutputWriter::WriteToFile(ResponseMsg response, XMLNode* node, const char* 
 	messageElement->InsertEndChild(textMessage);
 	valueElement->InsertEndChild(valueMessage);
 
-	doc->InsertEndChild(root);
-	doc->SaveFile(path.c_str());
+	XMLElement* commandsElement = doc->FirstChildElement("commands");
+	commandsElement->InsertEndChild(root);
 }
 
 void OutputWriter::WriteCommandNotFormat(){
-	std::string path = commandManager::getPathOut();
-	tinyxml2::XMLDocument* doc = commandManager::getDocOut();
+	std::string path = CommandManager::getPathOut();
+	tinyxml2::XMLDocument* doc = CommandManager::getDocOut();
 
 	//Searching root
 	XMLNode *root = doc->NewElement("command");
@@ -88,14 +89,14 @@ void OutputWriter::WriteCommandNotFormat(){
 
 	codeElement->InsertEndChild(textCode);
 
-	doc->InsertEndChild(root);
-	doc->SaveFile(path.c_str());
+	XMLElement* commandsElement = doc->FirstChildElement("commands");
+	commandsElement->InsertEndChild(root);
 }
 
 
 void OutputWriter::WriteInitOutput(ResponseMsg response){
-	//std::string path = commandManager::getPathOut();
-	//tinyxml2::XMLDocument* doc = commandManager::getDocOut();
+	//std::string path = CommandManager::getPathOut();
+	//tinyxml2::XMLDocument* doc = CommandManager::getDocOut();
 
 	//XMLNode *root = doc->NewElement("init");
 
@@ -119,8 +120,8 @@ void OutputWriter::WriteInitOutput(ResponseMsg response){
 }
 
 void OutputWriter::CreateOrCleanXMLDoc(ResponseMsg response){
-	//std::string path = commandManager::getPathOut();
-	//tinyxml2::XMLDocument* doc = commandManager::getDocOut();
+	//std::string path = CommandManager::getPathOut();
+	//tinyxml2::XMLDocument* doc = CommandManager::getDocOut();
 
 	//XMLNode *root = doc->NewElement("init");
 
@@ -141,4 +142,10 @@ void OutputWriter::CreateOrCleanXMLDoc(ResponseMsg response){
 
 	//doc->InsertEndChild(root);
 	//doc->SaveFile(path.c_str());
+}
+
+void OutputWriter::SaveDocToFile(){
+	std::string path = CommandManager::getPathOut();
+	tinyxml2::XMLDocument* doc = CommandManager::getDocOut();
+	doc->SaveFile(path.c_str());
 }

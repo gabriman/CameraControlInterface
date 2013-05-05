@@ -8,6 +8,6 @@ CommandSetAperture::CommandSetAperture(Camera* camera1,const char* value, tinyxm
 
 int CommandSetAperture::execute(){
 	ResponseMsg response = camera->setProperty("APERTURE",newValue);
-	OutputWriter::WriteToFile(response,this->nodeOut,newValue);
+	OutputWriter::WriteToDoc(response,this->nodeOut,newValue);
 	return response.getCode();
 };

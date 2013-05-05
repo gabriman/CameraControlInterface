@@ -8,6 +8,6 @@ using namespace tinyxml2;
 
 int CommandGetIso::execute(){
 	ResponseMsg response = camera->getProperty("ISO");
-	OutputWriter::WriteToFile(response,this->nodeOut);
+	OutputWriter::WriteToDoc(response,this->nodeOut);
 	return 0;
 }

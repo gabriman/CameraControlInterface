@@ -1,5 +1,3 @@
-//Prueba que realiza la escucha de modificacion de directorio
-
 #include <windows.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -10,7 +8,7 @@
 #include "CommandClose.h"
 #include "CameraCanon.h"
 #include "CameraNikon.h"
-#include "commandManager.h"
+#include "CommandManager.h"
 #include "tinyxml2.h"
 #include "DictionaryCanon.h"
 #include "Utils.h"
@@ -38,16 +36,17 @@ int main(int argc, char *argv[])
 
 	//Camera initialitation
 	Camera* cameraCanon1 = new CameraCanon();
+	CommandManager CommandManager1(cameraCanon1,directoryIn,directoryOut,fileIn,fileOut);
+
+
 	Command* comandoinit = new CommandInit(cameraCanon1);
 	comandoinit->execute();
 
-	commandManager commandManager(cameraCanon1,directoryIn,directoryOut,fileIn,fileOut);
 	while(true){
 		file_monitor.WatchDirectoryOneChange();  //Waiting until change
 
-		list<Command*> commandsList = commandManager.CreateCommandList();
-		for (list<Command*>::iterator i = commandsList.begin(); i != commandsList.end(); i++)
-			if ((*i)->execute()<0) break;   //Execute and if return error, stop to execute commands
+		list<Command*> commandsList = CommandManager1.CreateCommandList();
+		CommandManager1.executeCommandList(commandsList);
 	}
 	Command* comandoclose = new CommandClose(cameraCanon1);
 }

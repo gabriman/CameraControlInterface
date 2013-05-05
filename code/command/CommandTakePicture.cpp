@@ -5,6 +5,6 @@ CommandTakePicture::CommandTakePicture(Camera* camera1, tinyxml2::XMLNode* node)
 
 int CommandTakePicture::execute(){
 	ResponseMsg response = camera->takePicture();
-	OutputWriter::WriteToFile(response,this->nodeOut);
+	OutputWriter::WriteToDoc(response,this->nodeOut);
 	return response.getCode();
 };

@@ -8,6 +8,6 @@ CommandSetIso::CommandSetIso(Camera* camera1,const char* value, tinyxml2::XMLNod
 
 int CommandSetIso::execute(){
 	ResponseMsg response = camera->setProperty("ISO",newValue);	
-	OutputWriter::WriteToFile(response,this->nodeOut,newValue);
+	OutputWriter::WriteToDoc(response,this->nodeOut,newValue);
 	return response.getCode();
 };

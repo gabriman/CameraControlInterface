@@ -25,7 +25,7 @@
 using namespace tinyxml2;
 
 // Static class to create command's list from XML
-class commandManager
+class CommandManager
 {
 public:
 	Camera* camera;
@@ -38,8 +38,9 @@ private:
 	static tinyxml2::XMLDocument* docOut;
 
 public:
-	commandManager(Camera* camera1, std::string dirIn, std::string dirOut, std::string fIn, std::string fOut);
+	CommandManager(Camera* camera1, std::string dirIn, std::string dirOut, std::string fIn, std::string fOut);
 	list<Command*> CreateCommandList();
+	int executeCommandList(list<Command*> commandsList);
 	static tinyxml2::XMLDocument* getDocOut();
 	static std::string getPathOut();
 private:

@@ -8,6 +8,6 @@ CommandSetSpeed::CommandSetSpeed(Camera* camera1,const char* value, tinyxml2::XM
 
 int CommandSetSpeed::execute(){
 	ResponseMsg response = camera->setProperty("SPEED",newValue);
-	OutputWriter::WriteToFile(response,this->nodeOut,newValue);
+	OutputWriter::WriteToDoc(response,this->nodeOut,newValue);
 	return response.getCode();
 };

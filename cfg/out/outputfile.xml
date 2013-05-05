@@ -1,0 +1,20 @@
+<commands>
+    <command>
+        <set>
+            <ISO>
+                <code>0</code>
+                <message></message>
+                <value>400</value>
+            </ISO>
+        </set>
+    </command>
+    <command>
+        <set>
+            <APERTURE>
+                <code>0</code>
+                <message></message>
+                <value>4.5</value>
+            </APERTURE>
+        </set>
+    </command>
+</commands>
