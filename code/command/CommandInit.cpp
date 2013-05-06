@@ -4,7 +4,7 @@
 CommandInit::CommandInit(Camera* camera1):Command(camera1){}
 
 int CommandInit::execute(){
-	cout<<"Ejecutando Init"<<endl;
+	cout<<"Inicialitation camera"<<endl;
 	ResponseMsg response = camera->init();
 	OutputWriter::WriteInitOutput(response);
 	return response.getCode();

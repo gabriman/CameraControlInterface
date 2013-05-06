@@ -34,16 +34,20 @@ int main(int argc, char *argv[])
 
 	FileMonitor file_monitor(directoryIn);
 
-	//Camera initialitation
+
 	Camera* cameraCanon1 = new CameraCanon();
 	CommandManager CommandManager1(cameraCanon1,directoryIn,directoryOut,fileIn,fileOut);
 
-
+	//Camera initialitation
 	Command* comandoinit = new CommandInit(cameraCanon1);
-	comandoinit->execute();
+	int error_init = comandoinit->execute();
+	if (error_init<0){	//If error inicialitation camera, exit program
+		cout<<"ERROR inicialitation camera"<<endl;
+		exit(0);
+	}
 
 	while(true){
-		file_monitor.WatchDirectoryOneChange();  //Waiting until change
+		file_monitor.WatchDirectoryOneChange();  //Waiting until change in directory
 
 		list<Command*> commandsList = CommandManager1.CreateCommandList();
 		CommandManager1.executeCommandList(commandsList);
