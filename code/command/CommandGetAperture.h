@@ -14,8 +14,6 @@
 class CommandGetAperture : public Command
 {
 public: 
-	CommandGetAperture (Camera* camera1);
-
 	/**********************************************************************************************//**
 	 * @brief	Constructor
 	 *

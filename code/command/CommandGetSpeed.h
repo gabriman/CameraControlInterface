@@ -14,7 +14,6 @@
 class CommandGetSpeed : public Command
 {
 public: 
-	CommandGetSpeed (Camera* camera1);
 	/**********************************************************************************************//**
 	 * @brief	Constructor
 	 *

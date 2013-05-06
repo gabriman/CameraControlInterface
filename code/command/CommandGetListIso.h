@@ -14,7 +14,6 @@
 class CommandGetListIso : public Command
 {
 public: 
-	CommandGetListIso (Camera* camera1);
 	/**********************************************************************************************//**
 	 * @brief	Constructor
 	 *

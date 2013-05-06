@@ -11,7 +11,6 @@
 class CommandClose : public Command
 {
 public: 
-
 	/**********************************************************************************************//**
 	 * @brief	Constructor
 	 *
