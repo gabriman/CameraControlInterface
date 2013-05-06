@@ -14,6 +14,7 @@ CommandManager::CommandManager(Camera* camera1, std::string dirIn, std::string d
 	this->directoryOut=dirOut;
 	this->pathFileIn=fIn;
 	this->pathFileOut=fOut;
+	loadXMLFromFiles();
 }
 
 tinyxml2::XMLDocument* CommandManager::getDocOut() {
@@ -64,16 +65,6 @@ list<Command*> CommandManager::CreateCommandList(){
 }
 
 
-/**********************************************************************************************//**
- * @brief	Creates XML document and load a XML document.
- * 			If is a input file, load it. If is output file, create it and insert <commands> section empty
- *
- * @param	directory	Pathname of the directory.
- * @param	file	 	Pathname of the file.
- * @param	out		 	true if is output file.
- *
- * @return	null if it fails, else the new XML document.
- **************************************************************************************************/
 tinyxml2::XMLDocument* CommandManager::CreateXMLDocument(std::string directory, std::string file, bool out){
 	std::string completePath(directory.append("\\"));
 	completePath = completePath.append(file);

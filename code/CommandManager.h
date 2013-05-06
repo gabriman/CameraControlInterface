@@ -24,7 +24,9 @@
 
 using namespace tinyxml2;
 
-// Static class to create command's list from XML
+/**********************************************************************************************//**
+ * @brief	Static class to manage command's list from XML
+ **************************************************************************************************/
 class CommandManager
 {
 public:
@@ -38,19 +40,117 @@ private:
 	static tinyxml2::XMLDocument* docOut;
 
 public:
+
+	/**********************************************************************************************//**
+	 * @brief	Constructor.
+	 *
+	 * @param [in,out]	camera1	If non-null, the first camera.
+	 * @param	dirIn		   	The dir in.
+	 * @param	dirOut		   	The dir out.
+	 * @param	fIn			   	The in.
+	 * @param	fOut		   	The out.
+	 **************************************************************************************************/
 	CommandManager(Camera* camera1, std::string dirIn, std::string dirOut, std::string fIn, std::string fOut);
+
+	/**********************************************************************************************//**
+	 * @brief	Creates command list.
+	 *
+	 * @return	null if it fails, else the new command list.
+	 **************************************************************************************************/
 	list<Command*> CreateCommandList();
+
+	/**********************************************************************************************//**
+	 * @brief	Executes the command list operation.
+	 *
+	 * @param [in,out]	commandsList	If non-null, list of commands.
+	 *
+	 * @return	.
+	 **************************************************************************************************/
 	int executeCommandList(list<Command*> commandsList);
+
+	/**********************************************************************************************//**
+	 * @brief	Gets document out.
+	 *
+	 * @return	null if it fails, else the document out.
+	 **************************************************************************************************/
 	static tinyxml2::XMLDocument* getDocOut();
+
+	/**********************************************************************************************//**
+	 * @brief	Gets path out.
+	 *
+	 * @return	The path out.
+	 **************************************************************************************************/
 	static std::string getPathOut();
 private:
+	/**********************************************************************************************//**
+	 * @brief	Loads XML from files.
+	 *
+	 * @return	The XML from files.
+	 **************************************************************************************************/
 	int loadXMLFromFiles();
+
+	/**********************************************************************************************//**
+	 * @brief	Creates set command.
+	 *
+	 * @param [in,out]	node	If non-null, the node.
+	 *
+	 * @return	null if it fails, else the new set command.
+	 **************************************************************************************************/
 	Command* createSetCommand(XMLNode* node);
+
+	/**********************************************************************************************//**
+	 * @brief	Creates get command.
+	 *
+	 * @param [in,out]	node	If non-null, the node.
+	 *
+	 * @return	null if it fails, else the new get command.
+	 **************************************************************************************************/
 	Command* createGetCommand(XMLNode* node);
+
+	/**********************************************************************************************//**
+	 * @brief	Creates get list command.
+	 *
+	 * @param [in,out]	node	If non-null, the node.
+	 *
+	 * @return	null if it fails, else the new get list command.
+	 **************************************************************************************************/
 	Command* createGetListCommand(XMLNode* node);
+
+	/**********************************************************************************************//**
+	 * @brief	Creates action command.
+	 *
+	 * @param [in,out]	node	If non-null, the node.
+	 *
+	 * @return	null if it fails, else the new action command.
+	 **************************************************************************************************/
 	Command* createActionCommand(XMLNode* node);
+
+	/**********************************************************************************************//**
+	 * @brief	Creates unknown command.
+	 *
+	 * @param [in,out]	node	If non-null, the node.
+	 *
+	 * @return	null if it fails, else the new unknown command.
+	 **************************************************************************************************/
 	Command* createUnknownCommand(XMLNode* node);
+
+	/**********************************************************************************************//**
+	 * @brief	Creates close command.
+	 *
+	 * @return	null if it fails, else the new close command.
+	 **************************************************************************************************/
 	Command* createCloseCommand();
+
+	/**********************************************************************************************//**
+	 * @brief	Creates XML document and load a XML document.
+	 * 			If is a input file, load it. If is output file, create it and insert <commands> section empty
+	 *
+	 * @param	directory	Pathname of the directory.
+	 * @param	file	 	Pathname of the file.
+	 * @param	out		 	true if is output file.
+	 *
+	 * @return	null if it fails, else the new XML document.
+	 **************************************************************************************************/
 	tinyxml2::XMLDocument* CreateXMLDocument(std::string directory, std::string file, bool out = false);
 };
 

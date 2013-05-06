@@ -8,10 +8,20 @@
 #include "ResponseMsg.h"
 #include "OutputWriter.h"
 
+/**********************************************************************************************//**
+ * @brief	Command get iso.
+ **************************************************************************************************/
 class CommandGetIso : public Command
 {
 public: 
 	CommandGetIso (Camera* camera1);
+
+	/**********************************************************************************************//**
+	 * @brief	Constructor
+	 *
+	 * @param [in]	camera1	The camera.
+	 * @param [in]	node   	The node.
+	 **************************************************************************************************/
 	CommandGetIso (Camera* camera1, tinyxml2::XMLNode* node);
 	virtual int execute();
 };

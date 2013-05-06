@@ -2,19 +2,6 @@
 
 
 
-/**
-* @brief Output writer explanation
-* 
-* EXAMPLE
-* <command>
-*	<get>
-*		<APERTURE>
-*          <code>0</code>
-*          <message>7.1</message>
-*      </APERTURE>
-*	</get>
-* </command>
-*/
 void OutputWriter::WriteToDoc(ResponseMsg response, XMLNode* node){
 	std::string path = CommandManager::getPathOut();
 	tinyxml2::XMLDocument* doc = CommandManager::getDocOut();
@@ -39,13 +26,8 @@ void OutputWriter::WriteToDoc(ResponseMsg response, XMLNode* node){
 	commandsElement->InsertEndChild(root);
 }
 
-/*<command>
-<set>
-<ISO>220<code>-4</code>
-<message>Value not suported</message>
-</ISO>
-</set>
-</command>*/
+
+
 void OutputWriter::WriteToDoc(ResponseMsg response, XMLNode* node, const char* value){
 	std::string path = CommandManager::getPathOut();
 	tinyxml2::XMLDocument* doc = CommandManager::getDocOut();
@@ -75,11 +57,11 @@ void OutputWriter::WriteToDoc(ResponseMsg response, XMLNode* node, const char* v
 	commandsElement->InsertEndChild(root);
 }
 
+
 void OutputWriter::WriteCommandNotFormat(){
 	std::string path = CommandManager::getPathOut();
 	tinyxml2::XMLDocument* doc = CommandManager::getDocOut();
 
-	//Searching root
 	XMLNode *root = doc->NewElement("command");
 
 	XMLText* textCode = doc->NewText((Utils::convertInt(CAMERROR_VALUE_UNKNOWN)).c_str());
@@ -94,30 +76,32 @@ void OutputWriter::WriteCommandNotFormat(){
 }
 
 
+
+
 void OutputWriter::WriteInitOutput(ResponseMsg response){
-	//std::string path = CommandManager::getPathOut();
-	//tinyxml2::XMLDocument* doc = CommandManager::getDocOut();
+	std::string path = CommandManager::getPathOut();
+	tinyxml2::XMLDocument* doc = CommandManager::getDocOut();
 
-	//XMLNode *root = doc->NewElement("init");
+	doc->Clear(); //Clear all text
+	XMLNode *root = doc->NewElement("init");
+	
+	XMLText* textCode = doc->NewText((Utils::convertInt(response.getCode()).c_str()));
+	XMLText* textMessage = doc->NewText(response.getMessage());
 
-	//XMLText* textCode = doc->NewText((Utils::convertInt(response.getCode()).c_str()));
-	//XMLText* textMessage = doc->NewText(response.getMessage());
-	//XMLText* valueMessage = doc->NewText(value);
+	XMLElement* codeElement = doc->NewElement("code");
+	root->InsertEndChild(codeElement);
+	XMLElement* messageElement = doc->NewElement("message");
+	root->InsertEndChild(messageElement);
 
-	//node->DeleteChildren();
-	//XMLElement* codeElement = doc->NewElement("code");
-	//node->InsertEndChild(codeElement);
-	//XMLElement* messageElement = doc->NewElement("message");
-	//node->InsertEndChild(messageElement);
+	codeElement->InsertEndChild(textCode);
+	messageElement->InsertEndChild(textMessage);
 
-	//XMLElement* codeElement = doc->NewElement("code");
-	//root->InsertEndChild(codeElement);
-
-	//codeElement->InsertEndChild(textCode);
-
-	//doc->InsertEndChild(root);
-	//doc->SaveFile(path.c_str());
+	doc->InsertEndChild(root);
+	doc->SaveFile(path.c_str());
 }
+
+
+
 
 void OutputWriter::CreateOrCleanXMLDoc(ResponseMsg response){
 	//std::string path = CommandManager::getPathOut();
@@ -143,6 +127,9 @@ void OutputWriter::CreateOrCleanXMLDoc(ResponseMsg response){
 	//doc->InsertEndChild(root);
 	//doc->SaveFile(path.c_str());
 }
+
+
+
 
 void OutputWriter::SaveDocToFile(){
 	std::string path = CommandManager::getPathOut();

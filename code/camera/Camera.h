@@ -21,11 +21,55 @@ protected:
 	string model;
 
 public: 
+
+	/**********************************************************************************************//**
+	 * @brief	Initialises this camera.
+	 *
+	 * @return	Response message
+	 **************************************************************************************************/
 	virtual ResponseMsg init(){return ResponseMsg(CAMERROR_ERROR_UNDEFINED,"ERROR");};
+
+	/**********************************************************************************************//**
+	 * @brief	Close camera
+	 *
+	* @return	Response message
+	**************************************************************************************************/
 	virtual ResponseMsg close(){return ResponseMsg(CAMERROR_ERROR_UNDEFINED,"ERROR");};
+
+	/**********************************************************************************************//**
+	 * @brief	Sets a property.
+	 *
+	 * @param	prop 	The property to set.
+	 * @param	value	The new value.
+	 *
+	 * @return	Response message
+	 **************************************************************************************************/
 	virtual ResponseMsg setProperty(string prop, const char * value){return ResponseMsg(CAMERROR_ERROR_UNDEFINED,"ERROR");};
+
+	/**********************************************************************************************//**
+	 * @brief	Gets a property.
+	 *
+	 * @param	prop	The property to get.
+	 *
+	 * @return	Response message. The value is included.
+	 **************************************************************************************************/
 	virtual ResponseMsg getProperty(string prop){return ResponseMsg(CAMERROR_ERROR_UNDEFINED,"ERROR");};
+
+	/**********************************************************************************************//**
+	 * @brief	Gets list of possibe values for a property.
+	 *
+	 * @param	prop	The property.
+	 *
+	 * @return	The list of values.
+	 **************************************************************************************************/
 	virtual ResponseMsg getGetList(string prop){return ResponseMsg(CAMERROR_ERROR_UNDEFINED,"ERROR");};
+
+	/**********************************************************************************************//**
+	 * @brief	Take picture
+	 *
+	 * @return	Response message for notify errors or successful operation
+	 **************************************************************************************************/
 	virtual ResponseMsg takePicture(){return ResponseMsg(CAMERROR_ERROR_UNDEFINED,"ERROR");};
+
 };
 #endif /* Camera_h */

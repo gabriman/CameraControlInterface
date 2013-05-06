@@ -2,13 +2,13 @@
 <commands>
    <command>
       <set>
-         <ISO>400</ISO>
+         <ISO>100</ISO>
       </set>
    </command>
    
       <command>
       <set>
-         <APERTURE>4.5</APERTURE>
+         <APERTURE>7.1</APERTURE>
       </set>
    </command>
 </commands>

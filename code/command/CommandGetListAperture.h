@@ -8,10 +8,19 @@
 #include "ResponseMsg.h"
 #include "OutputWriter.h"
 
+/**********************************************************************************************//**
+ * @brief	Command get list aperture.
+ **************************************************************************************************/
 class CommandGetListAperture : public Command
 {
 public: 
 	CommandGetListAperture (Camera* camera1);
+	/**********************************************************************************************//**
+	 * @brief	Constructor
+	 *
+	 * @param [in]	camera1	The camera.
+	 * @param [in]	node   	The node.
+	 **************************************************************************************************/
 	CommandGetListAperture (Camera* camera1, tinyxml2::XMLNode* node);
 	virtual int execute();
 };

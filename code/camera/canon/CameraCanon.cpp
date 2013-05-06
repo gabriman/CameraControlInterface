@@ -1,5 +1,9 @@
 #include "CameraCanon.h"
 
+
+/**********************************************************************************************//**
+ * @brief	Default constructor.
+ **************************************************************************************************/
 CameraCanon::CameraCanon(){
 
 	CameraCanon::company="Canon";
@@ -9,6 +13,7 @@ CameraCanon::CameraCanon(){
 	DictionaryCanon dictionary;
 
 }
+
 
 ResponseMsg CameraCanon::init(){
 	// Initialize SDK
@@ -34,6 +39,8 @@ ResponseMsg CameraCanon::init(){
 	else return ResponseMsg(CAMERROR_OK,"");
 }
 
+
+
 ResponseMsg CameraCanon::close(){
 	// Close session with camera
 	if(err == EDS_ERR_OK)
@@ -54,6 +61,8 @@ ResponseMsg CameraCanon::close(){
 	return ResponseMsg(CAMERROR_OK,"");
 }
 
+
+
 ResponseMsg CameraCanon::setProperty(string prop, const char * value)
 {
 	int propEds = 0;
@@ -68,6 +77,8 @@ ResponseMsg CameraCanon::setProperty(string prop, const char * value)
 	EdsSetPropertyData(camera, propEds, 0 , sizeof(valueEds), &valueEds);
 	return ResponseMsg(CAMERROR_OK,"");
 }
+
+
 
 ResponseMsg CameraCanon::getProperty(string prop)
 {
@@ -94,6 +105,8 @@ ResponseMsg CameraCanon::getProperty(string prop)
 
 	return ResponseMsg(CAMERROR_OK,valueTranslate);
 };
+
+
 
 ResponseMsg CameraCanon::getGetList(string prop)
 {
@@ -132,6 +145,7 @@ ResponseMsg CameraCanon::getGetList(string prop)
 };
 
 
+
 ResponseMsg CameraCanon::takePicture()
 {
 	err = EdsSendCommand(camera , kEdsCameraCommand_TakePicture , 0);
@@ -141,6 +155,14 @@ ResponseMsg CameraCanon::takePicture()
 
 
 //PRIVATE SECTION
+
+/**********************************************************************************************//**
+ * @brief	Getting a camera object
+ *
+ * @param [out]	camera	The first camera
+ *
+ * @return	Notify error
+ **************************************************************************************************/
 EdsError CameraCanon::getFirstCamera(EdsCameraRef *camera)
 {
 	EdsError err = EDS_ERR_OK;

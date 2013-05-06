@@ -4,7 +4,7 @@
             <ISO>
                 <code>0</code>
                 <message></message>
-                <value>400</value>
+                <value>100</value>
             </ISO>
         </set>
     </command>
@@ -13,7 +13,7 @@
             <APERTURE>
                 <code>0</code>
                 <message></message>
-                <value>4.5</value>
+                <value>7.1</value>
             </APERTURE>
         </set>
     </command>
