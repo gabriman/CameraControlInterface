@@ -1,4 +1,3 @@
-#include <windows.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <tchar.h>
@@ -34,8 +33,9 @@ int main(int argc, char *argv[])
 
 	FileMonitor file_monitor(directoryIn);
 
-
+	
 	Camera* cameraCanon1 = new CameraCanon();
+	//CameraCanon* cameraCanon1 = new CameraCanon();
 	CommandManager CommandManager1(cameraCanon1,directoryIn,directoryOut,fileIn,fileOut);
 
 	//Camera initialitation
@@ -46,8 +46,11 @@ int main(int argc, char *argv[])
 		exit(0);
 	}
 
+	//cameraCanon1->downloadLastImage();
+
 	while(true){
 		file_monitor.WatchDirectoryOneChange();  //Waiting until change in directory
+		//Sleep(1000);
 
 		list<Command*> commandsList = CommandManager1.CreateCommandList();
 		CommandManager1.executeCommandList(commandsList);

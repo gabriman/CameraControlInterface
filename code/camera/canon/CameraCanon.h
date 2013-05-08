@@ -6,6 +6,7 @@
 #include "EDSDKTypes.h"
 #include <map>
 #include "DictionaryCanon.h"
+#include "ListenerCanon.h"
 
 class CameraCanon : public Camera
 {
@@ -13,8 +14,8 @@ private:
 	EdsCameraRef camera;
 	EdsError err;
 	bool isSDKLoaded;
-	std::map<EdsUInt32, const char *> _propertyTableISO;
 	DictionaryCanon dictionary;
+	
 public:
 	CameraCanon();
 	ResponseMsg init();
@@ -23,8 +24,18 @@ public:
 	ResponseMsg getGetList(string prop);
 	ResponseMsg close();
 	ResponseMsg takePicture();
+	bool downloadLastImage();
 private:
 	EdsError getFirstCamera(EdsCameraRef *camera);
+	//bool downloadImage(EdsDirectoryItemRef directoryItem);
+	//bool preCommand();
+	static void easyRelease(EdsBaseRef &ref){
+    if(ref != NULL){
+        EdsRelease(ref);
+        ref = NULL;
+    }
+}
+
 };
 
 #endif /* CameraCanon_h */

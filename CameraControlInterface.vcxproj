@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClCompile Include="code\camera\canon\CameraCanon.cpp" />
     <ClCompile Include="code\camera\canon\dictionary\DictionaryCanon.cpp" />
+    <ClCompile Include="code\camera\canon\ListenerCanon.cpp" />
     <ClCompile Include="code\camera\nikon\CameraNikon.cpp" />
     <ClCompile Include="code\CommandManager.cpp" />
     <ClCompile Include="code\command\Command.cpp" />
@@ -40,6 +41,7 @@
     <ClInclude Include="code\camera\Camera.h" />
     <ClInclude Include="code\camera\canon\CameraCanon.h" />
     <ClInclude Include="code\camera\canon\dictionary\DictionaryCanon.h" />
+    <ClInclude Include="code\camera\canon\ListenerCanon.h" />
     <ClInclude Include="code\camera\nikon\CameraNikon.h" />
     <ClInclude Include="code\CommandManager.h" />
     <ClInclude Include="code\command\Command.h" />
@@ -77,7 +79,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <UseOfMfc>Dynamic</UseOfMfc>
+    <UseOfMfc>false</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
