@@ -176,14 +176,14 @@ ResponseMsg CameraCanon::takePicture()
 {
 	err = EdsSendCommand(camera , kEdsCameraCommand_TakePicture , 0);
 	if (err == EDS_ERR_OK) {	
-		MSG Msg;
-		while (PeekMessage(&Msg, NULL, 0, 0, PM_REMOVE)>0){
-			cout<<"dentro de bucle peek"<<endl;
-			TranslateMessage(&Msg);
-			DispatchMessage(&Msg);
-			Sleep(1000);
-		}
-		cout<<"ACABO DE ESPERAR"<<endl;
+		//MSG Msg;
+		//while (PeekMessage(&Msg, NULL, 0, 0, PM_REMOVE)>0){
+		//	cout<<"dentro de bucle peek"<<endl;
+		//	TranslateMessage(&Msg);
+		//	DispatchMessage(&Msg);
+		//	Sleep(1000);
+		//}
+		//cout<<"ACABO DE ESPERAR"<<endl;
 		return ResponseMsg(CAMERROR_OK,"");
 	}
 	else return ResponseMsg(CAMERROR_ERROR_UNDEFINED,"Error taking photo");

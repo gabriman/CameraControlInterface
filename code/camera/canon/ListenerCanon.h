@@ -14,9 +14,9 @@ public:
 	static EdsError EDSCALLBACK handleStateEvent(EdsStateEvent inEvent,EdsUInt32 inParam,EdsVoid* inContext);
 	static EdsError EDSCALLBACK handlePropertyEvent(EdsPropertyEvent inEvent,EdsUInt32 inPropertyID,EdsUInt32 inParam,EdsVoid* inContext);
 	static EdsError EDSCALLBACK handleObjectEvent(EdsObjectEvent inEvent, EdsBaseRef  object, EdsVoid * context) ;
-	static bool runThreadObserver();
-	static DWORD WINAPI dispathMsg(LPVOID lpParam);
-	static DWORD WINAPI dispathMsgLoop(LPVOID lpParam);
+	//static bool runThreadObserver();
+	//static DWORD WINAPI dispathMsg(LPVOID lpParam);
+	//static DWORD WINAPI dispathMsgLoop(LPVOID lpParam);
 
 private:
 };

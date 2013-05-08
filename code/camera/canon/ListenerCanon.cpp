@@ -139,59 +139,59 @@ EdsError EDSCALLBACK ListenerCanon::handleObjectEvent( EdsObjectEvent inEvent, E
    return error ;
 } 
 
-DWORD WINAPI ListenerCanon::dispathMsg(LPVOID lpParam)
-{
-	MSG msg;	
-	cout<<"Nuevo mensaje"<<endl;
-	//GetMessage(&msg, 0, 0, 0);
-	TranslateMessage(&msg); 
-	DispatchMessage(&msg); 
-	return 0;
-}
-
-DWORD WINAPI ListenerCanon::dispathMsgLoop(LPVOID lpParam)
-{
-	MSG msg;	
-	cout<<"nuevo thread"<<endl;
-//	while (GetMessage(&msg, 0, 0, 0)) 
-	while (PeekMessage (&msg, NULL, 0, 0, PM_REMOVE) > 0)
-	{
-		cout<<"Nuevo mensaje dentro de loop"<<endl;
-		TranslateMessage(&msg); 
-		DispatchMessage(&msg); 
-	}
-	return 0;
-}
-
-
-bool ListenerCanon::runThreadObserver(){
-	 int data = 0;
-
-	 int numThreads = 1;
-	 DWORD   dwThreadIdArray[1];
-    HANDLE  hThreadArray[1]; 
-
-	 hThreadArray[0] = CreateThread (
-      NULL,       // Atributo de seguridad: Usar el de la thread actual
-      0,          // Tamaño del stack. Usar el tamaño por defecto
-      dispathMsgLoop, // Función inicial de la thread
-      &data,    // Datos a pasar a la thread
-      0,          // Flags de creación
-      &dwThreadIdArray[0]);
-
-	 if (hThreadArray[0] == NULL) 
-        {
-           cout<<"ERROR createThread"<<endl;;
-           ExitProcess(3);
-        }
-    
-	 
-    WaitForMultipleObjects(numThreads, hThreadArray, TRUE, INFINITE);
-
-     for(int i=0; i<numThreads; i++)
-    {
-        CloseHandle(hThreadArray[i]);
-    }
-
-  return true;
-}
+//DWORD WINAPI ListenerCanon::dispathMsg(LPVOID lpParam)
+//{
+//	MSG msg;	
+//	cout<<"Nuevo mensaje"<<endl;
+//	//GetMessage(&msg, 0, 0, 0);
+//	TranslateMessage(&msg); 
+//	DispatchMessage(&msg); 
+//	return 0;
+//}
+//
+//DWORD WINAPI ListenerCanon::dispathMsgLoop(LPVOID lpParam)
+//{
+//	MSG msg;	
+//	cout<<"nuevo thread"<<endl;
+////	while (GetMessage(&msg, 0, 0, 0)) 
+//	while (PeekMessage (&msg, NULL, 0, 0, PM_REMOVE) > 0)
+//	{
+//		cout<<"Nuevo mensaje dentro de loop"<<endl;
+//		TranslateMessage(&msg); 
+//		DispatchMessage(&msg); 
+//	}
+//	return 0;
+//}
+//
+//
+//bool ListenerCanon::runThreadObserver(){
+//	 int data = 0;
+//
+//	 int numThreads = 1;
+//	 DWORD   dwThreadIdArray[1];
+//    HANDLE  hThreadArray[1]; 
+//
+//	 hThreadArray[0] = CreateThread (
+//      NULL,       // Atributo de seguridad: Usar el de la thread actual
+//      0,          // Tamaño del stack. Usar el tamaño por defecto
+//      dispathMsgLoop, // Función inicial de la thread
+//      &data,    // Datos a pasar a la thread
+//      0,          // Flags de creación
+//      &dwThreadIdArray[0]);
+//
+//	 if (hThreadArray[0] == NULL) 
+//        {
+//           cout<<"ERROR createThread"<<endl;;
+//           ExitProcess(3);
+//        }
+//    
+//	 
+//    WaitForMultipleObjects(numThreads, hThreadArray, TRUE, INFINITE);
+//
+//     for(int i=0; i<numThreads; i++)
+//    {
+//        CloseHandle(hThreadArray[i]);
+//    }
+//
+//  return true;
+//}
