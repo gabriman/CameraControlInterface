@@ -52,7 +52,9 @@ EdsError EDSCALLBACK ListenerCanon::handlePropertyEvent(
 
 EdsError EDSCALLBACK ListenerCanon::handleObjectEvent( EdsObjectEvent inEvent, EdsBaseRef  object, EdsVoid * context)
 { 
-   printf ("Object Event triggered\n");
+
+	CameraCanon* c = (CameraCanon*)context;
+   //printf ("Object Event triggered\n");
 
    //CanonEDCamera* mmCanon = (CanonEDCamera*) g_Self;
   
@@ -60,8 +62,9 @@ EdsError EDSCALLBACK ListenerCanon::handleObjectEvent( EdsObjectEvent inEvent, E
    { 
       case kEdsObjectEvent_DirItemCreated: 
          {
-			 cout<<"New photo detected"<<endl;
-			 break;
+			cout<<"New photo detected"<<endl;
+			c->setPhotoDetected(true);
+			break;
    //         EdsError err = EDS_ERR_OK;
    //         EdsStreamRef stream = NULL;
 

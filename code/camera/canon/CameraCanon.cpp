@@ -50,10 +50,12 @@ ResponseMsg CameraCanon::init(){
 		//if(err != EDS_ERR_OK) {
 		//	printf("Canon: error, cannot set state event handler.\n");
 		//}		
-		err = EdsSetObjectEventHandler(camera,  kEdsObjectEvent_All, ListenerCanon::handleObjectEvent,  NULL); 
+		err = EdsSetObjectEventHandler(camera,  kEdsObjectEvent_All, ListenerCanon::handleObjectEvent,  this); 
 		if(err != EDS_ERR_OK) {
 			printf("Canon: error, cannot set object event handler.\n");
 		}
+
+		setPhotoDetected(false);
 
 		
 		//Lauch thread with observer loop
@@ -171,19 +173,40 @@ ResponseMsg CameraCanon::getGetList(string prop)
 };
 
 
+/**********************************************************************************************//**
+ * @brief	Sets photo detected.
+ *
+ * @param	value	true to detected.
+ **************************************************************************************************/
+void CameraCanon::setPhotoDetected(bool detected){
+	photoDetected=detected;
+}
+
+
+/**********************************************************************************************//**
+ * @brief	Gets photo detected.
+ *
+ * @return	true if photo is detected, false if not.
+ **************************************************************************************************/
+bool CameraCanon::getPhotoDetected(){
+	return photoDetected;
+}
+
+
+
 
 ResponseMsg CameraCanon::takePicture()
 {
 	err = EdsSendCommand(camera , kEdsCameraCommand_TakePicture , 0);
 	if (err == EDS_ERR_OK) {	
-		//MSG Msg;
-		//while (PeekMessage(&Msg, NULL, 0, 0, PM_REMOVE)>0){
-		//	cout<<"dentro de bucle peek"<<endl;
-		//	TranslateMessage(&Msg);
-		//	DispatchMessage(&Msg);
-		//	Sleep(1000);
-		//}
-		//cout<<"ACABO DE ESPERAR"<<endl;
+		MSG Msg;
+		while(!getPhotoDetected()){
+			if (PeekMessage(&Msg, NULL, 0, 0, PM_REMOVE)>0){
+				TranslateMessage(&Msg);
+				DispatchMessage(&Msg);
+			}
+		}
+		setPhotoDetected(false);
 		return ResponseMsg(CAMERROR_OK,"");
 	}
 	else return ResponseMsg(CAMERROR_ERROR_UNDEFINED,"Error taking photo");

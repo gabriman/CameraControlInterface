@@ -15,6 +15,7 @@ private:
 	EdsError err;
 	bool isSDKLoaded;
 	DictionaryCanon dictionary;
+	bool photoDetected;
 	
 public:
 	CameraCanon();
@@ -22,6 +23,8 @@ public:
 	ResponseMsg setProperty(string prop, const char * value);
 	ResponseMsg getProperty(string prop);
 	ResponseMsg getGetList(string prop);
+	void setPhotoDetected(bool value);
+	bool getPhotoDetected();
 	ResponseMsg close();
 	ResponseMsg takePicture();
 	bool downloadLastImage();

@@ -2,13 +2,36 @@
 <commands>
    <command>
       <set>
-         <ISO>100</ISO>
+         <ISO>400</ISO>
       </set>
    </command>
    
-      <command>
+   <command>
       <set>
          <APERTURE>7.1</APERTURE>
       </set>
    </command>
+   
+   <command>
+      <action>
+         <take></take>
+      </action>
+   </command>
+   
+   <command>
+      <action>
+         <take></take>
+      </action>
+   </command>
+   <command>
+      <action>
+         <take></take>
+      </action>
+   </command>
+   <command>
+      <action>
+         <take></take>
+      </action>
+   </command>
+   
 </commands>
