@@ -30,11 +30,12 @@ int main(int argc, char *argv[])
 	directoryOut = rootFolder; directoryOut.append("\\");  directoryOut.append(configTable.find("directoryOut")->second);
 	std::string fileIn = configTable.find("fileIn")->second;
 	std::string fileOut = configTable.find("fileOut")->second;
+	std::string photosDirectory = configTable.find("photosDirectory")->second;
 
 	FileMonitor file_monitor(directoryIn);
 
-	
-	Camera* cameraCanon1 = new CameraCanon();
+
+	Camera* cameraCanon1 = new CameraCanon(photosDirectory);
 	//CameraCanon* cameraCanon1 = new CameraCanon();
 	CommandManager CommandManager1(cameraCanon1,directoryIn,directoryOut,fileIn,fileOut);
 

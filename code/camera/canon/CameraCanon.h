@@ -16,28 +16,28 @@ private:
 	bool isSDKLoaded;
 	DictionaryCanon dictionary;
 	bool photoDetected;
-	
+
 public:
 	CameraCanon();
+	CameraCanon(string photosDirectory);
 	ResponseMsg init();
 	ResponseMsg setProperty(string prop, const char * value);
 	ResponseMsg getProperty(string prop);
 	ResponseMsg getGetList(string prop);
-	void setPhotoDetected(bool value);
-	bool getPhotoDetected();
 	ResponseMsg close();
 	ResponseMsg takePicture();
-	bool downloadLastImage();
+	ResponseMsg setTargetSave();
+
+	void setPhotoDetected(bool value);
+	bool getPhotoDetected();
 private:
 	EdsError getFirstCamera(EdsCameraRef *camera);
-	//bool downloadImage(EdsDirectoryItemRef directoryItem);
-	//bool preCommand();
 	static void easyRelease(EdsBaseRef &ref){
-    if(ref != NULL){
-        EdsRelease(ref);
-        ref = NULL;
-    }
-}
+		if(ref != NULL){
+			EdsRelease(ref);
+			ref = NULL;
+		}
+	}
 
 };
 

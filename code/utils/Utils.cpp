@@ -53,6 +53,8 @@ std::map<string,string> Utils::readConfigFiles(std::string pathFile)
 		if (fileInNode->FirstChild()->Value()!="") configTable.insert(std::pair<string, string>("fileIn",fileInNode->FirstChild()->Value()));
 		tinyxml2::XMLNode* fileOutNode  = rootConfig->FirstChildElement("fileOut");
 		if (fileOutNode->FirstChild()->Value()!="") configTable.insert(std::pair<string, string>("fileOut",fileOutNode->FirstChild()->Value()));
+		tinyxml2::XMLNode* photosDirNode  = rootConfig->FirstChildElement("photosDirectory");
+		if (photosDirNode->FirstChild()->Value()!="") configTable.insert(std::pair<string, string>("photosDirectory",photosDirNode->FirstChild()->Value()));
 	}
 	catch (...) {
 		cout << "An exception occurred opening config file"<< endl;

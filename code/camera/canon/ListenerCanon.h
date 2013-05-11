@@ -8,6 +8,9 @@
 #include <windows.h>
 #include "DictionaryCanon.h"
 #include "CameraCanon.h"
+#include <iostream>
+#include <fstream>
+#include <time.h>
 
 class ListenerCanon 
 {

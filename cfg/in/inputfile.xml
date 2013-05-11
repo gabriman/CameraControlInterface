@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <commands>
+	
+   <command>
+      <action>
+         <targetSave>
+			<target>host</target>
+		 </targetSave>
+      </action>
+   </command>
+
+
    <command>
       <set>
          <ISO>400</ISO>
@@ -8,7 +18,7 @@
    
    <command>
       <set>
-         <APERTURE>7.1</APERTURE>
+         <APERTURE>3.5</APERTURE>
       </set>
    </command>
    
@@ -18,20 +28,5 @@
       </action>
    </command>
    
-   <command>
-      <action>
-         <take></take>
-      </action>
-   </command>
-   <command>
-      <action>
-         <take></take>
-      </action>
-   </command>
-   <command>
-      <action>
-         <take></take>
-      </action>
-   </command>
    
 </commands>

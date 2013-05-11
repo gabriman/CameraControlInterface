@@ -19,6 +19,8 @@ class Camera {
 protected:
 	string company;
 	string model;
+	string pathSavePhotos; //Only when "save in host" is enable
+	string targetPhotos; //Only when "save in host" is enable
 
 public: 
 
@@ -70,6 +72,25 @@ public:
 	 * @return	Response message for notify errors or successful operation
 	 **************************************************************************************************/
 	virtual ResponseMsg takePicture(){return ResponseMsg(CAMERROR_ERROR_UNDEFINED,"ERROR");};
+
+
+	/**********************************************************************************************//**
+	 * @brief	Sets target to save images.
+	 *
+	 * @param	target	Target (camera,host,both).
+	 *
+	 * @return	.
+	 **************************************************************************************************/
+	virtual ResponseMsg setTargetSave(){return ResponseMsg(CAMERROR_ERROR_UNDEFINED,"ERROR");};
+
+
+	void setPathSavePhotos(string pathSave){ this->pathSavePhotos=pathSave;};
+	
+	string getPathSavePhotos() {return this->pathSavePhotos;};
+	
+	void setTargetPhotos(string target){ this->targetPhotos=target;};
+	
+	string getTargetPhotos() {return this->targetPhotos;};
 
 };
 #endif /* Camera_h */

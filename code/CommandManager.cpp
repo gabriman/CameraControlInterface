@@ -160,6 +160,15 @@ Command* CommandManager::createActionCommand(tinyxml2::XMLNode* node){
 	Command* comando = NULL;
 
 	if (!strcmp(parameter,"take")) comando = new CommandTakePicture(camera,child);
+	else if (!strcmp(parameter,"targetSave")){
+		XMLNode* tarjetNode = child->FirstChildElement("target");
+		XMLNode* pathNode = child->FirstChildElement("path");
+		string target = tarjetNode->FirstChild()->Value();
+		string path;
+		if (pathNode==NULL) path = camera->getPathSavePhotos();
+		else path = pathNode->FirstChild()->Value();
+		comando = new CommandSetTargetSave(camera,target,path,child);
+	}
 	else return comando = new CommandUnknown(camera,child);
 
 	return comando;

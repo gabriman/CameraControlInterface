@@ -16,6 +16,7 @@
 #include "CommandGetListIso.h"
 #include "CommandGetListAperture.h"
 #include "CommandGetListSpeed.h"
+#include "CommandSetTargetSave.h"
 #include "CommandClose.h"
 #include <iostream>
 #include <fstream>

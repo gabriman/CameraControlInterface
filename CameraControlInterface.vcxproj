@@ -28,6 +28,7 @@
     <ClCompile Include="code\command\CommandSetSpeed.cpp" />
     <ClCompile Include="code\command\CommandClose.cpp" />
     <ClCompile Include="code\command\CommandInit.cpp" />
+    <ClCompile Include="code\command\CommandSetTargetSave.cpp" />
     <ClCompile Include="code\command\CommandTakePicture.cpp" />
     <ClCompile Include="code\command\CommandUnknown.cpp" />
     <ClCompile Include="code\command\ResponseMsg.cpp" />
@@ -56,6 +57,7 @@
     <ClInclude Include="code\command\CommandSetSpeed.h" />
     <ClInclude Include="code\command\CommandClose.h" />
     <ClInclude Include="code\command\CommandInit.h" />
+    <ClInclude Include="code\command\CommandSetTargetSave.h" />
     <ClInclude Include="code\command\CommandTakePicture.h" />
     <ClInclude Include="code\command\CommandUnknown.h" />
     <ClInclude Include="code\command\ResponseMsg.h" />
