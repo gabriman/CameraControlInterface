@@ -17,17 +17,17 @@
     <ClCompile Include="code\camera\nikon\CameraNikon.cpp" />
     <ClCompile Include="code\CommandManager.cpp" />
     <ClCompile Include="code\command\Command.cpp" />
+    <ClCompile Include="code\command\CommandClose.cpp" />
     <ClCompile Include="code\command\CommandGetAperture.cpp" />
     <ClCompile Include="code\command\CommandGetIso.cpp" />
     <ClCompile Include="code\command\CommandGetListAperture.cpp" />
     <ClCompile Include="code\command\CommandGetListIso.cpp" />
     <ClCompile Include="code\command\CommandGetListSpeed.cpp" />
     <ClCompile Include="code\command\CommandGetSpeed.cpp" />
+    <ClCompile Include="code\command\CommandInit.cpp" />
     <ClCompile Include="code\command\CommandSetAperture.cpp" />
     <ClCompile Include="code\command\CommandSetIso.cpp" />
     <ClCompile Include="code\command\CommandSetSpeed.cpp" />
-    <ClCompile Include="code\command\CommandClose.cpp" />
-    <ClCompile Include="code\command\CommandInit.cpp" />
     <ClCompile Include="code\command\CommandSetTargetSave.cpp" />
     <ClCompile Include="code\command\CommandTakePicture.cpp" />
     <ClCompile Include="code\command\CommandUnknown.cpp" />
@@ -37,6 +37,8 @@
     <ClCompile Include="code\OutputWriter.cpp" />
     <ClCompile Include="code\tinyxml2_lib\tinyxml2.cpp" />
     <ClCompile Include="code\utils\Utils.cpp" />
+    <ClCompile Include="Header\CallBack.c" />
+    <ClCompile Include="Header\Function.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="code\camera\Camera.h" />
@@ -46,17 +48,17 @@
     <ClInclude Include="code\camera\nikon\CameraNikon.h" />
     <ClInclude Include="code\CommandManager.h" />
     <ClInclude Include="code\command\Command.h" />
+    <ClInclude Include="code\command\CommandClose.h" />
     <ClInclude Include="code\command\CommandGetAperture.h" />
     <ClInclude Include="code\command\CommandGetIso.h" />
     <ClInclude Include="code\command\CommandGetListAperture.h" />
     <ClInclude Include="code\command\CommandGetListIso.h" />
     <ClInclude Include="code\command\CommandGetListSpeed.h" />
     <ClInclude Include="code\command\CommandGetSpeed.h" />
+    <ClInclude Include="code\command\CommandInit.h" />
     <ClInclude Include="code\command\CommandSetAperture.h" />
     <ClInclude Include="code\command\CommandSetIso.h" />
     <ClInclude Include="code\command\CommandSetSpeed.h" />
-    <ClInclude Include="code\command\CommandClose.h" />
-    <ClInclude Include="code\command\CommandInit.h" />
     <ClInclude Include="code\command\CommandSetTargetSave.h" />
     <ClInclude Include="code\command\CommandTakePicture.h" />
     <ClInclude Include="code\command\CommandUnknown.h" />
@@ -65,11 +67,399 @@
     <ClInclude Include="code\OutputWriter.h" />
     <ClInclude Include="code\tinyxml2_lib\tinyxml2.h" />
     <ClInclude Include="code\utils\Utils.h" />
+    <ClInclude Include="Header\CtrlSample.h" />
+    <ClInclude Include="Header\EDSDK.h" />
+    <ClInclude Include="Header\EDSDKErrors.h" />
+    <ClInclude Include="Header\EDSDKTypes.h" />
+    <ClInclude Include="Header\Maid3.h" />
+    <ClInclude Include="Header\Maid3d1.h" />
+    <ClInclude Include="Header\NkTypes.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".gitignore" />
+    <None Include=".tfignore" />
+    <None Include="CameraControlInterface.doxproj" />
+    <None Include="CameraControlInterface.pdb" />
     <None Include="cfg\inputfile.xml">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Debug\icc\1001_F.BIN" />
+    <None Include="Debug\icc\1001_faf.BIN" />
+    <None Include="Debug\icc\1001_L.BIN" />
+    <None Include="Debug\icc\1001_lnd.BIN" />
+    <None Include="Debug\icc\1001_N.BIN" />
+    <None Include="Debug\icc\1001_ntl.BIN" />
+    <None Include="Debug\icc\1001_P.BIN" />
+    <None Include="Debug\icc\1001_ptr.BIN" />
+    <None Include="Debug\icc\1001_S.BIN" />
+    <None Include="Debug\icc\1001_std.BIN" />
+    <None Include="Debug\icc\1011_F.BIN" />
+    <None Include="Debug\icc\1011_faf.BIN" />
+    <None Include="Debug\icc\1011_L.BIN" />
+    <None Include="Debug\icc\1011_lnd.BIN" />
+    <None Include="Debug\icc\1011_N.BIN" />
+    <None Include="Debug\icc\1011_ntl.BIN" />
+    <None Include="Debug\icc\1011_P.BIN" />
+    <None Include="Debug\icc\1011_ptr.BIN" />
+    <None Include="Debug\icc\1011_S.BIN" />
+    <None Include="Debug\icc\1011_std.BIN" />
+    <None Include="Debug\icc\1021_F.BIN" />
+    <None Include="Debug\icc\1021_fa.BIN" />
+    <None Include="Debug\icc\1021_faf.BIN" />
+    <None Include="Debug\icc\1021_L.BIN" />
+    <None Include="Debug\icc\1021_lnd.BIN" />
+    <None Include="Debug\icc\1021_N.BIN" />
+    <None Include="Debug\icc\1021_ntl.BIN" />
+    <None Include="Debug\icc\1021_P.BIN" />
+    <None Include="Debug\icc\1021_ptr.BIN" />
+    <None Include="Debug\icc\1021_S.BIN" />
+    <None Include="Debug\icc\1021_std.BIN" />
+    <None Include="Debug\icc\6001_F.BIN" />
+    <None Include="Debug\icc\6001_faf.BIN" />
+    <None Include="Debug\icc\6001_L.BIN" />
+    <None Include="Debug\icc\6001_lnd.BIN" />
+    <None Include="Debug\icc\6001_ntl.BIN" />
+    <None Include="Debug\icc\6001_P.BIN" />
+    <None Include="Debug\icc\6001_ptr.BIN" />
+    <None Include="Debug\icc\6001_S.BIN" />
+    <None Include="Debug\icc\6001_std.BIN" />
+    <None Include="Debug\icc\6011_F.BIN" />
+    <None Include="Debug\icc\6011_faf.BIN" />
+    <None Include="Debug\icc\6011_L.BIN" />
+    <None Include="Debug\icc\6011_lnd.BIN" />
+    <None Include="Debug\icc\6011_N.BIN" />
+    <None Include="Debug\icc\6011_ntl.BIN" />
+    <None Include="Debug\icc\6011_P.BIN" />
+    <None Include="Debug\icc\6011_ptr.BIN" />
+    <None Include="Debug\icc\6011_std.BIN" />
+    <None Include="Debug\icc\6021_F.BIN" />
+    <None Include="Debug\icc\6021_faf.BIN" />
+    <None Include="Debug\icc\6021_L.BIN" />
+    <None Include="Debug\icc\6021_lnd.BIN" />
+    <None Include="Debug\icc\6021_ntl.BIN" />
+    <None Include="Debug\icc\6021_P.BIN" />
+    <None Include="Debug\icc\6021_ptr.BIN" />
+    <None Include="Debug\icc\6021_S.BIN" />
+    <None Include="Debug\icc\6021_std.BIN" />
+    <None Include="Debug\icc\6031_F.BIN" />
+    <None Include="Debug\icc\6031_faf.BIN" />
+    <None Include="Debug\icc\6031_L.BIN" />
+    <None Include="Debug\icc\6031_lnd.BIN" />
+    <None Include="Debug\icc\6031_N.BIN" />
+    <None Include="Debug\icc\6031_ntl.BIN" />
+    <None Include="Debug\icc\6031_P.BIN" />
+    <None Include="Debug\icc\6031_ptr.BIN" />
+    <None Include="Debug\icc\6031_std.BIN" />
+    <None Include="Debug\icc\6041_F.BIN" />
+    <None Include="Debug\icc\6041_faf.BIN" />
+    <None Include="Debug\icc\6041_L.BIN" />
+    <None Include="Debug\icc\6041_lnd.BIN" />
+    <None Include="Debug\icc\6041_N.BIN" />
+    <None Include="Debug\icc\6041_ntl.BIN" />
+    <None Include="Debug\icc\6041_P.BIN" />
+    <None Include="Debug\icc\6041_ptr.BIN" />
+    <None Include="Debug\icc\6041_std.BIN" />
+    <None Include="Debug\icc\6051_F.BIN" />
+    <None Include="Debug\icc\6051_faf.BIN" />
+    <None Include="Debug\icc\6051_L.BIN" />
+    <None Include="Debug\icc\6051_lnd.BIN" />
+    <None Include="Debug\icc\6051_ntl.BIN" />
+    <None Include="Debug\icc\6051_P.BIN" />
+    <None Include="Debug\icc\6051_ptr.BIN" />
+    <None Include="Debug\icc\6051_S.BIN" />
+    <None Include="Debug\icc\6051_std.BIN" />
+    <None Include="Debug\icc\6061_F.BIN" />
+    <None Include="Debug\icc\6061_faf.BIN" />
+    <None Include="Debug\icc\6061_L.BIN" />
+    <None Include="Debug\icc\6061_lnd.BIN" />
+    <None Include="Debug\icc\6061_N.BIN" />
+    <None Include="Debug\icc\6061_ntl.BIN" />
+    <None Include="Debug\icc\6061_P.BIN" />
+    <None Include="Debug\icc\6061_ptr.BIN" />
+    <None Include="Debug\icc\6061_std.BIN" />
+    <None Include="Debug\icc\6071_F.BIN" />
+    <None Include="Debug\icc\6071_faf.BIN" />
+    <None Include="Debug\icc\6071_L.BIN" />
+    <None Include="Debug\icc\6071_lnd.BIN" />
+    <None Include="Debug\icc\6071_N.BIN" />
+    <None Include="Debug\icc\6071_ntl.BIN" />
+    <None Include="Debug\icc\6071_P.BIN" />
+    <None Include="Debug\icc\6071_ptr.BIN" />
+    <None Include="Debug\icc\6071_std.BIN" />
+    <None Include="Debug\icc\6081_F.BIN" />
+    <None Include="Debug\icc\6081_faf.BIN" />
+    <None Include="Debug\icc\6081_L.BIN" />
+    <None Include="Debug\icc\6081_lnd.BIN" />
+    <None Include="Debug\icc\6081_ntl.BIN" />
+    <None Include="Debug\icc\6081_P.BIN" />
+    <None Include="Debug\icc\6081_ptr.BIN" />
+    <None Include="Debug\icc\6081_S.BIN" />
+    <None Include="Debug\icc\6081_std.BIN" />
+    <None Include="Debug\icc\6101_faf.BIN" />
+    <None Include="Debug\icc\6101_lnd.BIN" />
+    <None Include="Debug\icc\6101_ntl.BIN" />
+    <None Include="Debug\icc\6101_ptr.BIN" />
+    <None Include="Debug\icc\6101_std.BIN" />
+    <None Include="Debug\icc\6171_PA.BIN" />
+    <None Include="Debug\icc\6171_PS.BIN" />
+    <None Include="Debug\icc\6171_ptra.BIN" />
+    <None Include="Debug\icc\6171_ptrs.BIN" />
+    <None Include="Debug\icc\6181_FA.BIN" />
+    <None Include="Debug\icc\6181_fafa.BIN" />
+    <None Include="Debug\icc\6181_fafs.BIN" />
+    <None Include="Debug\icc\6181_FS.BIN" />
+    <None Include="Debug\icc\6181_NA.BIN" />
+    <None Include="Debug\icc\6181_ntla.BIN" />
+    <None Include="Debug\icc\6181_PA.BIN" />
+    <None Include="Debug\icc\6181_PS.BIN" />
+    <None Include="Debug\icc\6181_ptra.BIN" />
+    <None Include="Debug\icc\6181_ptrs.BIN" />
+    <None Include="Debug\icc\6181_SA.BIN" />
+    <None Include="Debug\icc\6181_stda.BIN" />
+    <None Include="Debug\icc\6191_FA.BIN" />
+    <None Include="Debug\icc\6191_fafa.BIN" />
+    <None Include="Debug\icc\6191_fafs.BIN" />
+    <None Include="Debug\icc\6191_FS.BIN" />
+    <None Include="Debug\icc\6191_LA.BIN" />
+    <None Include="Debug\icc\6191_lnda.BIN" />
+    <None Include="Debug\icc\6191_lnds.BIN" />
+    <None Include="Debug\icc\6191_LS.BIN" />
+    <None Include="Debug\icc\6191_NA.BIN" />
+    <None Include="Debug\icc\6191_NS.BIN" />
+    <None Include="Debug\icc\6191_ntla.BIN" />
+    <None Include="Debug\icc\6191_ntls.BIN" />
+    <None Include="Debug\icc\6191_PA.BIN" />
+    <None Include="Debug\icc\6191_PS.BIN" />
+    <None Include="Debug\icc\6191_ptra.BIN" />
+    <None Include="Debug\icc\6191_ptrs.BIN" />
+    <None Include="Debug\icc\6191_SA.BIN" />
+    <None Include="Debug\icc\6191_SS.BIN" />
+    <None Include="Debug\icc\6191_stda.BIN" />
+    <None Include="Debug\icc\6191_stds.BIN" />
+    <None Include="Debug\icc\6201_FA.BIN" />
+    <None Include="Debug\icc\6201_fafa.BIN" />
+    <None Include="Debug\icc\6201_fafs.BIN" />
+    <None Include="Debug\icc\6201_FS.BIN" />
+    <None Include="Debug\icc\6201_LA.BIN" />
+    <None Include="Debug\icc\6201_lnda.BIN" />
+    <None Include="Debug\icc\6201_lnds.BIN" />
+    <None Include="Debug\icc\6201_LS.BIN" />
+    <None Include="Debug\icc\6201_NA.BIN" />
+    <None Include="Debug\icc\6201_NS.BIN" />
+    <None Include="Debug\icc\6201_ntla.BIN" />
+    <None Include="Debug\icc\6201_ntls.BIN" />
+    <None Include="Debug\icc\6201_PA.BIN" />
+    <None Include="Debug\icc\6201_PS.BIN" />
+    <None Include="Debug\icc\6201_ptra.BIN" />
+    <None Include="Debug\icc\6201_ptrs.BIN" />
+    <None Include="Debug\icc\6201_SA.BIN" />
+    <None Include="Debug\icc\6201_SS.BIN" />
+    <None Include="Debug\icc\6201_stda.BIN" />
+    <None Include="Debug\icc\6201_stds.BIN" />
+    <None Include="Debug\icc\6211_FA.BIN" />
+    <None Include="Debug\icc\6211_fafa.BIN" />
+    <None Include="Debug\icc\6211_fafs.BIN" />
+    <None Include="Debug\icc\6211_FS.BIN" />
+    <None Include="Debug\icc\6211_LA.BIN" />
+    <None Include="Debug\icc\6211_lnda.BIN" />
+    <None Include="Debug\icc\6211_lnds.BIN" />
+    <None Include="Debug\icc\6211_LS.BIN" />
+    <None Include="Debug\icc\6211_NA.BIN" />
+    <None Include="Debug\icc\6211_NS.BIN" />
+    <None Include="Debug\icc\6211_ntla.BIN" />
+    <None Include="Debug\icc\6211_ntls.BIN" />
+    <None Include="Debug\icc\6211_PA.BIN" />
+    <None Include="Debug\icc\6211_PS.BIN" />
+    <None Include="Debug\icc\6211_ptra.BIN" />
+    <None Include="Debug\icc\6211_ptrs.BIN" />
+    <None Include="Debug\icc\6211_SA.BIN" />
+    <None Include="Debug\icc\6211_SS.BIN" />
+    <None Include="Debug\icc\6211_stda.BIN" />
+    <None Include="Debug\icc\6211_stds.BIN" />
+    <None Include="Debug\icc\6221_FA.BIN" />
+    <None Include="Debug\icc\6221_fafa.BIN" />
+    <None Include="Debug\icc\6221_fafs.BIN" />
+    <None Include="Debug\icc\6221_FS.BIN" />
+    <None Include="Debug\icc\6221_LA.BIN" />
+    <None Include="Debug\icc\6221_lnda.BIN" />
+    <None Include="Debug\icc\6221_lnds.BIN" />
+    <None Include="Debug\icc\6221_LS.BIN" />
+    <None Include="Debug\icc\6221_NA.BIN" />
+    <None Include="Debug\icc\6221_NS.BIN" />
+    <None Include="Debug\icc\6221_ntla.BIN" />
+    <None Include="Debug\icc\6221_ntls.BIN" />
+    <None Include="Debug\icc\6221_PA.BIN" />
+    <None Include="Debug\icc\6221_PS.BIN" />
+    <None Include="Debug\icc\6221_ptra.BIN" />
+    <None Include="Debug\icc\6221_ptrs.BIN" />
+    <None Include="Debug\icc\6221_SA.BIN" />
+    <None Include="Debug\icc\6221_SS.BIN" />
+    <None Include="Debug\icc\6221_stda.BIN" />
+    <None Include="Debug\icc\6221_stds.BIN" />
+    <None Include="Debug\icc\6231_FA.BIN" />
+    <None Include="Debug\icc\6231_fafa.BIN" />
+    <None Include="Debug\icc\6231_fafs.BIN" />
+    <None Include="Debug\icc\6231_FS.BIN" />
+    <None Include="Debug\icc\6231_LA.BIN" />
+    <None Include="Debug\icc\6231_lnda.BIN" />
+    <None Include="Debug\icc\6231_lnds.BIN" />
+    <None Include="Debug\icc\6231_LS.BIN" />
+    <None Include="Debug\icc\6231_NA.BIN" />
+    <None Include="Debug\icc\6231_NS.BIN" />
+    <None Include="Debug\icc\6231_ntla.BIN" />
+    <None Include="Debug\icc\6231_ntls.BIN" />
+    <None Include="Debug\icc\6231_PA.BIN" />
+    <None Include="Debug\icc\6231_PS.BIN" />
+    <None Include="Debug\icc\6231_ptra.BIN" />
+    <None Include="Debug\icc\6231_ptrs.BIN" />
+    <None Include="Debug\icc\6231_SA.BIN" />
+    <None Include="Debug\icc\6231_SS.BIN" />
+    <None Include="Debug\icc\6231_stda.BIN" />
+    <None Include="Debug\icc\6231_stds.BIN" />
+    <None Include="Debug\icc\6241_FA.BIN" />
+    <None Include="Debug\icc\6241_fafa.BIN" />
+    <None Include="Debug\icc\6241_fafs.BIN" />
+    <None Include="Debug\icc\6241_FS.BIN" />
+    <None Include="Debug\icc\6241_LA.BIN" />
+    <None Include="Debug\icc\6241_lnda.BIN" />
+    <None Include="Debug\icc\6241_lnds.BIN" />
+    <None Include="Debug\icc\6241_LS.BIN" />
+    <None Include="Debug\icc\6241_NA.BIN" />
+    <None Include="Debug\icc\6241_NS.BIN" />
+    <None Include="Debug\icc\6241_ntla.BIN" />
+    <None Include="Debug\icc\6241_ntls.BIN" />
+    <None Include="Debug\icc\6241_PA.BIN" />
+    <None Include="Debug\icc\6241_PS.BIN" />
+    <None Include="Debug\icc\6241_ptra.BIN" />
+    <None Include="Debug\icc\6241_ptrs.BIN" />
+    <None Include="Debug\icc\6241_SA.BIN" />
+    <None Include="Debug\icc\6241_SS.BIN" />
+    <None Include="Debug\icc\6241_stda.BIN" />
+    <None Include="Debug\icc\6241_stds.BIN" />
+    <None Include="Debug\icc\6251_FA.BIN" />
+    <None Include="Debug\icc\6251_fafa.BIN" />
+    <None Include="Debug\icc\6251_fafs.BIN" />
+    <None Include="Debug\icc\6251_FS.BIN" />
+    <None Include="Debug\icc\6251_LA.BIN" />
+    <None Include="Debug\icc\6251_lnda.BIN" />
+    <None Include="Debug\icc\6251_lnds.BIN" />
+    <None Include="Debug\icc\6251_LS.BIN" />
+    <None Include="Debug\icc\6251_NA.BIN" />
+    <None Include="Debug\icc\6251_NS.BIN" />
+    <None Include="Debug\icc\6251_ntla.BIN" />
+    <None Include="Debug\icc\6251_ntls.BIN" />
+    <None Include="Debug\icc\6251_PA.BIN" />
+    <None Include="Debug\icc\6251_PS.BIN" />
+    <None Include="Debug\icc\6251_ptra.BIN" />
+    <None Include="Debug\icc\6251_ptrs.BIN" />
+    <None Include="Debug\icc\6251_SA.BIN" />
+    <None Include="Debug\icc\6251_SS.BIN" />
+    <None Include="Debug\icc\6251_stda.BIN" />
+    <None Include="Debug\icc\6251_stds.BIN" />
+    <None Include="Debug\icc\6261_FA.BIN" />
+    <None Include="Debug\icc\6261_fafa.BIN" />
+    <None Include="Debug\icc\6261_fafs.BIN" />
+    <None Include="Debug\icc\6261_FS.BIN" />
+    <None Include="Debug\icc\6261_LA.BIN" />
+    <None Include="Debug\icc\6261_lnda.BIN" />
+    <None Include="Debug\icc\6261_lnds.BIN" />
+    <None Include="Debug\icc\6261_LS.BIN" />
+    <None Include="Debug\icc\6261_NA.BIN" />
+    <None Include="Debug\icc\6261_NS.BIN" />
+    <None Include="Debug\icc\6261_ntla.BIN" />
+    <None Include="Debug\icc\6261_ntls.BIN" />
+    <None Include="Debug\icc\6261_PA.BIN" />
+    <None Include="Debug\icc\6261_PS.BIN" />
+    <None Include="Debug\icc\6261_ptra.BIN" />
+    <None Include="Debug\icc\6261_ptrs.BIN" />
+    <None Include="Debug\icc\6261_SA.BIN" />
+    <None Include="Debug\icc\6261_SS.BIN" />
+    <None Include="Debug\icc\6261_stda.BIN" />
+    <None Include="Debug\icc\6261_stds.BIN" />
+    <None Include="Debug\icc\6271_FA.BIN" />
+    <None Include="Debug\icc\6271_fafa.BIN" />
+    <None Include="Debug\icc\6271_fafs.BIN" />
+    <None Include="Debug\icc\6271_FS.BIN" />
+    <None Include="Debug\icc\6271_LA.BIN" />
+    <None Include="Debug\icc\6271_lnda.BIN" />
+    <None Include="Debug\icc\6271_lnds.BIN" />
+    <None Include="Debug\icc\6271_LS.BIN" />
+    <None Include="Debug\icc\6271_NA.BIN" />
+    <None Include="Debug\icc\6271_NS.BIN" />
+    <None Include="Debug\icc\6271_ntla.BIN" />
+    <None Include="Debug\icc\6271_ntls.BIN" />
+    <None Include="Debug\icc\6271_PA.BIN" />
+    <None Include="Debug\icc\6271_PS.BIN" />
+    <None Include="Debug\icc\6271_ptra.BIN" />
+    <None Include="Debug\icc\6271_ptrs.BIN" />
+    <None Include="Debug\icc\6271_SA.BIN" />
+    <None Include="Debug\icc\6271_SS.BIN" />
+    <None Include="Debug\icc\6271_stda.BIN" />
+    <None Include="Debug\icc\6271_stds.BIN" />
+    <None Include="Debug\icc\6281_FA.BIN" />
+    <None Include="Debug\icc\6281_fafa.BIN" />
+    <None Include="Debug\icc\6281_fafs.BIN" />
+    <None Include="Debug\icc\6281_FS.BIN" />
+    <None Include="Debug\icc\6281_LA.BIN" />
+    <None Include="Debug\icc\6281_lnda.BIN" />
+    <None Include="Debug\icc\6281_lnds.BIN" />
+    <None Include="Debug\icc\6281_LS.BIN" />
+    <None Include="Debug\icc\6281_NA.BIN" />
+    <None Include="Debug\icc\6281_NS.BIN" />
+    <None Include="Debug\icc\6281_ntla.BIN" />
+    <None Include="Debug\icc\6281_ntls.BIN" />
+    <None Include="Debug\icc\6281_PA.BIN" />
+    <None Include="Debug\icc\6281_PS.BIN" />
+    <None Include="Debug\icc\6281_ptra.BIN" />
+    <None Include="Debug\icc\6281_ptrs.BIN" />
+    <None Include="Debug\icc\6281_SA.BIN" />
+    <None Include="Debug\icc\6281_SS.BIN" />
+    <None Include="Debug\icc\6281_stda.BIN" />
+    <None Include="Debug\icc\6281_stds.BIN" />
+    <None Include="Debug\icc\6291_FA.BIN" />
+    <None Include="Debug\icc\6291_fafa.BIN" />
+    <None Include="Debug\icc\6291_fafs.BIN" />
+    <None Include="Debug\icc\6291_FS.BIN" />
+    <None Include="Debug\icc\6291_LA.BIN" />
+    <None Include="Debug\icc\6291_lnda.BIN" />
+    <None Include="Debug\icc\6291_lnds.BIN" />
+    <None Include="Debug\icc\6291_LS.BIN" />
+    <None Include="Debug\icc\6291_NA.BIN" />
+    <None Include="Debug\icc\6291_NS.BIN" />
+    <None Include="Debug\icc\6291_ntla.BIN" />
+    <None Include="Debug\icc\6291_ntls.BIN" />
+    <None Include="Debug\icc\6291_PA.BIN" />
+    <None Include="Debug\icc\6291_PS.BIN" />
+    <None Include="Debug\icc\6291_ptra.BIN" />
+    <None Include="Debug\icc\6291_ptrs.BIN" />
+    <None Include="Debug\icc\6291_SA.BIN" />
+    <None Include="Debug\icc\6291_SS.BIN" />
+    <None Include="Debug\icc\6291_stda.BIN" />
+    <None Include="Debug\icc\6291_stds.BIN" />
+    <None Include="Debug\icc\6301_FA.BIN" />
+    <None Include="Debug\icc\6301_fafa.BIN" />
+    <None Include="Debug\icc\6301_fafs.BIN" />
+    <None Include="Debug\icc\6301_FS.BIN" />
+    <None Include="Debug\icc\6301_LA.BIN" />
+    <None Include="Debug\icc\6301_lnda.BIN" />
+    <None Include="Debug\icc\6301_lnds.BIN" />
+    <None Include="Debug\icc\6301_LS.BIN" />
+    <None Include="Debug\icc\6301_NA.BIN" />
+    <None Include="Debug\icc\6301_NS.BIN" />
+    <None Include="Debug\icc\6301_ntla.BIN" />
+    <None Include="Debug\icc\6301_ntls.BIN" />
+    <None Include="Debug\icc\6301_PA.BIN" />
+    <None Include="Debug\icc\6301_PS.BIN" />
+    <None Include="Debug\icc\6301_ptra.BIN" />
+    <None Include="Debug\icc\6301_ptrs.BIN" />
+    <None Include="Debug\icc\6301_SA.BIN" />
+    <None Include="Debug\icc\6301_SS.BIN" />
+    <None Include="Debug\icc\6301_stda.BIN" />
+    <None Include="Debug\icc\6301_stds.BIN" />
+    <None Include="VisualStudio.gitignore" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="Library\EDSDK.lib" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{05B5BE19-5084-41A8-9D41-9B3D98211DB9}</ProjectGuid>
@@ -80,7 +470,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
     <UseOfMfc>false</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -102,25 +492,31 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;</IncludePath>
-    <OutDir>$(SolutionDir)\$(Configuration)</OutDir>
+    <IncludePath>$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)\$(Configuration)\</OutDir>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>./code/utils;./code/camera/nikon;./code/camera/canon/dictionary;./code/camera/canon;./code;./code/command;./code/file_monitor;.\Header;./code/camera;./code/tinyxml2_lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../common/;./code/utils;./code/camera/nikon;./code/camera/canon/dictionary;./code/camera/canon;./code;./code/command;./code/file_monitor;./Header;./code/camera;./code/tinyxml2_lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>.\Library;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>EDSDK.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>EDSDK.lib;winmm.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

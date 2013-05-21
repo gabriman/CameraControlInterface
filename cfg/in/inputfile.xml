@@ -4,7 +4,7 @@
    <command>
       <action>
          <targetSave>
-			<target>host</target>
+			<target>both</target>
 		 </targetSave>
       </action>
    </command>
