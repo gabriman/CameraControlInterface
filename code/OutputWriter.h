@@ -44,6 +44,13 @@ public:
 	static void WriteInitOutput(ResponseMsg response);
 
 	/**********************************************************************************************//**
+	 * @brief	Writes an output when camera is closed.
+	 *
+	 * @param	response	The response.
+	 **************************************************************************************************/
+	static void WriteCloseOutput(ResponseMsg response);
+
+	/**********************************************************************************************//**
 	 * @brief	Creates and/or clean XML document.
 	 *
 	 * @param	response	The response.

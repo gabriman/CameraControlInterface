@@ -5,7 +5,7 @@ CommandClose::CommandClose(Camera* camera1):Command(camera1){}
 
 int CommandClose::execute(){
 	ResponseMsg response = camera->close();
-	OutputWriter::WriteToDoc(response,this->nodeOut);
+	OutputWriter::WriteCloseOutput(response);
 	exit(0);
 	return 0;
 };

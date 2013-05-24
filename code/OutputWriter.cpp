@@ -101,6 +101,29 @@ void OutputWriter::WriteInitOutput(ResponseMsg response){
 }
 
 
+void OutputWriter::WriteCloseOutput(ResponseMsg response){
+	std::string path = CommandManager::getPathOut();
+	tinyxml2::XMLDocument* doc = CommandManager::getDocOut();
+
+	doc->Clear(); //Clear all text
+	XMLNode *root = doc->NewElement("close");
+	
+	XMLText* textCode = doc->NewText((Utils::convertInt(response.getCode()).c_str()));
+	XMLText* textMessage = doc->NewText(response.getMessage());
+
+	XMLElement* codeElement = doc->NewElement("code");
+	root->InsertEndChild(codeElement);
+	XMLElement* messageElement = doc->NewElement("message");
+	root->InsertEndChild(messageElement);
+
+	codeElement->InsertEndChild(textCode);
+	messageElement->InsertEndChild(textMessage);
+
+	doc->InsertEndChild(root);
+	doc->SaveFile(path.c_str());
+}
+
+
 
 
 void OutputWriter::CreateOrCleanXMLDoc(ResponseMsg response){

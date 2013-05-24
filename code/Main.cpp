@@ -56,5 +56,5 @@ int main(int argc, char *argv[])
 		list<Command*> commandsList = CommandManager1.CreateCommandList();
 		CommandManager1.executeCommandList(commandsList);
 	}
-	Command* comandoclose = new CommandClose(cameraCanon1);
+
 }
