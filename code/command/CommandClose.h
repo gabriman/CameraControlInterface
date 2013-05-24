@@ -4,6 +4,8 @@
 
 #include "Camera.h"
 #include "Command.h"
+#include "ResponseMsg.h"
+#include "OutputWriter.h"
 
 /**********************************************************************************************//**
  * @brief	Command close.
