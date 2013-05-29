@@ -1,32 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <commands>
-	
    <command>
-      <action>
-         <targetSave>
-			<target>host</target>
-		 </targetSave>
-      </action>
+      <getlist>
+         <ISO/>
+      </getlist>
    </command>
-
-
    <command>
-      <set>
-         <ISO>400</ISO>
-      </set>
+      <getlist>
+         <APERTURE/>
+      </getlist>
    </command>
-   
    <command>
-      <set>
-         <APERTURE>3.5</APERTURE>
-      </set>
+      <getlist>
+         <ISO/>
+      </getlist>
    </command>
-   
    <command>
-      <action>
-         <take></take>
-      </action>
+      <getlist>
+         <APERTURE/>
+      </getlist>
    </command>
-   
-   
+   <command>
+      <getlist>
+         <ISO/>
+      </getlist>
+   </command>
+   <command>
+      <getlist>
+         <APERTURE/>
+      </getlist>
+   </command>
+   <command>
+      <getlist>
+         <ISO/>
+      </getlist>
+   </command>
+   <command>
+      <getlist>
+         <APERTURE/>
+      </getlist>
+   </command>
 </commands>
