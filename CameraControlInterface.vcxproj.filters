@@ -188,9 +188,6 @@
     <ClInclude Include="code\OutputWriter.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Header\CtrlSample.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="Header\Maid3.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -198,6 +195,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Header\NkTypes.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\CtrlSample.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

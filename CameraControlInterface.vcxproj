@@ -37,8 +37,12 @@
     <ClCompile Include="code\OutputWriter.cpp" />
     <ClCompile Include="code\tinyxml2_lib\tinyxml2.cpp" />
     <ClCompile Include="code\utils\Utils.cpp" />
-    <ClCompile Include="Header\CallBack.c" />
-    <ClCompile Include="Header\Function.c" />
+    <ClCompile Include="Header\CallBack.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="Header\Function.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="code\camera\Camera.h" />
@@ -511,6 +515,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BrowseInformation>true</BrowseInformation>
+      <CompileAs>Default</CompileAs>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

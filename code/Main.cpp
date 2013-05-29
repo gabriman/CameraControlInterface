@@ -12,19 +12,7 @@
 #include "DictionaryCanon.h"
 #include "Utils.h"
 
-#ifdef __cplusplus  
-    extern "C" {     
-#endif  
-//Include Nikon
-#include	<stdlib.h>
-#include	<stdio.h>
-#include	"maid3.h"
-#include	"maid3d1.h"
-#include	"CtrlSample.h"
 
-#ifdef __cplusplus  
-     }  
-#endif
 
 
 using namespace std;
@@ -49,8 +37,8 @@ int main(int argc, char *argv[])
 
         FileMonitor file_monitor(directoryIn);
 
-
-        Camera* cameraCanon1 = new CameraCanon(photosDirectory);
+		Camera* cameraCanon1 = new CameraNikon();
+        //Camera* cameraCanon1 = new CameraCanon(photosDirectory);
         //CameraCanon* cameraCanon1 = new CameraCanon();
         CommandManager CommandManager1(cameraCanon1,directoryIn,directoryOut,fileIn,fileOut);
 

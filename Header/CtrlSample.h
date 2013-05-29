@@ -1,9 +1,3 @@
-
-#ifdef __cplusplus  
-    extern "C" {     
-#endif  
-
-
 //================================================================================================
 // Copyright Nikon Corporation - All rights reserved
 //
@@ -119,6 +113,7 @@ BOOL	ItemCommandLoop( LPRefObj pRefSrc, ULONG ulItemID );
 BOOL	ImageCommandLoop( LPRefObj pRefItm, ULONG ulDatID );
 BOOL	ThumbnailCommandLoop( LPRefObj pRefItm, ULONG ulDatID );
 BOOL	SelectSource( LPRefObj pRefMod, ULONG *pulSrcID );
+BOOL	SelectFirstSource( LPRefObj pRefMod, ULONG *pulSrcID );
 BOOL	SelectItem( LPRefObj pRefSrc, ULONG *pulItemID );
 BOOL	SelectData( LPRefObj pRefItm, ULONG *pulDataType );
 BOOL	SetUpCamera1( LPRefObj pRefSrc );
@@ -174,9 +169,4 @@ extern BOOL		g_bFirstCall;	// used in ProgressProc, and DoDeleteDramImage
 #else
 	extern CFragConnectionID	g_ConnID;
 	extern short	g_nModRefNum;
-#endif
-
-
-#ifdef __cplusplus  
-     }  
 #endif

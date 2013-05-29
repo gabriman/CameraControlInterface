@@ -2,6 +2,7 @@
 
 
 
+
 void OutputWriter::WriteToDoc(ResponseMsg response, XMLNode* node){
 	std::string path = CommandManager::getPathOut();
 	tinyxml2::XMLDocument* doc = CommandManager::getDocOut();

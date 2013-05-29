@@ -517,6 +517,55 @@ BOOL SelectSource( LPRefObj pRefObj, ULONG *pulSrcID )
 		if ( wSel != 0 ) return false;
 	}
 	return true;
+}//------------------------------------------------------------------------------------------------------------------------------------
+//
+BOOL SelectFirstSource( LPRefObj pRefObj, ULONG *pulSrcID )
+{
+	BOOL	bRet;
+	NkMAIDEnum	stEnum;
+	char	buf[256];
+	UWORD	wSel;
+	ULONG	i;
+	LPNkMAIDCapInfo pCapInfo = GetCapInfo( pRefObj, kNkMAIDCapability_Children );
+	if ( pCapInfo == NULL ) return false;
+
+	// check data type of the capability
+	if ( pCapInfo->ulType != kNkMAIDCapType_Enum ) return false;
+	// check if this capability suports CapGet operation.
+	if ( !CheckCapabilityOperation( pRefObj, kNkMAIDCapability_Children, kNkMAIDCapOperation_Get ) ) return false;
+
+	bRet = Command_CapGet( pRefObj->pObject, kNkMAIDCapability_Children, kNkMAIDDataType_EnumPtr, (NKPARAM)&stEnum, NULL, NULL );
+	if( bRet == false ) return false;
+
+	// check the data of the capability.
+	if ( stEnum.wPhysicalBytes != 4 ) return false;
+
+	if ( stEnum.ulElements == 0 ) {
+		printf( "There is no Source object.\n0. Exit\n>" );
+		scanf( "%s", buf );
+		return true;
+	}
+
+	// allocate memory for array data
+	stEnum.pData = malloc( stEnum.ulElements * stEnum.wPhysicalBytes );
+	if ( stEnum.pData == NULL ) return false;
+	// get array data
+	bRet = Command_CapGetArray( pRefObj->pObject, kNkMAIDCapability_Children, kNkMAIDDataType_EnumPtr, (NKPARAM)&stEnum, NULL, NULL );
+	if( bRet == false ) {
+		free( stEnum.pData );
+		return false;
+	}
+
+	wSel = 1;
+
+	if ( wSel > 0 && wSel <= stEnum.ulElements ) {
+		*pulSrcID = ((ULONG*)stEnum.pData)[wSel - 1];
+		free( stEnum.pData );
+	} else {
+		free( stEnum.pData );
+		if ( wSel != 0 ) return false;
+	}
+	return true;
 }
 //------------------------------------------------------------------------------------------------------------------------------------
 //

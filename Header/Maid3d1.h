@@ -1,10 +1,3 @@
-
-#ifdef __cplusplus  
-    extern "C" {     
-#endif  
-
-
-
 /*****************************************************************************/
 //	MAID3D1.H    Rev. 2.32
 //		Extra definition of maid3.h
@@ -1669,7 +1662,7 @@ typedef struct tagNkMAIDPicCtrlData
 {
 	ULONG  ulPicCtrlItem;	// picture control item
 	ULONG  ulSize;			// the data sizer of pData
-	bool   bModifiedFlag;	// Flag to set New or current 
+	BOOL   bModifiedFlag;	// Flag to set New or current 
 	void*  pData;			// The pointer to picture control data
 } NkMAIDPicCtrlData, FAR* LPNkMAIDPicCtrlData;
 
@@ -1683,10 +1676,4 @@ typedef struct tagNkMAIDGetPicCtrlInfo
 
 
 ///////////////////////////////////////////////////////////////////////////////
-#endif
-
-
-
-#ifdef __cplusplus  
-     }  
 #endif

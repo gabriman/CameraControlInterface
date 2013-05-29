@@ -1,8 +1,3 @@
-#ifdef __cplusplus  
-    extern "C" {     
-#endif  
-
-
 //================================================================================================
 // Copyright Nikon Electronic Imaging - All rights reserved
 //
@@ -618,8 +613,3 @@ enum eNkMAIDFlashMode
 #endif // (of #ifndef _MAID3_)
 
 //================================================================================================
-
-
-#ifdef __cplusplus  
-     }  
-#endif

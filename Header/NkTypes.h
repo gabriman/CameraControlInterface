@@ -1,9 +1,3 @@
-#ifdef __cplusplus  
-    extern "C" {     
-#endif  
-
-
-
 /*************************************************************************************************
 Copyright Nikon Electronic Imaging Department - All rights reserved
 *************************************************************************************************/
@@ -79,9 +73,9 @@ typedef	short	SWORD;
 	typedef	LPVOID	NKREF;
 #endif
 
-#ifndef bool
-	typedef BOOL bool;
-#endif
+//#ifndef bool
+//	typedef BOOL bool;
+//#endif
 
 #ifndef false
 	#define	false 0
@@ -187,7 +181,3 @@ typedef SLONG	NKERROR;
 #endif
 
 //================================================================================================
-
-#ifdef __cplusplus  
-     }  
-#endif
