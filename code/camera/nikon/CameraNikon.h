@@ -24,11 +24,12 @@ public:
 	ResponseMsg init();
 	ResponseMsg operacion1();
 	ResponseMsg close();
+	ResponseMsg takePicture();
 //	LPMAIDEntryPointProc pMAIDEntryPoint;
-//private:
+private:
 //	unsigned long cameraID;
-//	tagRefObj* pRefMod;
-//	tagRefObj* pRefSrc;
+	tagRefObj* pRefMod;
+	tagRefObj* pRefSrc;
 };
 
 #endif /* CameraNikon_h */

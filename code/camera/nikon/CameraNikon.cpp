@@ -17,14 +17,17 @@ extern "C" {
 
 
 
-CameraNikon::CameraNikon(){}
+CameraNikon::CameraNikon(){
+	pRefSrc = NULL;
+	pRefMod = NULL;
+}
 
 ResponseMsg CameraNikon::init(){
 	cout<<"Camera inicializada NIKON"<<endl;
 
 	char	ModulePath[MAX_PATH];
 
-	LPRefObj	pRefMod = NULL, pRefSrc = NULL, RefItm = NULL, pRefDat = NULL;
+	LPRefObj RefItm = NULL, pRefDat = NULL;
 	char	buf[256];
 	ULONG	ulModID = 0, ulSrcID = 0;
 	UWORD	wSel;
@@ -103,30 +106,23 @@ ResponseMsg CameraNikon::init(){
 	bRet = SelectFirstSource( pRefMod, &ulSrcID );
 	if ( bRet == false ) return ResponseMsg(CAMERROR_CAMERA_NOT_CONECTED,"Camera not conected");
 
+
+		pRefSrc = GetRefChildPtr_ID( pRefMod, ulSrcID );
+	if ( pRefSrc == NULL ) {
+		// Create Source object and RefSrc structure.
+		if ( AddChild( pRefMod, ulSrcID ) == true ) {
+			printf("Source object is opened.\n");
+		} else {
+			printf("Source object can't be opened.\n");
+			return ResponseMsg(CAMERROR_ERROR_UNDEFINED,"Source object can't be opened.");
+		}
+		pRefSrc = GetRefChildPtr_ID( pRefMod, ulSrcID );
+	}
+
+	// Get CameraType
+	Command_CapGet( pRefSrc->pObject, kNkMAIDCapability_CameraType, kNkMAIDDataType_UnsignedPtr, (NKPARAM)&g_ulCameraType, NULL, NULL );
+
 	return ResponseMsg(CAMERROR_OK,"");
-
-
-
-
-
-
-	//pRefSrc = GetRefChildPtr_ID(pRefMod, cameraID);
-
-	//pRefSrc = GetRefChildPtr_ID(pRefMod, cameraID);
-	//      if(!pRefSrc) {
-	//          // create source object and RefSrc structure
-	//          if(AddChild(pMAIDEntryPoint, pRefMod, cameraID)) {
-	//              cout<<"Opened source object"<<endl;
-	//          } else {
-	//              cout<<"Couldn't open source object";
-	//		return ResponseMsg(CAMERROR_ERROR_UNDEFINED,"ERROR");
-	//          }
-	//          pRefSrc = GetRefChildPtr_ID(pRefMod, cameraID );
-	//	//QNikonCBWrapper::getInstance()->registercamera(pRefSrc, this);
-	//      }
-
-
-	return ResponseMsg(CAMERROR_ERROR_UNDEFINED,"ERROR");
 }
 
 ResponseMsg CameraNikon::operacion1(){
@@ -136,7 +132,20 @@ ResponseMsg CameraNikon::operacion1(){
 }
 
 ResponseMsg CameraNikon::close(){
+	// Close Module_Object
+	BOOL	bRet;
+	bRet = Close_Module( pRefMod );
+	if ( bRet == false )
+		return ResponseMsg(CAMERROR_ERROR_UNDEFINED,"Module object can not be closed.");
+	else
+		return ResponseMsg(CAMERROR_OK,"");
+}
 
-	cout<<"Haciendo  close  NIKON"<<endl;
-	return ResponseMsg(CAMERROR_ERROR_UNDEFINED,"ERROR");
+ResponseMsg CameraNikon::takePicture()
+{
+	BOOL	bRet;
+	bRet = IssueProcess( pRefSrc, kNkMAIDCapability_Capture );
+	Command_Async( pRefSrc->pObject );
+	
+	return ResponseMsg(CAMERROR_OK,"");
 }
