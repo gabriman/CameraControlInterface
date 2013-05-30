@@ -1063,6 +1063,38 @@ BOOL SetEnumCapability( LPRefObj pRefObj, ULONG ulCapID )
 }
 
 //------------------------------------------------------------------------------------------------------------------------------------
+// Distribute the function according to array type.
+BOOL GetEnumCapability( LPRefObj pRefObj, ULONG ulCapID, char** value )
+{
+	BOOL	bRet;
+	NkMAIDEnum	stEnum;
+	LPNkMAIDCapInfo pCapInfo = GetCapInfo( pRefObj, ulCapID );
+	if ( pCapInfo == NULL ) return false;
+
+	// check data type of the capability
+	if ( pCapInfo->ulType != kNkMAIDCapType_Enum ) return false;
+	// check if this capability suports CapGet operation.
+	if ( !CheckCapabilityOperation( pRefObj, ulCapID, kNkMAIDCapOperation_Get ) ) return false;
+
+	bRet = Command_CapGet( pRefObj->pObject, ulCapID, kNkMAIDDataType_EnumPtr, (NKPARAM)&stEnum, NULL, NULL );
+	if( bRet == false ) return false;
+
+	switch ( stEnum.ulType ) {
+		case kNkMAIDArrayType_Unsigned:
+			return GetEnumUnsignedCapability( pRefObj, ulCapID, &stEnum, value );
+			break;
+		case kNkMAIDArrayType_PackedString:
+			return GetEnumPackedStringCapability( pRefObj, ulCapID, &stEnum, value );
+			break;
+		case kNkMAIDArrayType_String:
+			return GetEnumStringCapability( pRefObj, ulCapID, &stEnum, value );
+			break;
+		default:
+			return false;
+	}
+}
+
+//------------------------------------------------------------------------------------------------------------------------------------
 // Show the current setting of a Enum(Unsigned Integer) type capability and set a value for it.
 BOOL SetEnumUnsignedCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum pstEnum )
 {
@@ -1258,6 +1290,149 @@ BOOL SetEnumStringCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum pstE
 	free( pstEnum->pData );
 	return true;
 }
+
+
+//------------------------------------------------------------------------------------------------------------------------------------
+// Show the current setting of a Enum(Unsigned Integer) type capability and set a value for it.
+BOOL GetEnumUnsignedCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum pstEnum, char** value )
+{
+	BOOL	bRet;
+	char	psString[32], buf[256];
+	UWORD	wSel;
+	ULONG	i;
+	LPNkMAIDCapInfo pCapInfo = GetCapInfo( pRefObj, ulCapID );
+	if ( pCapInfo == NULL ) return false;
+
+	// check the data of the capability.
+	if ( pstEnum->wPhysicalBytes != 4 ) return false;
+
+	// check if this capability has elements.
+	if( pstEnum->ulElements == 0 )
+	{
+		// This capablity has no element and is not available.
+		printf( "There is no element in this capability. Enter '0' to exit.\n>" );
+		return true;
+	}
+
+	// allocate memory for array data
+	pstEnum->pData = malloc( pstEnum->ulElements * pstEnum->wPhysicalBytes );
+	if ( pstEnum->pData == NULL ) return false;
+	// get array data
+	bRet = Command_CapGetArray( pRefObj->pObject, ulCapID, kNkMAIDDataType_EnumPtr, (NKPARAM)pstEnum, NULL, NULL );
+	if( bRet == false ) {
+		free( pstEnum->pData );
+		return false;
+	}
+
+	// show selectable items for this capability and current setting
+	printf( "[%s]\n", pCapInfo->szDescription );
+	
+	for ( i = 0; i < pstEnum->ulElements; i++ )
+		printf( "%2d. %s\n", i + 1, GetEnumString( ulCapID, ((ULONG*)pstEnum->pData)[i], psString ) );
+	printf( "Current Setting: %d\n", pstEnum->ulValue + 1 );
+
+
+	free( pstEnum->pData );
+	return true;
+}
+//------------------------------------------------------------------------------------------------------------------------------------
+// Show the current setting of a Enum(Packed String) type capability and set a value for it.
+BOOL GetEnumPackedStringCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum pstEnum, char** value )
+{
+	BOOL	bRet;
+	char	*psStr, buf[256];
+	UWORD	wSel;
+	ULONG	i, ulCount = 0;
+	LPNkMAIDCapInfo pCapInfo = GetCapInfo( pRefObj, ulCapID );
+	if ( pCapInfo == NULL ) return false;
+
+	// check the data of the capability.
+	if ( pstEnum->wPhysicalBytes != 1 ) return false;
+
+	// check if this capability has elements.
+	if( pstEnum->ulElements == 0 )
+	{
+		// This capablity has no element and is not available.
+		printf( "There is no element in this capability. Enter '0' to exit.\n>" );
+		return true;
+	}
+
+	// allocate memory for array data
+	pstEnum->pData = malloc( pstEnum->ulElements * pstEnum->wPhysicalBytes );
+	if ( pstEnum->pData == NULL ) return false;
+	// get array data
+	bRet = Command_CapGetArray( pRefObj->pObject, ulCapID, kNkMAIDDataType_EnumPtr, (NKPARAM)pstEnum, NULL, NULL );
+	if( bRet == false ) {
+		free( pstEnum->pData );
+		return false;
+	}
+
+	// show selectable items for this capability and current setting
+	printf( "[%s]\n", pCapInfo->szDescription );
+	*value="";
+	for ( i = 0; i < pstEnum->ulElements; ) {
+		psStr = (char*)((ULONG)pstEnum->pData + i);
+		printf( "%2d. %s\n", ++ulCount, psStr );
+		if (ulCount == pstEnum->ulValue + 1){
+			*value=(char *)malloc(sizeof(char)*strlen(psStr));
+			strcpy(*value,psStr);
+			break;
+		}
+		i += strlen( psStr ) + 1;
+	}
+	printf( "Current Setting: %d	%s\n", pstEnum->ulValue + 1, *value );
+
+	
+	free( pstEnum->pData );
+	return true;
+}
+//------------------------------------------------------------------------------------------------------------------------------------
+// Show the current setting of a Enum(String Integer) type capability and set a value for it.
+BOOL GetEnumStringCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum pstEnum, char** value )
+{
+	BOOL	bRet;
+	char	buf[256];
+	UWORD	wSel;
+	ULONG	i;
+	LPNkMAIDCapInfo pCapInfo = GetCapInfo( pRefObj, ulCapID );
+	if ( pCapInfo == NULL ) return false;
+
+	// check the data of the capability.
+	if ( pstEnum->wPhysicalBytes != 256 ) return false;
+
+	// check if this capability has elements.
+	if( pstEnum->ulElements == 0 )
+	{
+		// This capablity has no element and is not available.
+		printf( "There is no element in this capability. Enter '0' to exit.\n>" );
+		return true;
+	}
+
+	// allocate memory for array data
+	pstEnum->pData = malloc( pstEnum->ulElements * pstEnum->wPhysicalBytes );
+	if ( pstEnum->pData == NULL ) return false;
+	// get array data
+	bRet = Command_CapGetArray( pRefObj->pObject, ulCapID, kNkMAIDDataType_EnumPtr, (NKPARAM)pstEnum, NULL, NULL );
+	if( bRet == false ) {
+		free( pstEnum->pData );
+		return false;
+	}
+
+	// show selectable items for this capability and current setting
+	printf( "[%s]\n", pCapInfo->szDescription );
+	for ( i = 0; i < pstEnum->ulElements; i++ )
+		printf( "%2d. %s\n", i + 1, ((NkMAIDString*)pstEnum->pData)[i].str );
+	printf( "Current Setting: %2d\n", pstEnum->ulValue + 1 );
+
+	
+	free( pstEnum->pData );
+	return true;
+}
+
+
+
+
+
 //------------------------------------------------------------------------------------------------------------------------------------
 // Show the current setting of a Integer type capability and set a value for it.
 BOOL SetIntegerCapability( LPRefObj pRefObj, ULONG ulCapID )

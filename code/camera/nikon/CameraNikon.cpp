@@ -122,6 +122,8 @@ ResponseMsg CameraNikon::init(){
 	// Get CameraType
 	Command_CapGet( pRefSrc->pObject, kNkMAIDCapability_CameraType, kNkMAIDDataType_UnsignedPtr, (NKPARAM)&g_ulCameraType, NULL, NULL );
 
+
+
 	return ResponseMsg(CAMERROR_OK,"");
 }
 
@@ -149,3 +151,18 @@ ResponseMsg CameraNikon::takePicture()
 	
 	return ResponseMsg(CAMERROR_OK,"");
 }
+
+ResponseMsg CameraNikon::getProperty(string prop)
+{
+	char* value;
+	BOOL bRet;
+
+	//if		(!prop.compare("ISO")) prop = kEdsPropID_ISOSpeed;
+	if (!prop.compare("SPEED")) bRet = GetEnumCapability( pRefSrc, kNkMAIDCapability_ShutterSpeed, &value);
+	else if (!prop.compare("APERTURE")) bRet = GetEnumCapability( pRefSrc, kNkMAIDCapability_Aperture, &value);
+	else return ResponseMsg(CAMERROR_PROP_UNAVALIABLE,"Property not supported");
+
+	if (strcmp(value,"")==0) return ResponseMsg(CAMERROR_VALUE_UNKNOWN,"Value unknown");
+
+	return ResponseMsg(CAMERROR_OK,value);
+};

@@ -1,0 +1,17 @@
+Cambios en Nikon
+
+New: 
+-SearchFirstCamera
+
+Cambio (le quitamos el menu, dejamos solo el set y pasamos el valor por parametro):
+
+BOOL	SetEnumUnsignedCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum pstEnum );
+BOOL	SetEnumPackedStringCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum pstEnum );
+BOOL	SetEnumStringCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum pstEnum );
+
+
+Creamos:
+BOOL 	GetEnumCapability( LPRefObj pRefObj, ULONG ulCapID );
+BOOL	GetEnumUnsignedCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum pstEnum );		//No usados, sin modificar
+BOOL	GetEnumPackedStringCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum pstEnum );
+BOOL	GetEnumStringCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum pstEnum );		//No usados, sin modificar
