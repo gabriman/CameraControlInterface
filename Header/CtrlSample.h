@@ -120,16 +120,19 @@ BOOL	SetUpCamera1( LPRefObj pRefSrc );
 BOOL	SetUpCamera2( LPRefObj pRefSrc );
 BOOL	SetShootingMenu( LPRefObj pRefSrc );
 BOOL	SetCustomSettings( LPRefObj pRefSrc );
-BOOL	SetEnumCapability( LPRefObj pRefObj, ULONG ulCapID );
-BOOL	SetEnumUnsignedCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum pstEnum );
-BOOL	SetEnumPackedStringCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum pstEnum );
-BOOL	SetEnumStringCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum pstEnum );
+
+BOOL	SetEnumCapability( LPRefObj pRefObj, ULONG ulCapID, const char* value );	//Added value
+BOOL	SetEnumUnsignedCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum pstEnum, const char* value);
+BOOL	SetEnumPackedStringCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum pstEnum, const char* value );
+BOOL	SetEnumStringCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum pstEnum, const char* value);
 
 //New functions
 BOOL	GetEnumCapability( LPRefObj pRefObj, ULONG ulCapID, char** value );
 BOOL	GetEnumUnsignedCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum pstEnum, char** value );
 BOOL	GetEnumPackedStringCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum pstEnum, char** value );
 BOOL	GetEnumStringCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum pstEnum, char** value );
+
+BOOL	GetListEnumCapability( LPRefObj pRefObj, ULONG ulCapID, char** value );
 
 BOOL	SetFloatCapability( LPRefObj pRefObj, ULONG ulCapID );
 BOOL	SetBoolCapability( LPRefObj pRefObj, ULONG ulCapID );

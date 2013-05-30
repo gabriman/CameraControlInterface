@@ -166,3 +166,36 @@ ResponseMsg CameraNikon::getProperty(string prop)
 
 	return ResponseMsg(CAMERROR_OK,value);
 };
+
+ResponseMsg CameraNikon::setProperty(string prop, const char * value)
+{
+	int propEds = 0;
+	BOOL bRet;
+	//if		(!prop.compare("ISO")) propEds = kEdsPropID_ISOSpeed;
+	if (!prop.compare("SPEED")) bRet = SetEnumCapability( pRefSrc, kNkMAIDCapability_ShutterSpeed, value);
+	else if (!prop.compare("APERTURE")) bRet = SetEnumCapability( pRefSrc, kNkMAIDCapability_Aperture, value);
+	else return ResponseMsg(CAMERROR_PROP_UNAVALIABLE,"Property not supported");
+
+	if (bRet==false) return ResponseMsg(CAMERROR_VALUE_UNKNOWN,"Value unknown");
+
+	return ResponseMsg(CAMERROR_OK,"");
+}
+
+
+ResponseMsg CameraNikon::getGetList(string prop)
+{	
+	char* value;
+	int propEds = 0;
+	BOOL bRet;
+	//if		(!prop.compare("ISO")) propEds = kEdsPropID_ISOSpeed;
+	if (!prop.compare("SPEED")) bRet = GetListEnumCapability( pRefSrc, kNkMAIDCapability_ShutterSpeed, &value);
+	else if (!prop.compare("APERTURE")) bRet = GetListEnumCapability( pRefSrc, kNkMAIDCapability_Aperture, &value);
+	else return ResponseMsg(CAMERROR_PROP_UNAVALIABLE,"Property not supported");
+
+	if (bRet==false) return ResponseMsg(CAMERROR_VALUE_UNKNOWN,"Value unknown");
+
+	//const char * valueTranslate = dictionary.translate(prop,edsValue);
+	//if (valueTranslate=="unknown") return ResponseMsg(CAMERROR_VALUE_UNKNOWN,"Value unknown");
+
+	return ResponseMsg(CAMERROR_OK,value);
+};

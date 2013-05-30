@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <commands>  
 
+    <command>
+-      <action>
+-         <targetSave>
+-			<target>both</target>
+			<path>C://</path>
+-		 </targetSave>
+-      </action>
+-   </command>
 
   <command>
     <getlist>

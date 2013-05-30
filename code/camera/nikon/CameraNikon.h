@@ -26,6 +26,8 @@ public:
 	ResponseMsg close();
 	ResponseMsg takePicture();
 	ResponseMsg getProperty(string prop);
+	ResponseMsg setProperty(string prop, const char * value);
+	ResponseMsg getGetList(string prop);
 //	LPMAIDEntryPointProc pMAIDEntryPoint;
 private:
 //	unsigned long cameraID;

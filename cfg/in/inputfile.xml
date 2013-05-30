@@ -1,27 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <commands>
 	
-   <command>
-      <action>
-         <targetSave>
-			<target>both</target>
-		 </targetSave>
-      </action>
-   </command>
+  <command>
+    <getlist>
+      <APERTURE></APERTURE>
+    </getlist>
+  </command>
+  
+  <command>
+    <getlist>
+      <SPEED></SPEED>
+    </getlist>
+  </command>
 
-
-   <command>
-      <set>
-         <ISO>400</ISO>
-      </set>
-   </command>
-   
-   <command>
-      <set>
-         <APERTURE>3.5</APERTURE>
-      </set>
-   </command>
-   
+	  
    <command>
       <action>
          <take></take>
