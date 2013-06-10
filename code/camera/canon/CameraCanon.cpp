@@ -166,20 +166,20 @@ ResponseMsg CameraCanon::getGetList(string prop)
 
 
 /**********************************************************************************************//**
-																								* @brief	Sets photo detected.
-																								*
-																								* @param	value	true to detected.
-																								**************************************************************************************************/
+* @brief	Sets photo detected.
+*
+* @param	value	true to detected.
+**************************************************************************************************/
 void CameraCanon::setPhotoDetected(bool detected){
 	photoDetected=detected;
 }
 
 
 /**********************************************************************************************//**
-																								* @brief	Gets photo detected.
-																								*
-																								* @return	true if photo is detected, false if not.
-																								**************************************************************************************************/
+* @brief	Gets photo detected.
+*
+* @return	true if photo is detected, false if not.
+**************************************************************************************************/
 bool CameraCanon::getPhotoDetected(){
 	return photoDetected;
 }

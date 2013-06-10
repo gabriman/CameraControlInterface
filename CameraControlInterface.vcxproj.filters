@@ -15,64 +15,34 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="code\file_monitor\FileMonitor.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
-    <ClCompile Include="code\tinyxml2_lib\tinyxml2.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
     <ClCompile Include="code\Main.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
-    <ClCompile Include="code\utils\Utils.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
-    <ClCompile Include="code\command\Command.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
-    <ClCompile Include="code\camera\canon\CameraCanon.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
-    <ClCompile Include="code\camera\nikon\CameraNikon.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
-    <ClCompile Include="code\command\CommandInit.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
-    <ClCompile Include="code\command\CommandClose.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
     <ClCompile Include="code\camera\canon\dictionary\DictionaryCanon.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
-    <ClCompile Include="code\command\CommandSetSpeed.cpp">
+    <ClCompile Include="code\camera\canon\CameraCanon.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
-    <ClCompile Include="code\command\CommandSetIso.cpp">
+    <ClCompile Include="code\camera\canon\ListenerCanon.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
-    <ClCompile Include="code\command\CommandSetAperture.cpp">
+    <ClCompile Include="code\camera\nikon\CameraNikon.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
-    <ClCompile Include="code\command\CommandTakePicture.cpp">
+    <ClCompile Include="code\command\Command.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
-    <ClCompile Include="code\command\CommandGetIso.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
-    <ClCompile Include="code\OutputWriter.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
-    <ClCompile Include="code\command\ResponseMsg.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
-    <ClCompile Include="code\command\CommandGetSpeed.cpp">
+    <ClCompile Include="code\command\CommandClose.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
     <ClCompile Include="code\command\CommandGetAperture.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
-    <ClCompile Include="code\command\CommandUnknown.cpp">
+    <ClCompile Include="code\command\CommandGetIso.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="code\command\CommandGetListAperture.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
     <ClCompile Include="code\command\CommandGetListIso.cpp">
@@ -81,20 +51,128 @@
     <ClCompile Include="code\command\CommandGetListSpeed.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
-    <ClCompile Include="code\command\CommandGetListAperture.cpp">
+    <ClCompile Include="code\command\CommandGetSpeed.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
-    <ClCompile Include="code\CommandManager.cpp">
+    <ClCompile Include="code\command\CommandInit.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
-    <ClCompile Include="code\camera\canon\ListenerCanon.cpp">
+    <ClCompile Include="code\command\CommandSetAperture.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="code\command\CommandSetIso.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="code\command\CommandSetSpeed.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
     <ClCompile Include="code\command\CommandSetTargetSave.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
+    <ClCompile Include="code\command\CommandTakePicture.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="code\command\CommandUnknown.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="code\command\ResponseMsg.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="code\file_monitor\FileMonitor.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="code\tinyxml2_lib\tinyxml2.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="code\utils\Utils.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="code\CommandManager.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="code\OutputWriter.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="Header\CallBack.c">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="Header\Function.c">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Header\EDSDKTypes.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\EDSDK.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\EDSDKErrors.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="code\camera\canon\dictionary\DictionaryCanon.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="code\camera\canon\CameraCanon.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="code\camera\canon\ListenerCanon.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="code\camera\nikon\CameraNikon.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="code\camera\Camera.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="code\command\Command.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="code\command\CommandClose.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="code\command\CommandGetAperture.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="code\command\CommandGetIso.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="code\command\CommandGetListAperture.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="code\command\CommandGetListIso.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="code\command\CommandGetListSpeed.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="code\command\CommandGetSpeed.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="code\command\CommandInit.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="code\command\CommandSetAperture.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="code\command\CommandSetIso.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="code\command\CommandSetSpeed.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="code\command\CommandSetTargetSave.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="code\command\CommandTakePicture.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="code\command\CommandUnknown.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="code\command\ResponseMsg.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
     <ClInclude Include="code\file_monitor\FileMonitor.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -104,73 +182,22 @@
     <ClInclude Include="code\utils\Utils.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="code\command\Command.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="code\camera\canon\CameraCanon.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="code\camera\nikon\CameraNikon.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="code\command\CommandInit.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="code\command\CommandClose.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="code\camera\canon\dictionary\DictionaryCanon.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="code\command\CommandSetAperture.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="code\command\CommandSetSpeed.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="code\command\CommandSetIso.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="code\camera\Camera.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="code\command\CommandTakePicture.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="code\command\CommandGetIso.h">
+    <ClInclude Include="code\CommandManager.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="code\OutputWriter.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="code\command\ResponseMsg.h">
+    <ClInclude Include="Header\Maid3.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="code\command\CommandGetSpeed.h">
+    <ClInclude Include="Header\Maid3d1.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="code\command\CommandGetAperture.h">
+    <ClInclude Include="Header\NkTypes.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="code\command\CommandUnknown.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="code\command\CommandGetListIso.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="code\command\CommandGetListSpeed.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="code\command\CommandGetListAperture.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="code\CommandManager.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="code\camera\canon\ListenerCanon.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="code\command\CommandSetTargetSave.h">
+    <ClInclude Include="Header\CtrlSample.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
@@ -178,5 +205,1132 @@
     <None Include="cfg\inputfile.xml">
       <Filter>Archivos de recursos</Filter>
     </None>
+    <None Include="Debug\icc\1001_F.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1001_faf.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1001_L.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1001_lnd.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1001_N.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1001_ntl.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1001_P.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1001_ptr.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1001_S.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1001_std.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1011_F.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1011_faf.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1011_L.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1011_lnd.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1011_N.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1011_ntl.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1011_P.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1011_ptr.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1011_S.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1011_std.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1021_F.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1021_fa.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1021_faf.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1021_L.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1021_lnd.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1021_N.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1021_ntl.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1021_P.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1021_ptr.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1021_S.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\1021_std.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6001_F.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6001_faf.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6001_L.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6001_lnd.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6001_ntl.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6001_P.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6001_ptr.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6001_S.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6001_std.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6011_F.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6011_faf.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6011_L.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6011_lnd.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6011_N.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6011_ntl.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6011_P.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6011_ptr.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6011_std.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6021_F.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6021_faf.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6021_L.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6021_lnd.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6021_ntl.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6021_P.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6021_ptr.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6021_S.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6021_std.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6031_F.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6031_faf.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6031_L.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6031_lnd.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6031_N.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6031_ntl.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6031_P.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6031_ptr.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6031_std.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6041_F.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6041_faf.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6041_L.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6041_lnd.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6041_N.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6041_ntl.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6041_P.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6041_ptr.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6041_std.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6051_F.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6051_faf.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6051_L.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6051_lnd.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6051_ntl.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6051_P.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6051_ptr.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6051_S.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6051_std.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6061_F.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6061_faf.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6061_L.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6061_lnd.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6061_N.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6061_ntl.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6061_P.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6061_ptr.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6061_std.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6071_F.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6071_faf.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6071_L.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6071_lnd.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6071_N.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6071_ntl.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6071_P.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6071_ptr.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6071_std.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6081_F.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6081_faf.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6081_L.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6081_lnd.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6081_ntl.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6081_P.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6081_ptr.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6081_S.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6081_std.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6101_faf.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6101_lnd.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6101_ntl.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6101_ptr.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6101_std.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6171_PA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6171_PS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6171_ptra.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6171_ptrs.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6181_FA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6181_fafa.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6181_fafs.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6181_FS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6181_NA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6181_ntla.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6181_PA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6181_PS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6181_ptra.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6181_ptrs.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6181_SA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6181_stda.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6191_FA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6191_fafa.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6191_fafs.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6191_FS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6191_LA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6191_lnda.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6191_lnds.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6191_LS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6191_NA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6191_NS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6191_ntla.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6191_ntls.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6191_PA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6191_PS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6191_ptra.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6191_ptrs.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6191_SA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6191_SS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6191_stda.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6191_stds.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6201_FA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6201_fafa.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6201_fafs.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6201_FS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6201_LA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6201_lnda.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6201_lnds.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6201_LS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6201_NA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6201_NS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6201_ntla.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6201_ntls.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6201_PA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6201_PS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6201_ptra.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6201_ptrs.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6201_SA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6201_SS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6201_stda.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6201_stds.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6211_FA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6211_fafa.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6211_fafs.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6211_FS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6211_LA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6211_lnda.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6211_lnds.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6211_LS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6211_NA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6211_NS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6211_ntla.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6211_ntls.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6211_PA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6211_PS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6211_ptra.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6211_ptrs.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6211_SA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6211_SS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6211_stda.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6211_stds.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6221_FA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6221_fafa.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6221_fafs.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6221_FS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6221_LA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6221_lnda.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6221_lnds.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6221_LS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6221_NA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6221_NS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6221_ntla.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6221_ntls.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6221_PA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6221_PS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6221_ptra.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6221_ptrs.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6221_SA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6221_SS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6221_stda.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6221_stds.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6231_FA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6231_fafa.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6231_fafs.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6231_FS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6231_LA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6231_lnda.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6231_lnds.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6231_LS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6231_NA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6231_NS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6231_ntla.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6231_ntls.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6231_PA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6231_PS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6231_ptra.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6231_ptrs.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6231_SA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6231_SS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6231_stda.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6231_stds.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6241_FA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6241_fafa.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6241_fafs.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6241_FS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6241_LA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6241_lnda.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6241_lnds.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6241_LS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6241_NA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6241_NS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6241_ntla.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6241_ntls.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6241_PA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6241_PS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6241_ptra.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6241_ptrs.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6241_SA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6241_SS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6241_stda.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6241_stds.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6251_FA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6251_fafa.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6251_fafs.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6251_FS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6251_LA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6251_lnda.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6251_lnds.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6251_LS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6251_NA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6251_NS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6251_ntla.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6251_ntls.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6251_PA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6251_PS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6251_ptra.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6251_ptrs.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6251_SA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6251_SS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6251_stda.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6251_stds.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6261_FA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6261_fafa.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6261_fafs.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6261_FS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6261_LA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6261_lnda.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6261_lnds.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6261_LS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6261_NA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6261_NS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6261_ntla.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6261_ntls.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6261_PA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6261_PS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6261_ptra.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6261_ptrs.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6261_SA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6261_SS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6261_stda.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6261_stds.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6271_FA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6271_fafa.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6271_fafs.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6271_FS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6271_LA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6271_lnda.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6271_lnds.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6271_LS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6271_NA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6271_NS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6271_ntla.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6271_ntls.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6271_PA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6271_PS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6271_ptra.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6271_ptrs.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6271_SA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6271_SS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6271_stda.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6271_stds.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6281_FA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6281_fafa.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6281_fafs.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6281_FS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6281_LA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6281_lnda.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6281_lnds.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6281_LS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6281_NA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6281_NS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6281_ntla.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6281_ntls.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6281_PA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6281_PS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6281_ptra.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6281_ptrs.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6281_SA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6281_SS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6281_stda.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6281_stds.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6291_FA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6291_fafa.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6291_fafs.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6291_FS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6291_LA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6291_lnda.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6291_lnds.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6291_LS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6291_NA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6291_NS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6291_ntla.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6291_ntls.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6291_PA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6291_PS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6291_ptra.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6291_ptrs.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6291_SA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6291_SS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6291_stda.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6291_stds.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6301_FA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6301_fafa.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6301_fafs.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6301_FS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6301_LA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6301_lnda.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6301_lnds.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6301_LS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6301_NA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6301_NS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6301_ntla.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6301_ntls.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6301_PA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6301_PS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6301_ptra.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6301_ptrs.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6301_SA.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6301_SS.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6301_stda.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Debug\icc\6301_stds.BIN">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="VisualStudio.gitignore" />
+    <None Include=".gitignore" />
+    <None Include=".tfignore" />
+    <None Include="CameraControlInterface.doxproj" />
+    <None Include="CameraControlInterface.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="Library\EDSDK.lib" />
   </ItemGroup>
 </Project>
