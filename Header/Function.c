@@ -497,7 +497,7 @@ BOOL SelectSource( LPRefObj pRefObj, ULONG *pulSrcID )
 		return false;
 	}
 
-	// show the list of selectable Sources
+	//show the list of selectable Sources
 	for ( i = 0; i < stEnum.ulElements; i++ )
 		printf( "%d. ID = %d\n", i + 1, ((ULONG*)stEnum.pData)[i] );
 
@@ -541,8 +541,9 @@ BOOL SelectFirstSource( LPRefObj pRefObj, ULONG *pulSrcID )
 	if ( stEnum.wPhysicalBytes != 4 ) return false;
 
 	if ( stEnum.ulElements == 0 ) {
-		printf( "There is no Source object.\n0. Exit\n>" );
-		scanf( "%s", buf );
+		printf( "There is no Source object.\n" );
+		//printf( "There is no Source object.\n0. Exit\n>" );
+		//scanf( "%s", buf );
 		return true;
 	}
 

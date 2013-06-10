@@ -28,9 +28,9 @@ ResponseMsg CameraNikon::init(){
 	char	ModulePath[MAX_PATH];
 
 	LPRefObj RefItm = NULL, pRefDat = NULL;
-	char	buf[256];
+	//char	buf[256];
 	ULONG	ulModID = 0, ulSrcID = 0;
-	UWORD	wSel;
+	//UWORD	wSel;
 	BOOL	bRet;
 
 	// Search for a Module-file like "Type0003.md3".
