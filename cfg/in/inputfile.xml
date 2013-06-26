@@ -1,43 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
 <commands>
-   <command>
-      <getlist>
-         <ISO/>
-      </getlist>
-   </command>
-   <command>
-      <getlist>
-         <APERTURE/>
-      </getlist>
-   </command>
-   <command>
-      <getlist>
-         <ISO/>
-      </getlist>
-   </command>
-   <command>
-      <getlist>
-         <APERTURE/>
-      </getlist>
-   </command>
-   <command>
-      <getlist>
-         <ISO/>
-      </getlist>
-   </command>
-   <command>
-      <getlist>
-         <APERTURE/>
-      </getlist>
-   </command>
-   <command>
-      <getlist>
-         <ISO/>
-      </getlist>
-   </command>
-   <command>
-      <getlist>
-         <APERTURE/>
-      </getlist>
-   </command>
+
+  <command>
+    <get>
+      <SPEED>
+      </SPEED>
+    </get>
+  </command>
+
 </commands>

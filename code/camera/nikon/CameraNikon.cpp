@@ -199,3 +199,9 @@ ResponseMsg CameraNikon::getGetList(string prop)
 
 	return ResponseMsg(CAMERROR_OK,value);
 };
+
+ResponseMsg CameraNikon::setTargetSave()
+{
+	//In Nikon it's not necessary
+	return ResponseMsg(CAMERROR_OK,"");
+}

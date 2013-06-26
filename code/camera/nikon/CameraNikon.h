@@ -28,11 +28,13 @@ public:
 	ResponseMsg getProperty(string prop);
 	ResponseMsg setProperty(string prop, const char * value);
 	ResponseMsg getGetList(string prop);
+	ResponseMsg setTargetSave();
 //	LPMAIDEntryPointProc pMAIDEntryPoint;
 private:
 //	unsigned long cameraID;
 	tagRefObj* pRefMod;
 	tagRefObj* pRefSrc;
+	string saveTo;
 };
 
 #endif /* CameraNikon_h */
