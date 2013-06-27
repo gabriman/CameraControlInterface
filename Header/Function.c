@@ -1281,6 +1281,7 @@ BOOL SetEnumPackedStringCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnu
 	for ( i = 0; i < pstEnum->ulElements; ) {
 		psStr = (char*)((ULONG)pstEnum->pData + i);
 		//printf( "%2d. %s\n", ++ulCount, psStr );
+		++ulCount;
 		if (strcmp(psStr,value)==0){
 			wSel=ulCount;
 			break;
@@ -1458,6 +1459,7 @@ BOOL GetEnumPackedStringCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnu
 	for ( i = 0; i < pstEnum->ulElements; ) {
 		psStr = (char*)((ULONG)pstEnum->pData + i);
 		//printf( "%2d. %s\n", ++ulCount, psStr );
+		++ulCount;
 		if (ulCount == pstEnum->ulValue + 1){
 			*value=(char *)malloc(sizeof(char)*strlen(psStr));
 			strcpy(*value,psStr);
@@ -1465,7 +1467,7 @@ BOOL GetEnumPackedStringCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnu
 		}
 		i += strlen( psStr ) + 1;
 	}
-	//printf( "Current Setting: %d	%s\n", pstEnum->ulValue + 1, *value );
+	printf( "Prop! Current Setting: %d	%s\n", pstEnum->ulValue + 1, *value );
 
 	
 	free( pstEnum->pData );

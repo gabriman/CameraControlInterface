@@ -2,19 +2,7 @@
 
 
 
-  
-    <command>
-    <getlist>
-      <APERTURE></APERTURE>
-    </getlist>
-  </command>
-  
-    <command>
-    <getlist>
-      <SPEED></SPEED>
-    </getlist>
-  </command>
-  
+
 
 
   
@@ -28,6 +16,25 @@
     <get>
       <SPEED></SPEED>
     </get>
+  </command>
+  
+    
+    <command>
+    <getlist>
+      <APERTURE></APERTURE>
+    </getlist>
+  </command>
+  
+    <command>
+    <getlist>
+      <SPEED></SPEED>
+    </getlist>
+  </command>
+  
+      <command>
+    <getlist>
+      <ISO></ISO>
+    </getlist>
   </command>
   
   

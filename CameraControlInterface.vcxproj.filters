@@ -116,9 +116,6 @@
     <ClInclude Include="code\camera\canon\CameraCanon.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="code\camera\canon\ListenerCanon.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="code\camera\nikon\CameraNikon.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -198,6 +195,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Header\CtrlSample.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="code\camera\canon\ListenerCanon.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

@@ -123,12 +123,12 @@ ResponseMsg CameraNikon::init(){
 	Command_CapGet( pRefSrc->pObject, kNkMAIDCapability_CameraType, kNkMAIDDataType_UnsignedPtr, (NKPARAM)&g_ulCameraType, NULL, NULL );
 
 
-	NkMAIDString stString;
-	bRet = Command_CapGet( pRefSrc->pObject, kNkMAIDCapability_AcceptDiskAcquisition, kNkMAIDCapType_Generic, (NKPARAM)&stString, NULL, NULL );
-	//stString.str,"C:\\");
-	bRet = Command_CapSet( pRefSrc->pObject, kNkMAIDCapability_AcceptDiskAcquisition, kNkMAIDCapType_Generic, (NKPARAM)"C:\\",  NULL, NULL );
-	if ( bRet == false )
-		printf("Error asignando directorio");
+	//NkMAIDString stString;
+	//bRet = Command_CapGet( pRefSrc->pObject, kNkMAIDCapability_AcceptDiskAcquisition, kNkMAIDCapType_Generic, (NKPARAM)&stString, NULL, NULL );
+	////stString.str,"C:\\");
+	//bRet = Command_CapSet( pRefSrc->pObject, kNkMAIDCapability_AcceptDiskAcquisition, kNkMAIDCapType_Generic, (NKPARAM)"C:\\",  NULL, NULL );
+	//if ( bRet == false )
+	//	printf("Error asignando directorio");
 
 	return ResponseMsg(CAMERROR_OK,"");
 }
