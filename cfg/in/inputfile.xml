@@ -1,10 +1,18 @@
 <commands>
 
+
   <command>
-    <get>
-      <SPEED>
-      </SPEED>
-    </get>
+    <action>
+		<take></take>
+	</action>
   </command>
+  
+    <command>
+    <action>
+		<take></take>
+	</action>
+  </command>
+  
+  
 
 </commands>

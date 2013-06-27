@@ -1,0 +1,18 @@
+<commands>
+    <command>
+        <action>
+            <take>
+                <code>0</code>
+                <message></message>
+            </take>
+        </action>
+    </command>
+    <command>
+        <action>
+            <take>
+                <code>0</code>
+                <message></message>
+            </take>
+        </action>
+    </command>
+</commands>

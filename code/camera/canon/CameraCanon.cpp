@@ -11,6 +11,8 @@ CameraCanon::CameraCanon(){
 	isSDKLoaded = false;
 	DictionaryCanon dictionary;
 	pathSavePhotos="";
+	targetPhotos = "camera";
+	setTargetSave();
 }
 
 CameraCanon::CameraCanon(string photosDirectory ){
@@ -20,6 +22,8 @@ CameraCanon::CameraCanon(string photosDirectory ){
 	isSDKLoaded = false;
 	DictionaryCanon dictionary;
 	pathSavePhotos=photosDirectory;	//Load default directory
+	targetPhotos = "host";
+	setTargetSave();
 }
 
 

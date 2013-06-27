@@ -115,6 +115,7 @@ BOOL	ThumbnailCommandLoop( LPRefObj pRefItm, ULONG ulDatID );
 BOOL	SelectSource( LPRefObj pRefMod, ULONG *pulSrcID );
 BOOL	SelectFirstSource( LPRefObj pRefMod, ULONG *pulSrcID );
 BOOL	SelectItem( LPRefObj pRefSrc, ULONG *pulItemID );
+BOOL	SelectFirstItem( LPRefObj pRefSrc, ULONG *pulItemID );		//Own
 BOOL	SelectData( LPRefObj pRefItm, ULONG *pulDataType );
 BOOL	SetUpCamera1( LPRefObj pRefSrc );
 BOOL	SetUpCamera2( LPRefObj pRefSrc );

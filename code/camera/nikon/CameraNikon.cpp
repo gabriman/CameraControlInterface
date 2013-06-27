@@ -29,7 +29,7 @@ ResponseMsg CameraNikon::init(){
 
 	LPRefObj RefItm = NULL, pRefDat = NULL;
 	//char	buf[256];
-	ULONG	ulModID = 0, ulSrcID = 0;
+	ulModID = 0;
 	//UWORD	wSel;
 	BOOL	bRet;
 
@@ -107,7 +107,7 @@ ResponseMsg CameraNikon::init(){
 	if ( bRet == false ) return ResponseMsg(CAMERROR_CAMERA_NOT_CONECTED,"Camera not conected");
 
 
-		pRefSrc = GetRefChildPtr_ID( pRefMod, ulSrcID );
+	pRefSrc = GetRefChildPtr_ID( pRefMod, ulSrcID );
 	if ( pRefSrc == NULL ) {
 		// Create Source object and RefSrc structure.
 		if ( AddChild( pRefMod, ulSrcID ) == true ) {
@@ -123,6 +123,12 @@ ResponseMsg CameraNikon::init(){
 	Command_CapGet( pRefSrc->pObject, kNkMAIDCapability_CameraType, kNkMAIDDataType_UnsignedPtr, (NKPARAM)&g_ulCameraType, NULL, NULL );
 
 
+	NkMAIDString stString;
+	bRet = Command_CapGet( pRefSrc->pObject, kNkMAIDCapability_AcceptDiskAcquisition, kNkMAIDCapType_Generic, (NKPARAM)&stString, NULL, NULL );
+	//stString.str,"C:\\");
+	bRet = Command_CapSet( pRefSrc->pObject, kNkMAIDCapability_AcceptDiskAcquisition, kNkMAIDCapType_Generic, (NKPARAM)"C:\\",  NULL, NULL );
+	if ( bRet == false )
+		printf("Error asignando directorio");
 
 	return ResponseMsg(CAMERROR_OK,"");
 }
@@ -148,6 +154,63 @@ ResponseMsg CameraNikon::takePicture()
 	BOOL	bRet;
 	bRet = IssueProcess( pRefSrc, kNkMAIDCapability_Capture );
 	Command_Async( pRefSrc->pObject );
+	if (bRet == false)
+		return ResponseMsg(CAMERROR_ERROR_UNDEFINED,"Error taking photo");
+
+	//Save photo
+	ULONG	ulItemID = 0;
+	ulItemID = 0;
+	ULONG	ulDataType = 0;
+
+	bRet = SelectFirstItem( pRefSrc, &ulItemID );
+	if( bRet == true && ulItemID > 0 ){
+			// FROM ItemCommandLoop
+			LPRefObj	pRefItm = NULL;
+			pRefItm = GetRefChildPtr_ID( pRefSrc, ulItemID );
+			if ( pRefItm == NULL ) {
+				// Create Item object and RefSrc structure.
+				if ( AddChild( pRefSrc, ulItemID ) == true ) {
+					printf("Item object is opened.\n");
+				} else {
+					printf("Item object can't be opened.\n");
+				}
+				pRefItm = GetRefChildPtr_ID( pRefSrc, ulItemID );
+			}
+			ulDataType = kNkMAIDDataObjType_Image;
+			g_bFileRemoved = false;
+			
+			
+			// FUNCTION bRet = ImageCommandLoop( pRefItm, ulDataType );
+			// FROM ImageCommandLoop	
+				LPRefObj	pRefDat = NULL;
+				pRefDat = GetRefChildPtr_ID( pRefItm, ulDataType );
+				if ( pRefDat == NULL ) {
+					// Create Image object and RefSrc structure.
+					if ( AddChild( pRefItm, ulDataType ) == true ) {
+						printf("Image object is opened.\n");
+					} else {
+						printf("Image object can't be opened.\n");
+					}
+					pRefDat = GetRefChildPtr_ID( pRefItm, ulDataType );
+				}
+
+				bRet = IssueAcquire( pRefDat );
+
+
+
+			// If the image data was stored in DRAM, the item has been removed after reading image.
+			if ( g_bFileRemoved ) {
+				RemoveChild( pRefSrc, ulItemID );
+				pRefItm = NULL;
+			}
+
+			if ( pRefItm != NULL ) {
+		// If the item object remains, close it and remove from parent link.
+		bRet = RemoveChild( pRefSrc, ulItemID );
+	}
+
+
+	}
 	
 	return ResponseMsg(CAMERROR_OK,"");
 }

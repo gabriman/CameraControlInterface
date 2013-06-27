@@ -34,6 +34,8 @@ private:
 //	unsigned long cameraID;
 	tagRefObj* pRefMod;
 	tagRefObj* pRefSrc;
+	ULONG	ulModID;
+	ULONG	ulSrcID;
 	string saveTo;
 };
 

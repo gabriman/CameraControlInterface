@@ -37,12 +37,73 @@ int main(int argc, char *argv[])
 
         FileMonitor file_monitor(directoryIn);
 
-		int cameraLoaded = false;
+		//int cameraLoaded = false;
+		//Camera* camera;
 
-		CommandManager commandManager1;
+		//CommandManager commandManager1;
+		//if ((argv[1]==NULL && !cameraLoaded) || (argv[1]!=NULL && strcmp(argv[1],"canon")==0)){
+		//	camera = new CameraCanon();
+		//	CommandManager commandManager1 = CommandManager(camera,directoryIn,directoryOut,fileIn,fileOut);
+		//	//Camera initialitation
+		//	Command* comandoinit = new CommandInit(camera);
+		//	int error_init = comandoinit->execute();
+		//	if (error_init<0){      //If error inicialitation camera, exit program
+		//			cout<<"ERROR inicialitation camera Canon"<<endl;
+		//			Sleep(2000);
+		//			//Delete CommandManager
+		//	}
+		//	else {
+		//		cout<<"Cargada cámara Canon\n"<<endl;
+		//		cameraLoaded=true;
+		//	}
+
+		//}
+
+		//if ((argv[1]==NULL && !cameraLoaded) || (argv[1]!=NULL && strcmp(argv[1],"nikon")==0)){
+		//	Camera* camera = new CameraNikon();
+		//	CommandManager commandManager1 = CommandManager(camera,directoryIn,directoryOut,fileIn,fileOut);
+		//	//Camera initialitation
+		//	Command* comandoinit = new CommandInit(camera);
+		//	int error_init = comandoinit->execute();
+		//	if (error_init<0){      //If error inicialitation camera, exit program
+		//			cout<<"ERROR inicialitation camera Nikon"<<endl;
+		//			Sleep(2000);
+		//			//Delete CommandManager
+		//	}
+		//	else {
+		//		cout<<"Cargada cámara Nikon\n"<<endl;
+		//		cameraLoaded=true;
+		//	}
+		//}
+  //      
+		//if (!cameraLoaded) exit(0);
+
+
+		////LO DE ANTES
+		////Camera* cameraCanon1 = new CameraCanon(photosDirectory);
+		//Camera* cameraCanon1 = new CameraNikon();
+  //      //CameraCanon* cameraCanon1 = new CameraCanon();
+  //      CommandManager commandManager1(cameraCanon1,directoryIn,directoryOut,fileIn,fileOut);
+
+  //      //Camera initialitation
+  //      Command* comandoinit = new CommandInit(cameraCanon1);
+  //      int error_init = comandoinit->execute();
+  //      if (error_init<0){      //If error inicialitation camera, exit program
+  //              cout<<"ERROR inicialitation camera"<<endl;
+  //              exit(0);
+  //      }
+
+
+
+        //cameraCanon1->downloadLastImage();
+
+		int cameraLoaded = false;
+		Camera* camera;
+		CommandManager* commandManager1;
+
 		if ((argv[1]==NULL && !cameraLoaded) || (argv[1]!=NULL && strcmp(argv[1],"canon")==0)){
-			Camera* camera = new CameraCanon();
-			CommandManager commandManager1 = CommandManager(camera,directoryIn,directoryOut,fileIn,fileOut);
+			camera = new CameraCanon();
+			commandManager1 = new CommandManager(camera,directoryIn,directoryOut,fileIn,fileOut);
 			//Camera initialitation
 			Command* comandoinit = new CommandInit(camera);
 			int error_init = comandoinit->execute();
@@ -60,7 +121,7 @@ int main(int argc, char *argv[])
 
 		if ((argv[1]==NULL && !cameraLoaded) || (argv[1]!=NULL && strcmp(argv[1],"nikon")==0)){
 			Camera* camera = new CameraNikon();
-			CommandManager commandManager1 = CommandManager(camera,directoryIn,directoryOut,fileIn,fileOut);
+			commandManager1 = new CommandManager(camera,directoryIn,directoryOut,fileIn,fileOut);
 			//Camera initialitation
 			Command* comandoinit = new CommandInit(camera);
 			int error_init = comandoinit->execute();
@@ -77,13 +138,12 @@ int main(int argc, char *argv[])
         
 		if (!cameraLoaded) exit(0);
 
-
         while(true){
                 file_monitor.WatchDirectoryOneChange();  //Waiting until change in directory
                 //Sleep(1000);
 
-                list<Command*> commandsList = commandManager1.CreateCommandList();
-                commandManager1.executeCommandList(commandsList);
+                list<Command*> commandsList = commandManager1->CreateCommandList();
+                commandManager1->executeCommandList(commandsList);
         }
         //Command* comandoclose = new CommandClose(camera);
 }
