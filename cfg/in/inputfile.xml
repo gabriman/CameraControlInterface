@@ -1,16 +1,46 @@
 <commands>
 
 
-  <command>
-    <action>
-		<take></take>
-	</action>
+
+  
+    <command>
+    <getlist>
+      <APERTURE></APERTURE>
+    </getlist>
   </command>
   
     <command>
-    <action>
-		<take></take>
-	</action>
+    <getlist>
+      <SPEED></SPEED>
+    </getlist>
+  </command>
+  
+
+
+  
+  <command>
+    <get>
+      <APERTURE></APERTURE>
+    </get>
+  </command>
+  
+  <command>
+    <get>
+      <SPEED></SPEED>
+    </get>
+  </command>
+  
+  
+  <command>
+    <get>
+      <ISO></ISO>
+    </get>
+  </command>
+  
+  <command>
+    <set>
+      <ISO>200</ISO>
+    </set>
   </command>
   
   

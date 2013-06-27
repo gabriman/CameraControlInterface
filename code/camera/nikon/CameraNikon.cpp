@@ -223,6 +223,7 @@ ResponseMsg CameraNikon::getProperty(string prop)
 	//if		(!prop.compare("ISO")) prop = kEdsPropID_ISOSpeed;
 	if (!prop.compare("SPEED")) bRet = GetEnumCapability( pRefSrc, kNkMAIDCapability_ShutterSpeed, &value);
 	else if (!prop.compare("APERTURE")) bRet = GetEnumCapability( pRefSrc, kNkMAIDCapability_Aperture, &value);
+	else if (!prop.compare("ISO")) bRet = GetEnumCapability( pRefSrc, kNkMAIDCapability_Sensitivity, &value);
 	else return ResponseMsg(CAMERROR_PROP_UNAVALIABLE,"Property not supported");
 
 	if (strcmp(value,"")==0) return ResponseMsg(CAMERROR_VALUE_UNKNOWN,"Value unknown");
@@ -237,6 +238,7 @@ ResponseMsg CameraNikon::setProperty(string prop, const char * value)
 	//if		(!prop.compare("ISO")) propEds = kEdsPropID_ISOSpeed;
 	if (!prop.compare("SPEED")) bRet = SetEnumCapability( pRefSrc, kNkMAIDCapability_ShutterSpeed, value);
 	else if (!prop.compare("APERTURE")) bRet = SetEnumCapability( pRefSrc, kNkMAIDCapability_Aperture, value);
+	else if (!prop.compare("ISO")) bRet = SetEnumCapability( pRefSrc, kNkMAIDCapability_Sensitivity, value);
 	else return ResponseMsg(CAMERROR_PROP_UNAVALIABLE,"Property not supported");
 
 	if (bRet==false) return ResponseMsg(CAMERROR_VALUE_UNKNOWN,"Value unknown");
@@ -248,11 +250,11 @@ ResponseMsg CameraNikon::setProperty(string prop, const char * value)
 ResponseMsg CameraNikon::getGetList(string prop)
 {	
 	char* value;
-	int propEds = 0;
 	BOOL bRet;
 	//if		(!prop.compare("ISO")) propEds = kEdsPropID_ISOSpeed;
 	if (!prop.compare("SPEED")) bRet = GetListEnumCapability( pRefSrc, kNkMAIDCapability_ShutterSpeed, &value);
 	else if (!prop.compare("APERTURE")) bRet = GetListEnumCapability( pRefSrc, kNkMAIDCapability_Aperture, &value);
+	else if (!prop.compare("ISO")) bRet = GetListEnumCapability( pRefSrc, kNkMAIDCapability_Sensitivity, &value);
 	else return ResponseMsg(CAMERROR_PROP_UNAVALIABLE,"Property not supported");
 
 	if (bRet==false) return ResponseMsg(CAMERROR_VALUE_UNKNOWN,"Value unknown");
