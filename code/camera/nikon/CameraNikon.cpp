@@ -157,12 +157,19 @@ ResponseMsg CameraNikon::takePicture()
 	if (bRet == false)
 		return ResponseMsg(CAMERROR_ERROR_UNDEFINED,"Error taking photo");
 
-	//Save photo
+//END TAKE PHOTO PART.
+//SAVE PHOTO PART. From here to the end
+
 	ULONG	ulItemID = 0;
 	ulItemID = 0;
 	ULONG	ulDataType = 0;
 
-	bRet = SelectFirstItem( pRefSrc, &ulItemID );
+	bRet=false;
+	while (bRet==false){	//Try to read a item until a photo is ready
+		bRet = SelectFirstItem( pRefSrc, &ulItemID );
+	}
+
+
 	if( bRet == true && ulItemID > 0 ){
 			// FROM ItemCommandLoop
 			LPRefObj	pRefItm = NULL;

@@ -241,6 +241,7 @@ BOOL IdleLoop( LPNkMAIDObject pObject, ULONG* pulCount, ULONG ulEndCount )
 void WaitEvent()
 {
 	#ifdef _WINDOWS
+	//Sleep(2000);
 		// Do nothing
 	#else
 		Boolean		gotEvent;
@@ -652,9 +653,9 @@ BOOL SelectFirstItem( LPRefObj pRefObj, ULONG *pulItemID )
 	if( bRet == false ) return false;
 
 	// check the data of the capability.
-	if ( stEnum.ulElements == 0 ) {
-		printf( "There is no item.\n" );
-		return true;
+	if ( stEnum.ulElements == 0 ) {	// There is no item
+		//printf( "There is no item.\n" );
+		return false;
 	}
 
 	// check the data of the capability.

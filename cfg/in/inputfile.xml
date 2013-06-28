@@ -1,23 +1,16 @@
 <commands>
 
-
-
-
-
-
-  
-  <command>
-    <get>
-      <APERTURE></APERTURE>
-    </get>
+   <command>
+    <close>
+		
+	</close>
   </command>
-  
+
   <command>
-    <get>
-      <SPEED></SPEED>
-    </get>
+    <getlist>
+      <ISO></ISO>
+    </getlist>
   </command>
-  
     
     <command>
     <getlist>
@@ -31,11 +24,7 @@
     </getlist>
   </command>
   
-      <command>
-    <getlist>
-      <ISO></ISO>
-    </getlist>
-  </command>
+
   
   
   <command>
@@ -45,11 +34,59 @@
   </command>
   
   <command>
+    <get>
+      <APERTURE></APERTURE>
+    </get>
+  </command>
+  
+  <command>
+    <get>
+      <SPEED></SPEED>
+    </get>
+  </command>
+  
+  
+  <command>
     <set>
       <ISO>200</ISO>
     </set>
   </command>
   
+    <command>
+    <set>
+      <APERTURE>25</APERTURE>
+    </set>
+  </command> 
+  
+  <command>
+    <set>
+      <SPEED>20</SPEED>
+    </set>
+  </command>
+  
+    <command>
+    <get>
+      <ISO></ISO>
+    </get>
+  </command>
+  
+  <command>
+    <get>
+      <APERTURE></APERTURE>
+    </get>
+  </command>
+  
+  <command>
+    <get>
+      <SPEED></SPEED>
+    </get>
+  </command>
+  
+    <command>
+    <action>
+		<take></take>
+	</action>
+  </command>
   
 
 </commands>
