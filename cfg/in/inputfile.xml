@@ -1,11 +1,5 @@
 <commands>
 
-   <command>
-    <close>
-		
-	</close>
-  </command>
-
   <command>
     <getlist>
       <ISO></ISO>

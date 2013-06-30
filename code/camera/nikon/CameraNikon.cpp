@@ -130,7 +130,7 @@ ResponseMsg CameraNikon::init(){
 	//if ( bRet == false )
 	//	printf("Error asignando directorio");
 
-	return ResponseMsg(CAMERROR_OK,"");
+	return ResponseMsg(CAMERROR_OK,"nikon");
 }
 
 ResponseMsg CameraNikon::operacion1(){

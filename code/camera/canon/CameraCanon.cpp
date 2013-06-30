@@ -58,7 +58,7 @@ ResponseMsg CameraCanon::init(){
 
 		setPhotoDetected(false);
 
-		return ResponseMsg(CAMERROR_OK,"");
+		return ResponseMsg(CAMERROR_OK,"canon");
 
 	}
 }
