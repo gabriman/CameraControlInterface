@@ -1,4 +1,10 @@
-<init>
-    <code>0</code>
-    <message>nikon</message>
-</init>
+<commands>
+    <command>
+        <action>
+            <take>
+                <code>0</code>
+                <message></message>
+            </take>
+        </action>
+    </command>
+</commands>

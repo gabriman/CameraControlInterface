@@ -53,7 +53,8 @@ EdsError EDSCALLBACK ListenerCanon::handlePropertyEvent(
 EdsError EDSCALLBACK ListenerCanon::handleObjectEvent( EdsObjectEvent inEvent, EdsBaseRef  object, EdsVoid * context)
 { 
 	CameraCanon* c = (CameraCanon*)context;
-
+	
+			cout<<"handleObjectEvent"<<endl;
 	switch(inEvent) 
 	{ 
 	case kEdsObjectEvent_DirItemRequestTransfer: 

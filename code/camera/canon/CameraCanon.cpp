@@ -56,6 +56,20 @@ ResponseMsg CameraCanon::init(){
 			printf("Canon: error, cannot set object event handler.\n");
 		}
 
+		//Set Property Event Handler
+		if(err == EDS_ERR_OK)
+		{
+			err = EdsSetPropertyEventHandler( camera, kEdsPropertyEvent_All, ListenerCanon::handlePropertyEvent , this);
+		}
+
+		//Set State Event Handler
+		if(err == EDS_ERR_OK)
+		{
+			err = EdsSetCameraStateEventHandler( camera, kEdsStateEvent_All, ListenerCanon::handleStateEvent , this);
+		}
+
+
+
 		setPhotoDetected(false);
 
 		return ResponseMsg(CAMERROR_OK,"canon");
@@ -106,6 +120,15 @@ ResponseMsg CameraCanon::setProperty(string prop, const char * value)
 
 ResponseMsg CameraCanon::getProperty(string prop)
 {
+	//First, launch listeners for get actual values (if was changed manually from the camera buttons)
+	MSG Msg;
+	while (PeekMessage (&Msg, NULL, 0, 0, PM_REMOVE) > 0) {
+		TranslateMessage(&Msg);
+		DispatchMessage(&Msg);
+	}
+	
+
+
 	int propEds = 0;
 	if		(!prop.compare("ISO")) propEds = kEdsPropID_ISOSpeed;
 	else if (!prop.compare("SPEED")) propEds = kEdsPropID_Tv;
@@ -115,6 +138,7 @@ ResponseMsg CameraCanon::getProperty(string prop)
 	EdsError err = EDS_ERR_OK;
 	EdsDataType dataType;
 	EdsUInt32 dataSize;
+	
 
 	EdsUInt32 edsValue;
 	err = EdsGetPropertySize(camera, propEds, 0 , &dataType, &dataSize);
