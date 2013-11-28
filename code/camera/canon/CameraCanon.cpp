@@ -164,10 +164,10 @@ ResponseMsg CameraCanon::getProperty(string prop)
 	}
 	else return ResponseMsg(CAMERROR_VALUE_UNKNOWN,"Value unknown");
 
-	const char * valueTranslate = dictionary.translate(prop,edsValue);
-	if (valueTranslate=="unknown") return ResponseMsg(CAMERROR_VALUE_UNKNOWN,"Value unknown");
+	const char * valueTranslated = dictionary.translate(prop,edsValue);
+	if (valueTranslated=="unknown") return ResponseMsg(CAMERROR_VALUE_UNKNOWN,"Value unknown");
 
-	return ResponseMsg(CAMERROR_OK,valueTranslate);
+	return ResponseMsg(CAMERROR_OK,valueTranslated);
 };
 
 

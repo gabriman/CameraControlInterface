@@ -79,6 +79,7 @@ void DictionaryCanon::createIsoTable(){
 
 void DictionaryCanon::createSpeedTable(){
 	// Map of value and display name
+	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x00,"Auto"));
 	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x0c,"Bulb"));
 	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x10,"30"));
 	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x13,"25"));
@@ -154,7 +155,8 @@ void DictionaryCanon::createSpeedTable(){
 	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0x9D,"1/6400"));
 	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0xA0,"1/8000"));
 	_propertyTableSpeedEds.insert( std::pair<EdsUInt32, const char *>(0xffffffff,"unknown"));
-
+	
+	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("Auto",0x00));
 	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("Bulb",0x0c));
 	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("30",0x10));
 	_propertyTableSpeedString.insert( std::pair< const char *, EdsUInt32>("25",0x13));
@@ -227,7 +229,7 @@ void DictionaryCanon::createSpeedTable(){
 
 void DictionaryCanon::createAvTable(){
 	// Map of value and display name
-	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x00,"00"));
+	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x00,"Auto"));
 	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x08,"1"));
 	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x0B,"1.1"));
 	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x0C,"1.2"));
@@ -283,7 +285,7 @@ void DictionaryCanon::createAvTable(){
 	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0x70,"91"));
 	_propertyTableApertureEds.insert( std::pair<EdsUInt32, const char *>(0xffffffff,"unknown"));
 
-	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("00",0x00));
+	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("Auto",0x00));
 	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("1",0x08));
 	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("1.0",0x08));
 	_propertyTableApertureString.insert( std::pair<const char *, EdsUInt32>("1.1",0x0B));
