@@ -39,6 +39,8 @@ public:
 	 **************************************************************************************************/
 	CommandSetTargetSave (Camera* camera1, std::string target, std::string path, tinyxml2::XMLNode* node);
 	virtual int execute();
+private:
+	bool checkDirectoryExists(const std::string& dirName_in);
 };
 
 #endif /* CommandSetAperture_h */

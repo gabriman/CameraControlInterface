@@ -23,18 +23,44 @@ CommandSetTargetSave::CommandSetTargetSave(Camera* camera1, std::string target, 
 }
 
 int CommandSetTargetSave::execute(){
+	if (this->target.compare("camera") && this->target.compare("host") && this->target.compare("both")) {
+		ResponseMsg response = ResponseMsg(CAMERROR_VALUE_NOT_SUPPORTED,"Target unsoported. It only can be camera, host or both");
+		OutputWriter::WriteToDoc(response,this->nodeOut);
+		return response.getCode();
+	}
+	
+
 	//TODO Check path
-	if (!path.empty() || !this->target.compare("camera"))
-	{
+	if (this->target.compare("camera") && !checkDirectoryExists(path)){	//If target is not camera and the drectory of the path doesnt exists
+		ResponseMsg response = ResponseMsg(CAMERROR_VALUE_UNKNOWN,"The directory specified doesn't exists");
+		OutputWriter::WriteToDoc(response,this->nodeOut);
+		return response.getCode();
+	}
+
+	if (path.empty() && this->target.compare("camera")) //If the target is not camera and the path is empty (path not provided and not default path)
+	{		
+		ResponseMsg response = ResponseMsg(CAMERROR_VALUE_UNKNOWN,"There is not directory to save the images");
+		OutputWriter::WriteToDoc(response,this->nodeOut);
+		return response.getCode();
+	}
+	else{	
 		camera->setTargetPhotos(target);
-		camera->setPathSavePhotos(path);	//If path have value, set. If is empty, hold previous path
+		if (this->target.compare("camera"))	//Only set path if target is not camera
+			camera->setPathSavePhotos(path);
 		ResponseMsg response = camera->setTargetSave();
 		OutputWriter::WriteToDoc(response,this->nodeOut);
 		return response.getCode();
 	}
-	else{	//If the target is not camera and the path is empty (path not provided and not default path)
-		ResponseMsg response = ResponseMsg(CAMERROR_VALUE_UNKNOWN,"There isn't directory to save the images");
-		OutputWriter::WriteToDoc(response,this->nodeOut);
-		return response.getCode();
-	}
+}
+
+bool CommandSetTargetSave::checkDirectoryExists(const std::string& dirName_in){
+  DWORD ftyp = GetFileAttributesA(dirName_in.c_str());
+  if (ftyp == INVALID_FILE_ATTRIBUTES)
+    return false;  //something is wrong with your path!
+
+  if (ftyp & FILE_ATTRIBUTE_DIRECTORY)
+    return true;   // this is a directory!
+
+  return false;    // this is not a directory!
 };
+
