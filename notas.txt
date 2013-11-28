@@ -15,3 +15,16 @@ BOOL 	GetEnumCapability( LPRefObj pRefObj, ULONG ulCapID );
 BOOL	GetEnumUnsignedCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum pstEnum );		//No usados, sin modificar
 BOOL	GetEnumPackedStringCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum pstEnum );
 BOOL	GetEnumStringCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum pstEnum );		//No usados, sin modificar
+
+
+
+
+
+SimpleControlApp
+
+Si la camara que se abre es Nikon, se bloquea a "host" y al directorio de ejecución
+
+
+
+TODO:
+TargetSave se puede cambiar a un directorio que no existe.

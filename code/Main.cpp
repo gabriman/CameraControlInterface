@@ -1,3 +1,19 @@
+//
+//Copyright 2013 Gabriel Rodríguez Rodríguez.
+//
+//This program is free software: you can redistribute it and/or modify
+//it under the terms of the GNU General Public License as published by
+//the Free Software Foundation, either version 3 of the License, or
+//(at your option) any later version.
+//
+//This program is distributed in the hope that it will be useful,
+//but WITHOUT ANY WARRANTY; without even the implied warranty of
+//MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+//GNU General Public License for more details.
+//
+//You should have received a copy of the GNU General Public License
+//along with this program. If not, see <http://www.gnu.org/licenses/>.
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <tchar.h>
@@ -37,65 +53,7 @@ int main(int argc, char *argv[])
 
         FileMonitor file_monitor(directoryIn);
 
-		//int cameraLoaded = false;
-		//Camera* camera;
-
-		//CommandManager commandManager1;
-		//if ((argv[1]==NULL && !cameraLoaded) || (argv[1]!=NULL && strcmp(argv[1],"canon")==0)){
-		//	camera = new CameraCanon();
-		//	CommandManager commandManager1 = CommandManager(camera,directoryIn,directoryOut,fileIn,fileOut);
-		//	//Camera initialitation
-		//	Command* comandoinit = new CommandInit(camera);
-		//	int error_init = comandoinit->execute();
-		//	if (error_init<0){      //If error inicialitation camera, exit program
-		//			cout<<"ERROR inicialitation camera Canon"<<endl;
-		//			Sleep(2000);
-		//			//Delete CommandManager
-		//	}
-		//	else {
-		//		cout<<"Cargada cámara Canon\n"<<endl;
-		//		cameraLoaded=true;
-		//	}
-
-		//}
-
-		//if ((argv[1]==NULL && !cameraLoaded) || (argv[1]!=NULL && strcmp(argv[1],"nikon")==0)){
-		//	Camera* camera = new CameraNikon();
-		//	CommandManager commandManager1 = CommandManager(camera,directoryIn,directoryOut,fileIn,fileOut);
-		//	//Camera initialitation
-		//	Command* comandoinit = new CommandInit(camera);
-		//	int error_init = comandoinit->execute();
-		//	if (error_init<0){      //If error inicialitation camera, exit program
-		//			cout<<"ERROR inicialitation camera Nikon"<<endl;
-		//			Sleep(2000);
-		//			//Delete CommandManager
-		//	}
-		//	else {
-		//		cout<<"Cargada cámara Nikon\n"<<endl;
-		//		cameraLoaded=true;
-		//	}
-		//}
-  //      
-		//if (!cameraLoaded) exit(0);
-
-
-		////LO DE ANTES
-		////Camera* cameraCanon1 = new CameraCanon(photosDirectory);
-		//Camera* cameraCanon1 = new CameraNikon();
-  //      //CameraCanon* cameraCanon1 = new CameraCanon();
-  //      CommandManager commandManager1(cameraCanon1,directoryIn,directoryOut,fileIn,fileOut);
-
-  //      //Camera initialitation
-  //      Command* comandoinit = new CommandInit(cameraCanon1);
-  //      int error_init = comandoinit->execute();
-  //      if (error_init<0){      //If error inicialitation camera, exit program
-  //              cout<<"ERROR inicialitation camera"<<endl;
-  //              exit(0);
-  //      }
-
-
-
-        //cameraCanon1->downloadLastImage();
+		
 
 		int cameraLoaded = false;
 		Camera* camera;
@@ -116,7 +74,6 @@ int main(int argc, char *argv[])
 				cout<<"Cargada cámara Canon\n"<<endl;
 				cameraLoaded=true;
 			}
-
 		}
 
 		if ((argv[1]==NULL && !cameraLoaded) || (argv[1]!=NULL && strcmp(argv[1],"nikon")==0)){
