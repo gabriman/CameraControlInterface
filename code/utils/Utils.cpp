@@ -56,8 +56,8 @@ string Utils::getExeDir(char* filepath) {
 std::map<string,string> Utils::readConfigFiles(std::string pathFile)
 {	
 	std::map<string,string> configTable;
+	tinyxml2::XMLDocument* doc = new tinyxml2::XMLDocument;
 	try{
-		tinyxml2::XMLDocument* doc = new tinyxml2::XMLDocument;
 		doc->LoadFile(pathFile.data());
 		if (doc->Error()) return configTable;
 		tinyxml2::XMLNode* rootConfig = doc->FirstChildElement("config");
@@ -76,5 +76,6 @@ std::map<string,string> Utils::readConfigFiles(std::string pathFile)
 		cout << "An exception occurred opening config file"<< endl;
 		configTable.clear();
 	}
+	delete doc;
 	return configTable;
 }

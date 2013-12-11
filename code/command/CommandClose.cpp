@@ -22,6 +22,7 @@ CommandClose::CommandClose(Camera* camera1):Command(camera1){}
 int CommandClose::execute(){
 	ResponseMsg response = camera->close();
 	OutputWriter::WriteCloseOutput(response);
+	delete camera;
 	exit(0);
 	return 0;
 };

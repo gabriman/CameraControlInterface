@@ -14,7 +14,16 @@
 //You should have received a copy of the GNU General Public License
 //along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+/*
+#define _CRTDBG_MAP_ALLOC //Debug memory leaks
+#ifdef _DEBUG   
+	#ifndef DBG_NEW
+		#define DBG_NEW new ( _NORMAL_BLOCK , __FILE__ , __LINE__ ) #define new DBG_NEW  
+	#endif
+#endif  // _DEBUG*/
+
 #include <stdlib.h>
+//#include <crtdbg.h> //Debug memory leaks
 #include <stdio.h>
 #include <tchar.h>
 #include "FileMonitor.h"
@@ -35,6 +44,9 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
+
+	//_CrtSetDbgFlag ( _CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF );  //Debug
+
         string exePath = Utils::getExeDir(argv[0]);
         string rootFolder = Utils::removeLastDir(exePath);
 
@@ -65,9 +77,12 @@ int main(int argc, char *argv[])
 			//Camera initialitation
 			Command* comandoinit = new CommandInit(camera);
 			int error_init = comandoinit->execute();
+			delete comandoinit;
 			if (error_init<0){      //If error inicialitation camera, exit program
 					cout<<"ERROR inicialitation camera Canon"<<endl;
-					Sleep(2000);
+					Sleep(2000);					
+					delete commandManager1;
+					delete camera;
 					//Delete CommandManager
 			}
 			else {
@@ -82,9 +97,12 @@ int main(int argc, char *argv[])
 			//Camera initialitation
 			Command* comandoinit = new CommandInit(camera);
 			int error_init = comandoinit->execute();
+			delete comandoinit;
 			if (error_init<0){      //If error inicialitation camera, exit program
 					cout<<"ERROR inicialitation camera Nikon"<<endl;
 					Sleep(2000);
+					delete commandManager1;
+					delete camera;
 					//Delete CommandManager
 			}
 			else {
@@ -102,5 +120,4 @@ int main(int argc, char *argv[])
                 list<Command*> commandsList = commandManager1->CreateCommandList();
                 commandManager1->executeCommandList(commandsList);
         }
-        //Command* comandoclose = new CommandClose(camera);
 }

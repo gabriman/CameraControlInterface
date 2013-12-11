@@ -204,10 +204,13 @@ ResponseMsg CameraCanon::getGetList(string prop)
 			stringResponse.append(valueTranslate);
 			stringResponse.append(";");
 		}
+		delete propDesc;
 		return ResponseMsg(CAMERROR_OK,stringResponse);
 	}
-	else if (err == EDS_ERR_INVALID_PARAMETER)
+	else if (err == EDS_ERR_INVALID_PARAMETER){
+		delete propDesc;
 		return ResponseMsg(CAMERROR_PROP_UNAVALIABLE,"Property not supported");
+	}
 
 	//const char * valueTranslate = dictionary.translate(prop,edsValue);
 	//if (valueTranslate=="unknown") return ResponseMsg(CAMERROR_VALUE_UNKNOWN,"Value unknown");

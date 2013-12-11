@@ -14,6 +14,7 @@
 //You should have received a copy of the GNU General Public License
 //along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+//#define _CRTDBG_MAP_ALLOC //Debug memory leaks
 #include "CommandManager.h"
 
 
@@ -50,8 +51,12 @@ list<Command*> CommandManager::CreateCommandList(){
 		cout<<"Error loading files"<<endl;
 		return commandsList;
 	}
+
 	XMLNode* commands = docIn->FirstChildElement("commands");
+	if (commands==NULL) return commandsList;
+
 	XMLNode* command = commands->FirstChildElement("command");
+	if (command==NULL) return commandsList;
 
 	//Iterate in "command" tags. command have a "command" tag
 	/* We only can have inside <command>:
@@ -210,8 +215,13 @@ Command* CommandManager::createUnknownCommand(tinyxml2::XMLNode* node){
 
 
 int CommandManager::executeCommandList(list<Command*> commandsList){
-	for (list<Command*>::iterator i = commandsList.begin(); i != commandsList.end(); i++)
-		if ((*i)->execute()<0) break;   //Execute and if return error, stop to execute commands
+	for (list<Command*>::iterator i = commandsList.begin(); i != commandsList.end(); i++){
+		if ((*i)->execute()<0){
+			delete (*i);
+			break;   //Execute and  stop to execute commands if return a error
+		}
+		else delete (*i);
+	}
 	OutputWriter::SaveDocToFile();
 	return 0;
 }

@@ -175,4 +175,5 @@ void OutputWriter::SaveDocToFile(){
 	std::string path = CommandManager::getPathOut();
 	tinyxml2::XMLDocument* doc = CommandManager::getDocOut();
 	doc->SaveFile(path.c_str());
+	delete doc;
 }
