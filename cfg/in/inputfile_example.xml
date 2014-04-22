@@ -4,7 +4,7 @@
 <command>
 	<action>
 		<targetSave>
-			<target>host</target>
+			<target>camera</target>
 			<path>C:\Users\Gabry\Desktop\photosCanon</path>
 		</targetSave>
 	</action>

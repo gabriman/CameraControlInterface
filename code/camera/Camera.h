@@ -99,7 +99,13 @@ public:
 	 **************************************************************************************************/
 	virtual ResponseMsg setTargetSave(){return ResponseMsg(CAMERROR_ERROR_UNDEFINED,"ERROR");};
 
-
+	/**********************************************************************************************//**
+	 * @brief	Sets target to save images.
+	 *
+	 * @param	target	Target (camera,host,both).
+	 *
+	 * @return	.
+	 **************************************************************************************************/
 	void setPathSavePhotos(string pathSave){ this->pathSavePhotos=pathSave;};
 	
 	string getPathSavePhotos() {return this->pathSavePhotos;};

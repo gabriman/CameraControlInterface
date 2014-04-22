@@ -56,7 +56,7 @@ EdsError EDSCALLBACK ListenerCanon::handlePropertyEvent(
 		*/
 		//Canon::instance().getProperty(inPropertyID);
 		break;
-											};
+	};
 
 	default:break;
 	};
@@ -70,7 +70,7 @@ EdsError EDSCALLBACK ListenerCanon::handleObjectEvent( EdsObjectEvent inEvent, E
 { 
 	CameraCanon* c = (CameraCanon*)context;
 	
-			cout<<"handleObjectEvent"<<endl;
+	cout<<"*Event: handleObjectEvent*"<<endl;
 	switch(inEvent) 
 	{ 
 	case kEdsObjectEvent_DirItemRequestTransfer: 
@@ -82,7 +82,8 @@ EdsError EDSCALLBACK ListenerCanon::handleObjectEvent( EdsObjectEvent inEvent, E
 
 			EdsDirectoryItemInfo dirItemInfo;
 			err = EdsGetDirectoryItemInfo(object, &dirItemInfo);
-
+			
+			string fullPath = "";
 			if (err == EDS_ERR_OK)
 			{
 				time_t     now = time(0);
@@ -94,7 +95,6 @@ EdsError EDSCALLBACK ListenerCanon::handleObjectEvent( EdsObjectEvent inEvent, E
 				dateAndNameFile.append("_");
 				dateAndNameFile.append(dirItemInfo.szFileName);
 				
-				string fullPath = "";
 				fullPath.append(c->getPathSavePhotos());
 				fullPath.append("\\");
 				fullPath.append(dateAndNameFile);
@@ -111,6 +111,7 @@ EdsError EDSCALLBACK ListenerCanon::handleObjectEvent( EdsObjectEvent inEvent, E
 			if (err == EDS_ERR_OK)
 			{
 				err = EdsDownloadComplete(object);
+				c->setLastPhotoName(fullPath.c_str());
 			}
 
 			//EdsImageRef imageRef = NULL;

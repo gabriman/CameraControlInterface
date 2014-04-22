@@ -29,6 +29,7 @@ CameraCanon::CameraCanon(){
 	pathSavePhotos="";
 	targetPhotos = "camera";
 	setTargetSave();
+	setLastPhotoName("");
 }
 
 CameraCanon::CameraCanon(string photosDirectory ){
@@ -40,10 +41,12 @@ CameraCanon::CameraCanon(string photosDirectory ){
 	pathSavePhotos=photosDirectory;	//Load default directory
 	targetPhotos = "host";
 	setTargetSave();
+	setLastPhotoName("");
 }
 
 
 ResponseMsg CameraCanon::init(){
+
 	// Initialize SDK
 	err = EdsInitializeSDK();
 	if(err == EDS_ERR_OK)
@@ -222,7 +225,7 @@ ResponseMsg CameraCanon::getGetList(string prop)
 /**********************************************************************************************//**
 * @brief	Sets photo detected.
 *
-* @param	value	true to detected.
+* @param	 value	true to detected.
 **************************************************************************************************/
 void CameraCanon::setPhotoDetected(bool detected){
 	photoDetected=detected;
@@ -239,6 +242,25 @@ bool CameraCanon::getPhotoDetected(){
 }
 
 
+/**********************************************************************************************//**
+* @brief	Sets the name of the last photo taked.
+*
+* @param	 value	true to detected.
+**************************************************************************************************/
+void CameraCanon::setLastPhotoName(std::string name){
+	lastPhotoName=name;
+}
+
+
+/**********************************************************************************************//**
+* @brief	Gets photo detected.
+*
+* @return	true if photo is detected, false if not.
+**************************************************************************************************/
+std::string CameraCanon::getLastPhotoName(){
+	return lastPhotoName;
+}
+
 
 
 ResponseMsg CameraCanon::takePicture()
@@ -253,7 +275,7 @@ ResponseMsg CameraCanon::takePicture()
 			}
 		}
 		setPhotoDetected(false);
-		return ResponseMsg(CAMERROR_OK,"");
+		return ResponseMsg(CAMERROR_OK,getLastPhotoName());
 	}
 	else return ResponseMsg(CAMERROR_ERROR_UNDEFINED,"Error taking photo");
 }
@@ -322,3 +344,4 @@ EdsError CameraCanon::getFirstCamera(EdsCameraRef *camera)
 
 	return 0;
 }
+

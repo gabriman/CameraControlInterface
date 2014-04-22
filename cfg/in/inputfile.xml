@@ -1,8 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?>
-<commands>
-   <command>
-      <action>
-         <take/>
-      </action>
-   </command>
+<?xml version="1.0" encoding="UTF-8"?>
+<commands>  
+
+
+  <command>
+    <get>
+      <SPEED></SPEED>
+    </get>
+  </command>
+  
+    <command>
+    <get>
+      <ISO></ISO>
+    </get>
+  </command>
+  
+  
+  <command>
+    <action>
+		<take></take>
+	</action>
+  </command>
+  
+      <command>
+    <get>
+      <ISO></ISO>
+    </get>
+  </command>
+  
 </commands>

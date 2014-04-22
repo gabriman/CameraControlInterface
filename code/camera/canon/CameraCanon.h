@@ -24,6 +24,7 @@
 #include "DictionaryCanon.h"
 #include "ListenerCanon.h"
 
+
 class CameraCanon : public Camera
 {
 private:
@@ -32,6 +33,7 @@ private:
 	bool isSDKLoaded;
 	DictionaryCanon dictionary;
 	bool photoDetected;
+	std::string lastPhotoName;
 
 public:
 	CameraCanon();
@@ -45,7 +47,9 @@ public:
 	ResponseMsg setTargetSave();
 
 	void setPhotoDetected(bool value);
-	bool getPhotoDetected();
+	bool getPhotoDetected();	
+	void setLastPhotoName(std::string name);
+	std::string getLastPhotoName();
 private:
 	EdsError getFirstCamera(EdsCameraRef *camera);
 	static void easyRelease(EdsBaseRef &ref){
