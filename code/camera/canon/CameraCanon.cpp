@@ -265,7 +265,9 @@ std::string CameraCanon::getLastPhotoName(){
 
 ResponseMsg CameraCanon::takePicture()
 {
+	cout << "TakePicture start" << endl;
 	err = EdsSendCommand(camera , kEdsCameraCommand_TakePicture , 0);
+	cout << "TakePicture end" << endl;
 	if (err == EDS_ERR_OK) {	
 		MSG Msg;
 		while(!getPhotoDetected()){

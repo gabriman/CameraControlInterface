@@ -1,5 +1,0 @@
-change focus to manual
-
-	EdsUInt32 valueEds = (EdsUInt32)3;
-	EdsSetPropertyData(camera, kEdsPropID_AFMode, 0 , sizeof(valueEds), &valueEds);
-	

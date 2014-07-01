@@ -109,19 +109,18 @@ int CommandManager::loadXMLFromFiles(){
 	while (docXML_In->Error()==true && loadAttempts<=MAX_ATTEMPTS_LOAD_FILES){
 		loadAttempts++;
 		cout<<"Error opening "<<pathFileIn.data()<<" file"<<endl;
-		cout<<"charging again "<<endl;
+		cout<<"Trying to open it again "<<endl;
 		docXML_In = CreateXMLDocument(this->directoryIn,this->pathFileIn);
-		cout<<"charged "<<endl;
+		cout<<"File Opened!"<<endl;
 	}
-	if (loadAttempts>MAX_ATTEMPTS_LOAD_FILES) {	cout<<"max numero intentos"<<endl;return -1;}
-	cout<<"archivos cargados"<<endl;
+	if (loadAttempts>MAX_ATTEMPTS_LOAD_FILES) {	cout<<"Too many attempts to open file"<<endl;return -1;}
+	cout<<"Files loaded"<<endl;
 	this->docIn=docXML_In;
 	this->docOut=docXML_Out;
 	return 0;
 }
 
 //We use here a list<Command> instead Command because we assume that several parameters inside <set> are allowed
-//TODO: Hacer que funcione para varios set o sino devolver in command normal
 Command* CommandManager::createSetCommand(tinyxml2::XMLNode* node){
 	list<Command> command;
 	XMLNode* child;
@@ -215,6 +214,7 @@ Command* CommandManager::createUnknownCommand(tinyxml2::XMLNode* node){
 
 
 int CommandManager::executeCommandList(list<Command*> commandsList){
+	//Iterate in the command List
 	for (list<Command*>::iterator i = commandsList.begin(); i != commandsList.end(); i++){
 		if ((*i)->execute()<0){
 			delete (*i);

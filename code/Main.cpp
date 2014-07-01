@@ -17,9 +17,9 @@
 /*
 #define _CRTDBG_MAP_ALLOC //Debug memory leaks
 #ifdef _DEBUG   
-	#ifndef DBG_NEW
-		#define DBG_NEW new ( _NORMAL_BLOCK , __FILE__ , __LINE__ ) #define new DBG_NEW  
-	#endif
+#ifndef DBG_NEW
+#define DBG_NEW new ( _NORMAL_BLOCK , __FILE__ , __LINE__ ) #define new DBG_NEW  
+#endif
 #endif  // _DEBUG*/
 
 #include <stdlib.h>
@@ -37,87 +37,75 @@
 #include "DictionaryCanon.h"
 #include "Utils.h"
 
-
-
-
 using namespace std;
+
+bool TryStartCamera(Camera* camera, CommandManager* commandManager1, string cameraName);
 
 int main(int argc, char *argv[])
 {
+	string exePath = Utils::getExeDir(argv[0]);
+	string rootFolder = Utils::removeLastDir(exePath);
 
-	//_CrtSetDbgFlag ( _CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF );  //Debug
+	string configFilePath = rootFolder;
+	configFilePath.append("\\cfg\\config.xml");             //For execute from Debug or Release folder
+	//configFilePath.append("cfg\\config.xml");             //For execute in root folder
 
-        string exePath = Utils::getExeDir(argv[0]);
-        string rootFolder = Utils::removeLastDir(exePath);
+	std::map<string,string> configTable = Utils::readConfigFiles(configFilePath);
+	if (configTable.empty()) {cout<<"Error reading configuration file"<<endl; return -1;}
+	std::string directoryIn,directoryOut;
+	directoryIn = rootFolder; directoryIn.append("\\"); directoryIn.append(configTable.find("directoryIn")->second);
+	directoryOut = rootFolder; directoryOut.append("\\");  directoryOut.append(configTable.find("directoryOut")->second);
+	std::string fileIn = configTable.find("fileIn")->second;
+	std::string fileOut = configTable.find("fileOut")->second;
+	std::string photosDirectory = configTable.find("photosDirectory")->second;
 
-        string configFilePath = rootFolder;
-        configFilePath.append("\\cfg\\config.xml");             //For execute from Debug or Release folder
-        //configFilePath.append("cfg\\config.xml");             //For execute in root folder
+	FileMonitor file_monitor(directoryIn);
 
-        std::map<string,string> configTable = Utils::readConfigFiles(configFilePath);
-        if (configTable.empty()) {cout<<"Error reading configuration file"<<endl; return -1;}
-        std::string directoryIn,directoryOut;
-        directoryIn = rootFolder; directoryIn.append("\\"); directoryIn.append(configTable.find("directoryIn")->second);
-        directoryOut = rootFolder; directoryOut.append("\\");  directoryOut.append(configTable.find("directoryOut")->second);
-        std::string fileIn = configTable.find("fileIn")->second;
-        std::string fileOut = configTable.find("fileOut")->second;
-        std::string photosDirectory = configTable.find("photosDirectory")->second;
+	bool cameraLoaded = false;
+	Camera* camera;
+	CommandManager* commandManager1;
 
-        FileMonitor file_monitor(directoryIn);
+	//Detect if is a Canon camera
+	if ((argv[1]==NULL && !cameraLoaded) || (argv[1]!=NULL && strcmp(argv[1],"canon")==0)){
+		camera = new CameraCanon();
+		commandManager1 = new CommandManager(camera,directoryIn,directoryOut,fileIn,fileOut);
+		//Camera initialitation
+		cameraLoaded = TryStartCamera(camera,commandManager1,"Canon");
+	}
 
-		
+	//Detect if is a Nikon camera
+	if ((argv[1]==NULL && !cameraLoaded) || (argv[1]!=NULL && strcmp(argv[1],"nikon")==0)){
+		Camera* camera = new CameraNikon();
+		commandManager1 = new CommandManager(camera,directoryIn,directoryOut,fileIn,fileOut);
+		//Camera initialitation
+		cameraLoaded = TryStartCamera(camera,commandManager1,"Nikon");
+	}
 
-		int cameraLoaded = false;
-		Camera* camera;
-		CommandManager* commandManager1;
+	if (!cameraLoaded) exit(0);
+	while(true){
+		FileMonitor file_monitor(directoryIn);
+		file_monitor.WatchDirectoryOneChange();  //Waiting until change in director
+		list<Command*> commandsList = commandManager1->CreateCommandList();
+		commandManager1->executeCommandList(commandsList);
+		file_monitor.~FileMonitor();
+	}
+}
 
-		if ((argv[1]==NULL && !cameraLoaded) || (argv[1]!=NULL && strcmp(argv[1],"canon")==0)){
-			camera = new CameraCanon();
-			commandManager1 = new CommandManager(camera,directoryIn,directoryOut,fileIn,fileOut);
-			//Camera initialitation
-			Command* comandoinit = new CommandInit(camera);
-			int error_init = comandoinit->execute();
-			delete comandoinit;
-			if (error_init<0){      //If error inicialitation camera, exit program
-					cout<<"ERROR inicialitation camera Canon"<<endl;
-					Sleep(2000);					
-					delete commandManager1;
-					delete camera;
-					//Delete CommandManager
-			}
-			else {
-				cout<<"Cargada cámara Canon\n"<<endl;
-				cameraLoaded=true;
-			}
-		}
-
-		if ((argv[1]==NULL && !cameraLoaded) || (argv[1]!=NULL && strcmp(argv[1],"nikon")==0)){
-			Camera* camera = new CameraNikon();
-			commandManager1 = new CommandManager(camera,directoryIn,directoryOut,fileIn,fileOut);
-			//Camera initialitation
-			Command* comandoinit = new CommandInit(camera);
-			int error_init = comandoinit->execute();
-			delete comandoinit;
-			if (error_init<0){      //If error inicialitation camera, exit program
-					cout<<"ERROR inicialitation camera Nikon"<<endl;
-					Sleep(2000);
-					delete commandManager1;
-					delete camera;
-					//Delete CommandManager
-			}
-			else {
-				cout<<"Cargada cámara Nikon\n"<<endl;
-				cameraLoaded=true;
-			}
-		}
-        
-		if (!cameraLoaded) exit(0);
-
-        while(true){
-                file_monitor.WatchDirectoryOneChange();  //Waiting until change in directory
-                //Sleep(1000);
-
-                list<Command*> commandsList = commandManager1->CreateCommandList();
-                commandManager1->executeCommandList(commandsList);
-        }
+bool TryStartCamera(Camera* camera, CommandManager* commandManager1, string cameraName){
+	//Camera initialitation
+	Command* comandoinit = new CommandInit(camera);
+	int error_init = comandoinit->execute();
+	delete comandoinit;
+	if (error_init<0){      //If error inicialitation camera, exit program
+		cout<<"ERROR initiating camera "<<cameraName<<"\n"<<endl;
+		Sleep(2000);
+		delete commandManager1;
+		delete camera;
+		return false;
+		//Delete CommandManager
+	}
+	else {
+		cout<<"Camera "<<cameraName<<" loaded! \n\n"<<endl;
+		return true;
+	}
 }

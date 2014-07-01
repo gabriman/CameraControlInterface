@@ -23,7 +23,7 @@ EdsError EDSCALLBACK ListenerCanon::handleStateEvent(
 	,EdsVoid* inContext
 	)
 {
-	cout<<"Canon: handleStateEvent detected.\n"<<endl;
+	//cout<<"Canon: handleStateEvent detected.\n"<<endl;
 	EdsError error = EDS_ERR_OK;
 	switch(inEvent) {
 		// Connection with camera lost (maybe power off?)
@@ -44,7 +44,7 @@ EdsError EDSCALLBACK ListenerCanon::handlePropertyEvent(
 	,EdsUInt32 inParam
 	,EdsVoid* inContext)
 {
-	cout<<"Canon: handlePropertyEvent property.\n"<<endl;
+	//cout<<"Canon: handlePropertyEvent property.\n"<<endl;
 	switch(inEvent) {
 	case kEdsPropertyEvent_PropertyChanged: {
 		/*
@@ -70,7 +70,7 @@ EdsError EDSCALLBACK ListenerCanon::handleObjectEvent( EdsObjectEvent inEvent, E
 { 
 	CameraCanon* c = (CameraCanon*)context;
 	
-	cout<<"*Event: handleObjectEvent*"<<endl;
+	//cout<<"*Event: handleObjectEvent*"<<endl;
 	switch(inEvent) 
 	{ 
 	case kEdsObjectEvent_DirItemRequestTransfer: 

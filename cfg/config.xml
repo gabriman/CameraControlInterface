@@ -4,5 +4,5 @@
 	<fileIn>inputfile.xml</fileIn>
 	<fileOut>outputfile.xml</fileOut>
 	<executable>Debug\CameraControlInterface.exe</executable>
-	<photosDirectory>C:\Users\Gabry\Desktop\photosCanon</photosDirectory>
+	<photosDirectory>C:\Users\Gabriel\Dropbox\PFC_UGR\ProyectoCameraInterface_marzo214</photosDirectory>
 </config>
