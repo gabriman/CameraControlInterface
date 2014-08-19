@@ -26,3 +26,9 @@ Esto es posible porque hemos creado un programa intermedio entre el usuario y el
 usuario mediante un archivo de texto. Este programa monitoriza cambios en dicho archivo que interpreta como nuevas órdenes que envía a la cámara. El resultado de la ejecución
 de cada orden se escribiría en un fichero XML de salida. Por lo tanto, sea cual sea el interfaz que el usuario utilice para comunicarse con la cámara, este solamente haría lecturas
 y escrituras en ficheros, mientras el programa intermedio se encargaría del procesamiento de estos ficheros y control de la cámara.
+
+Este proyecto incluiría los repositorios (del mismo usuario):
+CameraControl_MatlabToolbox (Toolbox que utiliza esta interfaz)
+cameraSimpleControlApp (Programa de ejemplo para controlar una cámara que utiliza el toolbox)
+cameraHDR (Programa de ejemplo para hacer imágenes HDR que utiliza el toolbox)
+cameraTimeLapser (Programa de ejemplo para hacer videos timelapse que utiliza el toolbox)
